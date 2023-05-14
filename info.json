@@ -1,0 +1,19 @@
+{
+    "name": "real-ores",
+    "version": "0.0.1",
+    "title": "Real ores",
+    "author": "trikop",
+    "factorio_version": "1.1",
+    "description": "Some real ores",
+    "dependencies": [
+        "? space-exploration >= 0.6.104",
+        "? Krastorio2 >= 1.3.18",
+        "? bzlead >= 1.2.18",
+        "? bztin >= 0.1.10",
+        "? bzchlorine >= 0.1.4",
+        "? bzgold >= 0.0.14",
+        "? BrassTacks >= 1.1.6",
+        "? FluidMustFlow >= 1.3.3",
+        "? bzsilicon >= 0.11.11"
+    ]
+}
