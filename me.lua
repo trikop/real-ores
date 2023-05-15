@@ -1,5 +1,6 @@
 local me = {}
 
+me.name = "real-ores"
 function me.get_setting(name)
   if settings.startup[name] == nil then
     return nil

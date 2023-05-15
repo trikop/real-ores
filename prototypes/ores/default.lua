@@ -1,4 +1,4 @@
-local resource_autoplace = require("resource-autoplace")
+local resource_autoplace = require("resource-autoplace");
 local noise = require('noise');
 
 local util = require("__real-ores__.data-util");
@@ -17,7 +17,7 @@ end
       category = "resource",
       name = "default-ore",
       richness = true,
-      order = "b-e"
+      order = "o-o"
     },
     {
       type = "noise-layer",
@@ -30,7 +30,7 @@ end
       icon_size = 64,
       flags = {"placeable-neutral"},
       order="a-b-a",
-      map_color = {r=0.5, g=0.33, b=0.16},
+      map_color = {r=0, g=0, b=0},
       tree_removal_probability = 0.7,
       tree_removal_max_distance = 32 * 32,
       minable =
@@ -51,8 +51,8 @@ end
 
       autoplace = resource_autoplace.resource_autoplace_settings{
         name = "default-ore",
-        order = "b-z",
-        base_density = 20000,
+        order = "t-r",
+        base_density = 5,
         base_spots_per_km2 = 1,
         has_starting_area_placement = false,
         regular_rq_factor_multiplier = 1,

@@ -1,4 +1,4 @@
-local resource_autoplace = require("resource-autoplace")
+local resource_autoplace = require("resource-autoplace");
 local noise = require('noise');
 
 local util = require("__real-ores__.data-util");
@@ -7,22 +7,22 @@ local util = require("__real-ores__.data-util");
     {
       type = "autoplace-control",
       category = "resource",
-      name = "hematite",
+      name = "magnetite",
       richness = true,
-      order = "b-e"
+      order = "o-a"
     },
     {
       type = "noise-layer",
-      name = "hematite"
+      name = "magnetite"
     },
     {
       type = "resource",
-      name = "hematite",
+      name = "magnetite",
       icon = "__base__/graphics/icons/iron-ore.png",
       icon_size = 64,
       flags = {"placeable-neutral"},
       order="a-b-a",
-      map_color = {r=0.5, g=0.33, b=0.16},
+      map_color = {r=0, g=0, b=0},
       tree_removal_probability = 0.7,
       tree_removal_max_distance = 32 * 32,
       minable =
@@ -33,18 +33,17 @@ local util = require("__real-ores__.data-util");
 
         results = 
         {
-          {type="item", name="iron-ore", amount=1, probability=.4820},
-          {type="item", name="coal", amount=1, probability=.1037},
-          {type="fluid", name="oxygen", amount=1, probability=.4143},
+          {type="item", name="iron-ore", amount=1, probability=.7236},
+          {type="fluid", name="oxygen", amount=1, probability=.2764},
         }
       },
       collision_box = {{ -0.1, -0.1}, {0.1, 0.1}},
       selection_box = {{ -0.5, -0.5}, {0.5, 0.5}},
 
       autoplace = resource_autoplace.resource_autoplace_settings{
-        name = "hematite",
-        order = "b-z",
-        base_density = 20000,
+        name = "magnetite",
+        order = "t-r",
+        base_density = 5,
         base_spots_per_km2 = 1,
         has_starting_area_placement = false,
         regular_rq_factor_multiplier = 1,

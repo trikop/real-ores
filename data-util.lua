@@ -4,21 +4,6 @@
 
 local util = {}
 
-util.bismuth_plate = ""
-util.bismuth_processing = ""
-
-if mods["FactorioExtended-Plus-Core"] then
-  util.bismuth_plate = "bismuth-alloy"
-else
-  util.bismuth_plate = "bismuth-plate"
-end
-
-if mods["pyrawores"] then 
-  util.bismuth_processing = "bismuth-mk01"
-else
-  util.bismuth_processing = "bismuth-processing"
-end
-
 function util.se6()
   return mods["space-exploration"] and mods["space-exploration"] >= "0.6" 
 end

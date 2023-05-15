@@ -1,4 +1,4 @@
-local util = require("__bismuth__.data-util");
+local util = require("__real-ores__.data-util");
 
 
 
@@ -33,7 +33,5 @@ else
 end
 
 if mods["space-exploration"] then 
-    util.add_to_product("se-core-fragment-omni", "bismuth-ore", -2)
-    util.remove_product("se-core-fragment-omni", "sulfur")
 
 end
