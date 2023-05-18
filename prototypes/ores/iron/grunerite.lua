@@ -7,17 +7,17 @@ local util = require("__real-ores__.data-util");
     {
       type = "autoplace-control",
       category = "resource",
-      name = "greenalite",
+      name = "grunerite",
       richness = true,
       order = "o-a"
     },
     {
       type = "noise-layer",
-      name = "greenalite"
+      name = "grunerite"
     },
     {
       type = "resource",
-      name = "greenalite",
+      name = "grunerite",
       icon = "__base__/graphics/icons/iron-ore.png",
       icon_size = 64,
       flags = {"placeable-neutral"},
@@ -43,7 +43,7 @@ local util = require("__real-ores__.data-util");
       selection_box = {{ -0.5, -0.5}, {0.5, 0.5}},
 
       autoplace = resource_autoplace.resource_autoplace_settings{
-        name = "greenalite",
+        name = "grunerite",
         order = "t-r",
         base_density = 5,
         base_spots_per_km2 = 1,
