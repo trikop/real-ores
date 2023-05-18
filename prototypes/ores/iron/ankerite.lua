@@ -7,17 +7,17 @@ local util = require("__real-ores__.data-util");
     {
       type = "autoplace-control",
       category = "resource",
-      name = "stilpnomelane",
+      name = "ankerite",
       richness = true,
       order = "o-a"
     },
     {
       type = "noise-layer",
-      name = "stilpnomelane"
+      name = "ankerite"
     },
     {
       type = "resource",
-      name = "stilpnomelane",
+      name = "ankerite",
       icon = "__base__/graphics/icons/iron-ore.png",
       icon_size = 64,
       flags = {"placeable-neutral"},
@@ -33,20 +33,19 @@ local util = require("__real-ores__.data-util");
 
         results = 
         {
-          --{type="item", name="potassium", amount=1, probability=.0313},
-          --{type="item", name="magnesium", amount=1, probability=.0273},
-          {type="item", name="aluminum-ore", amount=1, probability=.0433},
-          {type="item", name="iron-ore", amount=1, probability=.2954},
-          {type="item", name="silicon", amount=1, probability=.2251},
-          {type="fluid", name="hydrogen", amount=1, probability=.0057},
-          {type="fluid", name="oxygen", amount=1, probability=.3719},
+          {type="item", name="calcium", amount=1, probability=.1942},
+          {type="item", name="magnesium", amount=1, probability=.0353},
+          {type="item", name="manganese", amount=1, probability=.0266},
+          {type="item", name="iron-ore", amount=1, probability=.1624},
+          {type="item", name="coal", amount=1, probability=.1164},
+          {type="fluid", name="oxygen", amount=1, probability=.4651},
         }
       },
       collision_box = {{ -0.1, -0.1}, {0.1, 0.1}},
       selection_box = {{ -0.5, -0.5}, {0.5, 0.5}},
 
       autoplace = resource_autoplace.resource_autoplace_settings{
-        name = "stilpnomelane",
+        name = "ankerite",
         order = "t-r",
         base_density = 5,
         base_spots_per_km2 = 1,

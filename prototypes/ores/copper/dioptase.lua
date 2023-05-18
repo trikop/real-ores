@@ -1,47 +1,46 @@
 local resource_autoplace = require("resource-autoplace");
 local noise = require('noise');
 
-local fluid = "water"
 data:extend({
   {
     type = "autoplace-control",
     category = "resource",
-    name = "default",
+    name = "dioptase",
     richness = true,
-    order = "o-o"
+    order = "o-b"
   },
   {
     type = "noise-layer",
-    name = "default"
+    name = "dioptase"
   },
   {
     type = "resource",
-    name = "default",
-    icon = "__real-ores__/graphics/icons/default-ore.png",
+    name = "dioptase",
+    icon = "__base__/graphics/icons/copper-ore.png",
     icon_size = 64,
     flags = {"placeable-neutral"},
-    order="a-b-a",
+    order="a-b-b",
     map_color = {r=0, g=0, b=0},
     tree_removal_probability = 0.7,
     tree_removal_max_distance = 32 * 32,
     minable =
     {
       hardness = 2,
-      mining_particle = "iron-ore-particle",
+      mining_particle = "copper-ore-particle",
       mining_time = 1,
-      fluid_amount = 3,
-      required_fluid = fluid,
       results = 
       {
-        {type="item", name="stone", amount=1, probability=.8129},
-        {type="item", name="sulfur", amount=1, probability=.1871},
+        {type="item", name="copper-ore", amount=1, probability=.4031},
+        {type="item", name="silicon", amount=1, probability=.1782},
+        {type="fluid", name="hydrogen", amount=1, probability=.0128},
+        {type="fluid", name="oxygen", amount=1, probability=.4060},
       }
     },
     collision_box = {{ -0.1, -0.1}, {0.1, 0.1}},
     selection_box = {{ -0.5, -0.5}, {0.5, 0.5}},
 
     autoplace = resource_autoplace.resource_autoplace_settings{
-      name = "default",
+      name = "dioptase",
       order = "t-r",
       base_density = 5,
       base_spots_per_km2 = 1,
