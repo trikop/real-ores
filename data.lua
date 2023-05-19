@@ -29,6 +29,8 @@ require("prototypes/ores/copper/malachite")
 require("prototypes/ores/copper/azurite")
 require("prototypes/ores/copper/cuprite")
 require("prototypes/ores/copper/tenorite")
+
+--Coal ores
 require("prototypes/ores/coal/dinite")
 require("prototypes/ores/coal/refikite")
 require("prototypes/ores/coal/humboldtine")
@@ -40,25 +42,25 @@ if data.raw.item["silicon"] then
     require("prototypes/ores/iron/grunerite")
     require("prototypes/ores/copper/dioptase")
     require("prototypes/ores/uranium/coffinite")
-    if data.raw.item["aluminum"] then
+    if data.raw.item["aluminum-ore"] then
         require("prototypes/ores/iron/macaulayite")
         require("prototypes/ores/copper/chrysocolla")
-        if data.raw.item["magnesium"] then --doesn't exist yet
-            if data.raw.item["potassium"] then --doesn't exist yet
+        if data.raw.item["magnesium-ore"] then --doesn't exist yet
+            if data.raw.item["potassium-ore"] then --doesn't exist yet
                 require("prototypes/ores/iron/stilpnomelane")
             end
         end
     end
 end
 
-if data.raw.item["nickel"] then
+if data.raw.item["nickel-ore"] then
     require("prototypes/ores/iron/roaldite")
     require("prototypes/ores/iron/taenite")
     if data.raw.item["chlorine"] then
         require("prototypes/ores/iron/akaganeite")
     end
-    if data.raw.item["aluminum"] then
-        if data.raw.item["magnesium"] then --doesn't exist yet
+    if data.raw.item["aluminum-ore"] then
+        if data.raw.item["magnesium-ore"] then --doesn't exist yet
             require("prototypes/ores/iron/trevorite")
             require("prototypes/ores/iron/magnsioferrite")
             if data.raw.item["calcium"] then --doesn't exist yet
@@ -71,47 +73,47 @@ if data.raw.item["nickel"] then
     end
 end
 
-if data.raw.item["arsenic"] then --doesn't exist yet
+if data.raw.item["arsenic-ore"] then --doesn't exist yet
     require("prototypes/ores/copper/enargite")
     require("prototypes/ores/copper/tennantite")
 end
 
-if data.raw.item["antimony"] then --doesn't exist yet
+if data.raw.item["antimony-ore"] then --doesn't exist yet
     require("prototypes/ores/copper/tetrahedite")
 end
 
 if data.raw.item["sodium"] then
-    if data.raw.item["calcium"] then
+    if data.raw.item["calcium"] then --doesn't exist yet
         require("prototypes/ores/coal/wattevilleite")
-        if data.raw.item["beryllium"] then
+        if data.raw.item["beryllium-ore"] then
             require("prototypes/ores/coal/niveolaite")
         end
     end
-    if data.raw.item["magnesium"] then
+    if data.raw.item["magnesium-ore"] then --doesn't exist yet
         require("prototypes/ores/coal/eitelite")
     end
 end
 
-if data.raw.item["magnesium"] then
+if data.raw.item["magnesium-ore"] then --doesn't exist yet
     require("prototypes/ores/coal/landsfordite")
 end
 
-if data.raw.item["calcium"] then
-    if data.raw.item["aluminum"] then
+if data.raw.item["calcium"] then --doesn't exist yet
+    if data.raw.item["aluminum-ore"] then
         require("prototypes/ores/coal/kochsandorite")
     end
-    if data.raw.item["titanium"] then
-        if data.raw.item["cerium"] then
+    if data.raw.item["titanium-ore"] then
+        if data.raw.item["cerium"] then --doesn't exist yet
             require("prototypes/ores/uranium/brannerite")
         end
     end
 end
-if data.raw.item["titanium"] then
-    if data.raw.item["yttrium"] then
-        if data.raw.item["lanthanum"] then
-            if data.raw.item["cerium"] then
+if data.raw.item["titanium-ore"] then
+    if data.raw.item["yttrium"] then --doesn't exist yet
+        if data.raw.item["lanthanum"] then --doesn't exist yet
+            if data.raw.item["cerium"] then --doesn't exist yet
                 require("prototypes/ores/uranium/davidite-ce")
-                if data.raw.item["calcium"] then
+                if data.raw.item["calcium"] then --doesn't exist yet
                     require("prototypes/ores/uranium/davidite-la")
                 end
             end
