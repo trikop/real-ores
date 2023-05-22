@@ -42,7 +42,7 @@ data:extend({
       order = "t-r",
       base_density = 5,
       base_spots_per_km2 = 1,
-      has_starting_area_placement = false,
+      has_starting_area_placement = true,
       regular_rq_factor_multiplier = 1,
       starting_rq_factor_multiplier = 1,
     },

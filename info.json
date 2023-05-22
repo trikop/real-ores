@@ -6,21 +6,5 @@
     "factorio_version": "1.1",
     "description": "Replaces vanilla ore patches with real versions\nOre ratios is fetched from http://webmineral.com",
     "dependencies": [
-        "? space-exploration >= 0.6",
-        "? Krastorio2 >= 1.3",
-        "? BrassTacks",
-        "? IfNickel",
-        "? bzaluminum",
-        "? bzcarbon",
-        "? bzchlorine",
-        "? bzlead",
-        "? bzsilicon",
-        "? bztitanium",
-        "? bztungsten",
-        "? bzzirconium",
-        "? bztin",
-        "? bzgas",
-        "? bzgold",
-        "? bismuth >= 0.0.3"
     ]
 }

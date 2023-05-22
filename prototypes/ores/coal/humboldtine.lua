@@ -5,17 +5,17 @@ data:extend({
   {
     type = "autoplace-control",
     category = "resource",
-    name = "Humboldtine",
+    name = "humboldtine",
     richness = true,
     order = "o-d"
   },
   {
     type = "noise-layer",
-    name = "Humboldtine"
+    name = "humboldtine"
   },
   {
     type = "resource",
-    name = "Humboldtine",
+    name = "humboldtine",
     icon = "__base__/graphics/icons/coal.png",
     icon_size = 64,
     flags = {"placeable-neutral"},
@@ -40,11 +40,11 @@ data:extend({
     selection_box = {{ -0.5, -0.5}, {0.5, 0.5}},
 
     autoplace = resource_autoplace.resource_autoplace_settings{
-      name = "Humboldtine",
+      name = "humboldtine",
       order = "t-r",
       base_density = 5,
       base_spots_per_km2 = 0.4,
-      has_starting_area_placement = false,
+      has_starting_area_placement = true,
       regular_rq_factor_multiplier = 1,
       starting_rq_factor_multiplier = 1,
     },

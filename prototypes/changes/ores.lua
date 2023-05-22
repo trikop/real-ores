@@ -4,6 +4,8 @@ data.raw.resource["copper-ore"].autoplace = nil
 data.raw.resource["coal"].autoplace = nil
 data.raw.resource["uranium-ore"].autoplace = nil
 
+if mods.placeholdercuzimnotusingthisyet then
+
 if data.raw.item["zinc-ore"] then
     data.raw.resource["zinc-ore"].autoplace = nil
 end
@@ -40,4 +42,4 @@ end
 if data.raw.item["zircon"] then
     data.raw.resource["zircon"].autoplace = nil
 end
-
+end

@@ -1,6 +1,6 @@
 require("prototypes/items/fluids")
 
-require("prototypes/ores/default")
+--require("prototypes/ores/default")
 
 -- Iron main
 require("prototypes/ores/iron/hematite")
@@ -35,6 +35,8 @@ require("prototypes/ores/coal/dinite")
 require("prototypes/ores/coal/refikite")
 require("prototypes/ores/coal/humboldtine")
 
+--Uranium ores
+require("prototypes/ores/uranium/uraninite")
 
 if data.raw.item["silicon"] then
     require("prototypes/ores/iron/minnesotaite")
