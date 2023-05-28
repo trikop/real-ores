@@ -1,8 +1,21 @@
-data.raw.resource["iron-ore"].autoplace = nil
-data.raw.resource["copper-ore"].autoplace = nil
---data.raw.resource["stone"].autoplace = nil
-data.raw.resource["coal"].autoplace = nil
-data.raw.resource["uranium-ore"].autoplace = nil
+if mods["space-exploration"] then --idk how to do this yet
+    data.raw.resource["iron-ore"].autoplace.base_spots_per_km2 = 0
+    data.raw.resource["copper-ore"].autoplace.base_spots_per_km2 = 0
+    --data.raw.resource["stone"].autoplace.base_spots_per_km2 = 0
+    data.raw.resource["coal"].autoplace.base_spots_per_km2 = 0
+    data.raw.resource["uranium-ore"].autoplace.base_spots_per_km2 = 0
+    data.raw.resource["iron-ore"].autoplace.has_starting_area_placement = false
+    data.raw.resource["copper-ore"].autoplace.has_starting_area_placement = false
+    --data.raw.resource["stone"].autoplace.has_starting_area_placement = false
+    data.raw.resource["coal"].autoplace.has_starting_area_placement = false
+    data.raw.resource["uranium-ore"].autoplace.has_starting_area_placement = false
+else
+    data.raw.resource["iron-ore"].autoplace = nil
+    data.raw.resource["copper-ore"].autoplace = nil
+    --data.raw.resource["stone"].autoplace = nil
+    data.raw.resource["coal"].autoplace = nil
+    data.raw.resource["uranium-ore"].autoplace = nil
+end
 
 if mods.placeholdercuzimnotusingthisyet then
 
