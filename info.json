@@ -4,7 +4,7 @@
     "title": "Real Ores",
     "author": "trikop",
     "factorio_version": "1.1",
-    "description": "Replaces vanilla ore patches with real versions\nOre ratios is fetched from http://webmineral.com",
+    "description": "Made because setting up ore patches usually just become the same after a while\nReplaces vanilla ore patches with ores from the real world\nOre ratios is fetched from http://webmineral.com\n\n",
     "dependencies": [
     ]
 }
