@@ -7,17 +7,17 @@ local noise = require('noise');
     {
       type = "autoplace-control",
       category = "resource",
-      name = "wüstite",
+      name = "wustite",
       richness = true,
       order = "o-a"
     },
     {
       type = "noise-layer",
-      name = "wüstite"
+      name = "wustite"
     },
     {
       type = "resource",
-      name = "wüstite",
+      name = "wustite",
       icon = "__base__/graphics/icons/iron-ore.png",
       icon_size = 64,
       flags = {"placeable-neutral"},
@@ -41,7 +41,7 @@ local noise = require('noise');
       selection_box = {{ -0.5, -0.5}, {0.5, 0.5}},
 
       autoplace = resource_autoplace.resource_autoplace_settings{
-        name = "wüstite",
+        name = "wustite",
         order = "t-r",
         base_density = 1,
         base_spots_per_km2 = 1,
