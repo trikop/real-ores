@@ -4,7 +4,7 @@
     "title": "Real Ores",
     "author": "trikop",
     "factorio_version": "1.1",
-    "description": "Made because setting up ore patches usually just become the same after a while\nReplaces vanilla ore patches with ores from the real world\nOre ratios is fetched from http://webmineral.com\n\n",
+    "description": "(Work in progress mod, should be playable in it's current state)\nReplaces vanilla ore patches with ores from the real world (will have to change the way they're extracted from the ore patches in a future update)\nOre ratios are fetched from http://webmineral.com \n\nFull compatibility with other ore mods will be added in an later update",
     "dependencies": [
     ]
 }

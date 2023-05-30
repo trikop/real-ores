@@ -31,7 +31,7 @@ data:extend({
       results = 
       {
         {type="item", name="sodium", amount=1, probability=.1510},
-        {type="item", name="calcium", amount=1, probability=.0280},
+        {type="item", name="calcium-ore", amount=1, probability=.0280},
         {type="item", name="beryllium", amount=1, probability=.0617},
         {type="fluid", name="hydrogen", amount=1, probability=.0311},
         {type="item", name="coal", amount=1, probability=.0840},

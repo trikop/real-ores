@@ -33,9 +33,9 @@ local noise = require('noise');
 
         results = 
         {
-          {type="item", name="calcium", amount=1, probability=.1942},
-          {type="item", name="magnesium", amount=1, probability=.0353},
-          {type="item", name="manganese", amount=1, probability=.0266},
+          {type="item", name="calcium-ore", amount=1, probability=.1942},
+          {type="item", name="magnesium-ore", amount=1, probability=.0353},
+          {type="item", name="manganese-ore", amount=1, probability=.0266},
           {type="item", name="iron-ore", amount=1, probability=.1624},
           {type="item", name="coal", amount=1, probability=.1164},
           {type="fluid", name="oxygen", amount=1, probability=.4651},

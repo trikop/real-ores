@@ -31,7 +31,7 @@ data:extend({
       results = 
       {
         {type="item", name="sodium", amount=1, probability=.2416},
-        {type="item", name="magnesium", amount=1, probability=.1277},
+        {type="item", name="magnesium-ore", amount=1, probability=.1277},
         {type="item", name="coal", amount=1, probability=.1262},
         {type="fluid", name="oxygen", amount=1, probability=.5044},
       }

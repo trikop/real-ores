@@ -31,7 +31,7 @@ data:extend({
       results = 
       {
         {type="item", name="sodium", amount=1, probability=.1313},
-        {type="item", name="calcium", amount=1, probability=.1144},
+        {type="item", name="calcium-ore", amount=1, probability=.1144},
         {type="fluid", name="hydrogen", amount=1, probability=.0230},
         {type="item", name="sulfur", amount=1, probability=.1831},
         {type="fluid", name="oxygen", amount=1, probability=.5482},

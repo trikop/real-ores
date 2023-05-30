@@ -30,7 +30,7 @@ data:extend({
       mining_time = 1,
       results = 
       {
-        {type="item", name="magnesium", amount=1, probability=.1394},
+        {type="item", name="magnesium-ore", amount=1, probability=.1394},
         {type="fluid", name="hydrogen", amount=1, probability=.0578},
         {type="item", name="coal", amount=1, probability=.0689},
         {type="fluid", name="oxygen", amount=1, probability=.7340},
