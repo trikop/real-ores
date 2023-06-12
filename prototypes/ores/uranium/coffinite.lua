@@ -35,7 +35,7 @@ data:extend({
       results = 
       {
         {type="item", name="uranium-ore", amount=1, probability=.7263},
-        {type="item", name="silicon", amount=1, probability=.0771},
+        {type="item", name="silica", amount=1, probability=.0771},
         {type="fluid", name="hydrogen", amount=1, probability=.0012},
         {type="fluid", name="oxygen", amount=1, probability=.1953},
       }

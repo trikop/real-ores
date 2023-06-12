@@ -6,5 +6,6 @@
     "factorio_version": "1.1",
     "description": "(Work in progress mod. Playable, albeit maybe unbalanced currently)\nReplaces vanilla ore patches with real counterparts (will have to make the extraction a little more complex in a future update)\nOre ratios are fetched from http://webmineral.com \n\nFull compatibility with other ore mods will be added in an later update",
     "dependencies": [
+        "? bismuth"
     ]
 }
