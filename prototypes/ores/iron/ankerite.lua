@@ -89,7 +89,7 @@ local noise = require('noise');
         {filename="__iron__/graphics/icons/iron-ore-3.png", size=64, scale=0.125},
       },
       subgroup = "raw-resource",
-      order = "t-c-a",
+      order = "t-t-a",
       stack_size = 50
     },
   })

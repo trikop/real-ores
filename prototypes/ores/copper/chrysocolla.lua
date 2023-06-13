@@ -85,7 +85,7 @@ data:extend({
       {filename="__base__/graphics/icons/copper-ore-3.png", size=64, scale=0.125},
     },
     subgroup = "raw-resource",
-    order = "t-c-a",
+    order = "t-t-a",
     stack_size = 50
   },
 })
