@@ -69,4 +69,20 @@ data:extend({
           }
     },
   },
+  {
+    type = "item",
+    name = "coal",
+    icon_size = 64,
+    icon_mipmaps = 4,
+    icon = "__base__/graphics/icons/coal-ore.png",
+    pictures = {
+      {filename="__base__/graphics/icons/coal-ore.png", size=64, scale=0.125},
+      {filename="__base__/graphics/icons/coal-ore-1.png", size=64, scale=0.125},
+      {filename="__base__/graphics/icons/coal-ore-2.png", size=64, scale=0.125},
+      {filename="__base__/graphics/icons/coal-ore-3.png", size=64, scale=0.125},
+    },
+    subgroup = "raw-resource",
+    order = "t-c-a",
+    stack_size = 50
+  },
 })
