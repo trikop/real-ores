@@ -74,7 +74,7 @@ local noise = require('noise');
     },
     {
       type = "item",
-      name = "iron",
+      name = "wustite",
       icon_size = 64,
       icon_mipmaps = 4,
       icon = "__base__/graphics/icons/iron-ore.png",
@@ -88,4 +88,13 @@ local noise = require('noise');
       order = "t-t-a",
       stack_size = 50
     },
+    -- {
+    --   type = "recipe",
+    --   name = "wustite-smelting",
+    --   category = "smelting",
+    --   energy_required = 1*1,
+    --   ingredients = {{"wustite", 1*1}},
+    --   result = "iron-plate",
+    --   result_count = 1
+    -- },
   })
