@@ -91,6 +91,6 @@ local noise = require('noise');
       },
       subgroup = "raw-resource",
       order = "t-t-a",
-      stack_size = 50
+      stack_size = 10
     },
   })

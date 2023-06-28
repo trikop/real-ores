@@ -16,7 +16,7 @@ for _, recipe in ipairs(smelting_recipes) do
           category = "smelting",
           enabled = true,
           energy_required = 10,
-          ingredients = {{input_item, 1}},
+          ingredients = {{input_item, 20}},
           result = output_item,
           result_count = 1
       }
