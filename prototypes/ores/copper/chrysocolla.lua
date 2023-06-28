@@ -74,7 +74,7 @@ data:extend({
   },
   {
     type = "item",
-    name = "copper",
+    name = "chrysocolla",
     icon_size = 64,
     icon_mipmaps = 4,
     icon = "__base__/graphics/icons/copper-ore.png",

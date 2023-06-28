@@ -73,7 +73,7 @@ data:extend({
   },
   {
     type = "item",
-    name = "coal",
+    name = "eitelite",
     icon_size = 64,
     icon_mipmaps = 4,
     icon = "__base__/graphics/icons/coal.png",

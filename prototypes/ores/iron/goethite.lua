@@ -75,7 +75,7 @@ local noise = require('noise');
     },
     {
       type = "item",
-      name = "iron",
+      name = "goethite",
       icon_size = 64,
       icon_mipmaps = 4,
       icon = "__base__/graphics/icons/iron-ore.png",

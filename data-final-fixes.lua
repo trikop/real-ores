@@ -1,37 +1,33 @@
+-- if mods.Krastorio2 then
 
+--     if mods.bzlead then
 
+--     end
+--     if mods.bztin then
 
+--     end
+--     if mods.bzgold then
 
-if mods.Krastorio2 then
+--     end
+--     if mods.BrassTacks then
 
-    if mods.bzlead then
+--     end
+-- else
 
-    end
-    if mods.bztin then
+--     if mods.bzlead then
 
-    end
-    if mods.bzgold then
+--     end
+--     if mods.bztin then
 
-    end
-    if mods.BrassTacks then
+--     end
+--     if mods.bzgold then
 
-    end
-else
+--         end
+--     if mods.BrassTacks then
 
-    if mods.bzlead then
+--     end
+-- end
 
-    end
-    if mods.bztin then
+-- if mods["space-exploration"] then 
 
-    end
-    if mods.bzgold then
-
-        end
-    if mods.BrassTacks then
-
-    end
-end
-
-if mods["space-exploration"] then 
-
-end
+-- end

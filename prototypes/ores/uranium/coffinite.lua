@@ -103,7 +103,7 @@ data:extend({
   },
   {
     type = "item",
-    name = "uranium",
+    name = "coffinite",
     icon_size = 64,
     icon_mipmaps = 4,
     icon = "__base__/graphics/icons/uranium-ore.png",
