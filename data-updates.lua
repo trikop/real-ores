@@ -1,3 +1,3 @@
 require("prototypes/changes/mining-drill")
-require("prototypes/ores")
+require("prototypes/recipes/ores")
 require("prototypes/changes/ores")

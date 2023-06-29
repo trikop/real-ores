@@ -84,6 +84,6 @@ data:extend({
     },
     subgroup = "raw-resource",
     order = "t-t-a",
-    stack_size = 10
+    stack_size = 20
   },
 })
