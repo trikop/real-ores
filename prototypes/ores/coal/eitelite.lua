@@ -71,7 +71,8 @@ data:extend({
   {
     type = "item",
     name = "eitelite",
-    fuel_value = "1MJ"
+    fuel_value = "1MJ",
+    fuel_category = "chemical",
     icon_size = 64,
     icon_mipmaps = 4,
     icon = "__base__/graphics/icons/coal.png",

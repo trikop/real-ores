@@ -71,7 +71,8 @@ data:extend({
   {
     type = "item",
     name = "niveolanite",
-    fuel_value = "0.5MJ"
+    fuel_value = "0.5MJ",
+    fuel_category = "chemical",
     icon_size = 64,
     icon_mipmaps = 4,
     icon = "__base__/graphics/icons/coal.png",
