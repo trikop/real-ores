@@ -38,6 +38,7 @@ require("prototypes/ores/coal/humboldtine")
 --Uranium ores
 require("prototypes/ores/uranium/uraninite")
 
+require("prototypes/ores/iron/akaganeite")
 if data.raw.item["silicon"] then
     require("prototypes/ores/iron/greenalite")
     require("prototypes/ores/iron/grunerite")

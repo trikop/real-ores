@@ -1,8 +1,8 @@
--- data.raw.recipe["iron-plate"].enabled = false
--- data.raw.recipe["copper-plate"].enabled = false
+data.raw.recipe["iron-plate"].enabled = false
+data.raw.recipe["copper-plate"].enabled = false
 --Tier 0 smelting recipes
 local smelting_recipes = {
-  -- {input = "akaganeite", output = "iron-plate"},
+  {input = "akaganeite", output = "iron-plate"},
   -- {input = "ankerite", output = "iron-plate"},
   -- {input = "cronstedtite", output = "iron-plate"},
   -- {input = "ferrihydrite", output = "iron-plate"},
@@ -36,10 +36,14 @@ for _, recipe in ipairs(smelting_recipes) do
           name = input_item .. "-smelting",
           category = "smelting",
           enabled = true,
-          energy_required = 16,
-          ingredients = {{input_item, 20}},
-          result = output_item, 
-          result_count = 0.5,
+          energy_required = 32,
+          ingredients = {{input_item, 20}}, 
+          results =
+          {
+            {type = "item", name = output_item, amount = 1, probability = 0.5},
+          }
       }
   })
 end
+
+-- data.raw.recipe["akagenite-smelting"].enabled = false

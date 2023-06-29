@@ -30,11 +30,7 @@ data:extend({
       mining_time = 1.2,
       results = 
       {
-        {type="item", name="iron-ore", amount=1, probability=.5575},
-        {type="item", name="nickel-ore", amount=1, probability=.0308},
-        {type="fluid", name="hydrogen", amount=1, probability=.0128},
-        {type="fluid", name="chlorine", amount=1, probability=.0605},
-        {type="fluid", name="oxygen", amount=1, probability=.3383},
+        {type="item", name="akaganeite", amount=1},
       }
     },
     collision_box = {{ -0.1, -0.1}, {0.1, 0.1}},
@@ -80,9 +76,9 @@ data:extend({
     icon = "__base__/graphics/icons/iron-ore.png",
     pictures = {
       {filename="__base__/graphics/icons/iron-ore.png", size=64, scale=0.125},
-      {filename="__iron__/graphics/icons/iron-ore-1.png", size=64, scale=0.125},
-      {filename="__iron__/graphics/icons/iron-ore-2.png", size=64, scale=0.125},
-      {filename="__iron__/graphics/icons/iron-ore-3.png", size=64, scale=0.125},
+      {filename="__base__/graphics/icons/iron-ore-1.png", size=64, scale=0.125},
+      {filename="__base__/graphics/icons/iron-ore-2.png", size=64, scale=0.125},
+      {filename="__base__/graphics/icons/iron-ore-3.png", size=64, scale=0.125},
     },
     subgroup = "raw-resource",
     order = "t-t-a",
