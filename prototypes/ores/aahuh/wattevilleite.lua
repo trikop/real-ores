@@ -30,11 +30,7 @@ data:extend({
       mining_time = 1,
       results = 
       {
-        {type="item", name="sodium", amount=1, probability=.1313},
-        {type="item", name="calcium-ore", amount=1, probability=.1144},
-        {type="fluid", name="hydrogen", amount=1, probability=.0230},
-        {type="item", name="sulfur", amount=1, probability=.1831},
-        {type="fluid", name="oxygen", amount=1, probability=.5482},
+        {type="item", name="wattevilleite", amount=1},
       }
     },
     collision_box = {{ -0.1, -0.1}, {0.1, 0.1}},
@@ -89,3 +85,26 @@ data:extend({
     stack_size = 20
   },
 })
+if data.raw.item["sodium"] and data.raw.item["calcium-ore"] then
+  data:extend({
+    {
+        type = "recipe",
+        name = "wattevilleite-smelting-2",
+        icon = "__base__/graphics/icons/coal.png",
+        icon_size = 64,
+        main_product = "copper-ore",
+        category = "chemistry",
+        enabled = true,
+        energy_required = 1,
+        ingredients = {{"wattevilleite", 1}}, 
+        results = 
+        {
+          {type="item", name="sodium", amount=1, probability=.1313},
+          {type="item", name="calcium-ore", amount=1, probability=.1144},
+          {type="fluid", name="hydrogen", amount=1, probability=.0230},
+          {type="item", name="sulfur", amount=1, probability=.1831},
+          {type="fluid", name="oxygen", amount=1, probability=.5482},
+        }
+    }
+  })
+end
