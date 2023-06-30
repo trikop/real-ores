@@ -95,7 +95,7 @@ if data.raw.item["silicon"] and data.raw.item["aluminum-ore"] and data.raw.item[
         icon_size = 64,
         main_product = "iron-ore",
         category = "chemistry",
-        enabled = true,
+        enabled = false,
         energy_required = 1,
         ingredients = {{"stilpnomelane", 1}}, 
         results = 

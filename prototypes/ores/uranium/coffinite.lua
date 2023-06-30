@@ -124,7 +124,7 @@ if data.raw.item["silicon"] then
         icon_size = 64,
         main_product = "uranium-ore",
         category = "chemistry",
-        enabled = true,
+        enabled = false,
         energy_required = 1,
         ingredients = {{"coffinite", 1}}, 
         results = 

@@ -1,10 +1,10 @@
 {
     "name": "real-ores",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "title": "Real Ores",
     "author": "trikop",
     "factorio_version": "1.1",
-    "description": "(Work in progress mod. Playable, albeit maybe unbalanced currently)\nReplaces vanilla ore patches with real counterparts (will have to make the extraction a little more complex in a future update)\nOre ratios are fetched from http://webmineral.com \n\nFull compatibility with other ore mods will be added in an later update",
+    "description": "(Work in progress mod. Playable, albeit maybe unbalanced currently)\nReplaces vanilla ore patches with real counterparts (recipes and such are not finished and balanced properly yet)\nOre ratios are fetched from http://webmineral.com \n\nFull compatibility with other ore mods will be added in an later update",
     "dependencies": [
         "? bismuth"
     ]

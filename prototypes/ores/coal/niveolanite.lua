@@ -96,7 +96,7 @@ if data.raw.item["sodium"] and data.raw.item["calcium-ore"] and data.raw.item["b
         icon_size = 64,
         main_product = "coal",
         category = "chemistry",
-        enabled = true,
+        enabled = false,
         energy_required = 1,
         ingredients = {{"niveolanite", 1}}, 
         results = 

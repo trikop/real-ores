@@ -96,7 +96,7 @@ if data.raw.item["sodium"] and data.raw.item["magnesium-ore"] then
         icon_size = 64,
         main_product = "coal",
         category = "chemistry",
-        enabled = true,
+        enabled = false,
         energy_required = 1,
         ingredients = {{"eitelite", 1}}, 
         results = 

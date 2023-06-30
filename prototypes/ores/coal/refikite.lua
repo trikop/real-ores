@@ -97,7 +97,7 @@ data:extend({
       icon_size = 64,
       main_product = "coal",
       category = "chemistry",
-      enabled = true,
+      enabled = false,
       energy_required = 1,
       ingredients = {{"refikite", 1}}, 
       results = 

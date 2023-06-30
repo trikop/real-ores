@@ -94,7 +94,7 @@ if data.raw.item["arsenic-ore"] then
         icon_size = 64,
         main_product = "copper-ore",
         category = "chemistry",
-        enabled = true,
+        enabled = false,
         energy_required = 1,
         ingredients = {{"enargite", 1}}, 
         results = 

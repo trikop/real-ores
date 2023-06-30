@@ -61,103 +61,131 @@ for _, recipe in ipairs(smelting_recipes, smelting_recipes2) do
   })
 end
 
-
-
-
-
-
-
-
-
-
-local recipeNames = {}
-
+local recipeNames2 = {}
 if data.raw["recipe"]["azurite-smelting-2"] then
-    table.insert(recipeNames, "azurite-smelting-2")
+    table.insert(recipeNames2, "azurite-smelting-2")
 end
 if data.raw["recipe"]["bornite-smelting-2"] then
-    table.insert(recipeNames, "bornite-smelting-2")
+    table.insert(recipeNames2, "bornite-smelting-2")
 end
 if data.raw["recipe"]["chalcocite-smelting-2"] then
-    table.insert(recipeNames, "chalcocite-smelting-2")
+    table.insert(recipeNames2, "chalcocite-smelting-2")
 end
 if data.raw["recipe"]["chalcopyrite-smelting-2"] then
-    table.insert(recipeNames, "chalcopyrite-smelting-2")
+    table.insert(recipeNames2, "chalcopyrite-smelting-2")
 end
 if data.raw["recipe"]["chrysocolla-smelting-2"] then
-    table.insert(recipeNames, "chrysocolla-smelting-2")
+    table.insert(recipeNames2, "chrysocolla-smelting-2")
 end
 if data.raw["recipe"]["covellite-smelting-2"] then
-    table.insert(recipeNames, "covellite-smelting-2")
+    table.insert(recipeNames2, "covellite-smelting-2")
 end
-
-
-
-{
-  {type = "unlock-recipe", recipe = "azurite-smelting-2"},
-  {type = "unlock-recipe", recipe = "bornite-smelting-2"},
-  {type = "unlock-recipe", recipe = "chalcocite-smelting-2"},
-  {type = "unlock-recipe", recipe = "chalcopyrite-smelting-2"},
-  {type = "unlock-recipe", recipe = "chrysocolla-smelting-2"},
-  {type = "unlock-recipe", recipe = "covellite-smelting-2"},
-  {type = "unlock-recipe", recipe = "cuprite-smelting-2"},
-  {type = "unlock-recipe", recipe = "dioptase-smelting-2"},
-  {type = "unlock-recipe", recipe = "djurleite-smelting-2"},
-  {type = "unlock-recipe", recipe = "enargite-smelting-2"},
-  {type = "unlock-recipe", recipe = "malachite-smelting-2"},
-  {type = "unlock-recipe", recipe = "tennantite-smelting-2"},
-  {type = "unlock-recipe", recipe = "tenorite-smelting-2"},
-  {type = "unlock-recipe", recipe = "tetrahedite-smelting-2"},
-  {type = "unlock-recipe", recipe = "akaganeite-smelting-2"},
-  {type = "unlock-recipe", recipe = "ankerite-smelting-2"},
-  {type = "unlock-recipe", recipe = "cronstedtite-smelting-2"},
-  {type = "unlock-recipe", recipe = "ferrihydrite-smelting-2"},
-  {type = "unlock-recipe", recipe = "goethite-smelting-2"},
-  {type = "unlock-recipe", recipe = "greenalite-smelting-2"},
-  {type = "unlock-recipe", recipe = "greigite-smelting-2"},
-  {type = "unlock-recipe", recipe = "grunerite-smelting-2"},
-  {type = "unlock-recipe", recipe = "hematite-smelting-2"},
-  {type = "unlock-recipe", recipe = "lepidocrocite-smelting-2"},
-  {type = "unlock-recipe", recipe = "macaulayite-smelting-2"},
-  {type = "unlock-recipe", recipe = "magnesioferrite-smelting-2"},
-  {type = "unlock-recipe", recipe = "magnetite-smelting-2"},
-  {type = "unlock-recipe", recipe = "minnesotaite-smelting-2"},
-  {type = "unlock-recipe", recipe = "pyrite-smelting-2"},
-  {type = "unlock-recipe", recipe = "pyrrhotite-smelting-2"},
-  {type = "unlock-recipe", recipe = "roaldite-smelting-2"},
-  {type = "unlock-recipe", recipe = "schwertmannite-smelting-2"},
-  {type = "unlock-recipe", recipe = "siderite-smelting-2"},
-  {type = "unlock-recipe", recipe = "stilpnomelane-smelting-2"},
-  {type = "unlock-recipe", recipe = "taenite-smelting-2"},
-  {type = "unlock-recipe", recipe = "trevorite-smelting-2"},
-  {type = "unlock-recipe", recipe = "troilite-smelting-2"},
-  {type = "unlock-recipe", recipe = "wustite-smelting-2"},
-  },
-
-
-
-
-
-
-
-
-
-
-
-
-
+if data.raw["recipe"]["cuprite-smelting-2"] then
+  table.insert(recipeNames2, "cuprite-smelting-2")
+end
+if data.raw["recipe"]["dioptase-smelting-2"] then
+  table.insert(recipeNames2, "dioptase-smelting-2")
+end
+if data.raw["recipe"]["djurleite-smelting-2"] then
+  table.insert(recipeNames2, "djurleite-smelting-2")
+end
+if data.raw["recipe"]["enargite-smelting-2"] then
+  table.insert(recipeNames2, "enargite-smelting-2")
+end
+if data.raw["recipe"]["malachite-smelting-2"] then
+  table.insert(recipeNames2, "malachite-smelting-2")
+end
+if data.raw["recipe"]["tennantite-smelting-2"] then
+  table.insert(recipeNames2, "tennantite-smelting-2")
+end
+if data.raw["recipe"]["tenorite-smelting-2"] then
+  table.insert(recipeNames2, "tenorite-smelting-2")
+end
+if data.raw["recipe"]["tetrahedite-smelting-2"] then
+  table.insert(recipeNames2, "tetrahedite-smelting-2")
+end
+if data.raw["recipe"]["akaganeite-smelting-2"] then
+  table.insert(recipeNames2, "akaganeite-smelting-2")
+end
+if data.raw["recipe"]["aankerite-smelting-2"] then
+  table.insert(recipeNames2, "aankerite-smelting-2")
+end
+if data.raw["recipe"]["cronstedtite-smelting-2"] then
+  table.insert(recipeNames2, "cronstedtite-smelting-2")
+end
+if data.raw["recipe"]["ferrihydrite-smelting-2"] then
+  table.insert(recipeNames2, "ferrihydrite-smelting-2")
+end
+if data.raw["recipe"]["goethite-smelting-2"] then
+  table.insert(recipeNames2, "goethite-smelting-2")
+end
+if data.raw["recipe"]["greenalite-smelting-2"] then
+  table.insert(recipeNames2, "greenalite-smelting-2")
+end
+if data.raw["recipe"]["greigite-smelting-2"] then
+  table.insert(recipeNames2, "greigite-smelting-2")
+end
+if data.raw["recipe"]["grunerite-smelting-2"] then
+  table.insert(recipeNames2, "grunerite-smelting-2")
+end
+if data.raw["recipe"]["hematite-smelting-2"] then
+  table.insert(recipeNames2, "hematite-smelting-2")
+end
+if data.raw["recipe"]["lepidocrocite-smelting-2"] then
+  table.insert(recipeNames2, "lepidocrocite-smelting-2")
+end
+if data.raw["recipe"]["macaulayite-smelting-2"] then
+  table.insert(recipeNames2, "macaulayite-smelting-2")
+end
+if data.raw["recipe"]["magnesioferrite-smelting-2"] then
+  table.insert(recipeNames2, "magnesioferrite-smelting-2")
+end
+if data.raw["recipe"]["magnetite-smelting-2"] then
+  table.insert(recipeNames2, "magnetite-smelting-2")
+end
+if data.raw["recipe"]["minnesotaite-smelting-2"] then
+  table.insert(recipeNames2, "minnesotaite-smelting-2")
+end
+if data.raw["recipe"]["pyrite-smelting-2"] then
+  table.insert(recipeNames2, "pyrite-smelting-2")
+end
+if data.raw["recipe"]["pyrrhotite-smelting-2"] then
+  table.insert(recipeNames2, "pyrrhotite-smelting-2")
+end
+if data.raw["recipe"]["roaldite-smelting-2"] then
+  table.insert(recipeNames2, "roaldite-smelting-2")
+end
+if data.raw["recipe"]["schwertmannite-smelting-2"] then
+  table.insert(recipeNames2, "schwertmannite-smelting-2")
+end
+if data.raw["recipe"]["siderite-smelting-2"] then
+  table.insert(recipeNames2, "siderite-smelting-2")
+end
+if data.raw["recipe"]["stilpnomelane-smelting-2"] then
+  table.insert(recipeNames2, "stilpnomelane-smelting-2")
+end
+if data.raw["recipe"]["taenite-smelting-2"] then
+  table.insert(recipeNames2, "taenite-smelting-2")
+end
+if data.raw["recipe"]["trevorite-smelting-2"] then
+  table.insert(recipeNames2, "trevorite-smelting-2")
+end
+if data.raw["recipe"]["troilite-smelting-2"] then
+  table.insert(recipeNames2, "troilite-smelting-2")
+end
+if data.raw["recipe"]["wustite-smelting-2"] then
+  table.insert(recipeNames2, "wustite-smelting-2")
+end
 
 data:extend({
 {
   type = "technology",
-  name = "ore-processing-2",
+  name = "ore-processing-1",
   icon = "__base__/graphics/icons/iron-ore.png",
-  icon_size = 128,
-  effects = {
--- {type = "unlock-recipe", recipe = "azurite-smelting-2"},
-  },
+  icon_size = 64,
+  effects = {},
   unit = {
-    count = 60, time = 10,
+    count = 30, time = 10,
     ingredients = {{"automation-science-pack", 1}},
   },
   prerequisites = {"automation"},
@@ -166,12 +194,16 @@ data:extend({
   type = "technology",
   name = "ore-processing-2",
   icon = "__base__/graphics/icons/iron-ore.png",
-  icon_size = 128,
+  icon_size = 64,
   effects = {},
   unit = {
-    count = 60, time = 10,
+    count = 50, time = 10,
     ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}},
   },
-  prerequisites = {"oil-processing"}, {"ore-processing-1"},
+  prerequisites = {"oil-processing", "ore-processing-1"},
 }
 })
+
+for _, recipeName in ipairs(recipeNames2) do
+  table.insert(data.raw["technology"]["ore-processing-2"].effects, {type = "unlock-recipe", recipe = recipeName})
+end

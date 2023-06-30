@@ -97,7 +97,7 @@ if data.raw.item["silicon"] then
         icon_size = 64,
         main_product = "iron-ore",
         category = "chemistry",
-        enabled = true,
+        enabled = false,
         energy_required = 1,
         ingredients = {{"greenalite", 1}}, 
         results = 

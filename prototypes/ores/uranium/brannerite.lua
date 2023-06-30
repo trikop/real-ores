@@ -124,7 +124,7 @@ if data.raw.item["calcium-ore"] and data.raw.item["titanium-ore"] and data.raw.i
         icon_size = 64,
         main_product = "uranium-ore",
         category = "chemistry",
-        enabled = true,
+        enabled = false,
         energy_required = 1,
         ingredients = {{"brannerite", 1}}, 
         results = 

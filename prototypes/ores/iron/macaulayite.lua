@@ -94,7 +94,7 @@ if data.raw.item["silicon"] and data.raw.item["aluminum-ore"] then
         icon_size = 64,
         main_product = "iron-ore",
         category = "chemistry",
-        enabled = true,
+        enabled = false,
         energy_required = 1,
         ingredients = {{"macaulayite", 1}}, 
         results = 
