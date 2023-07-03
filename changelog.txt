@@ -2,4 +2,4 @@
 Version: 0.0.1
 Date: 2023-05-30
   Features:
-    - Release
+    - Release (won't bother uploading changelogs since this is a wip mod :P)

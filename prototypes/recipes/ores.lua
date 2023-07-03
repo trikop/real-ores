@@ -16,7 +16,7 @@ local smelting_recipes = {
   {input = "tennantite", output = "copper-plate"},
   {input = "tenorite", output = "copper-plate"},
   {input = "tetrahedite", output = "copper-plate"},
-
+-- Iron
   {input = "akaganeite", output = "iron-plate"},
   {input = "ankerite", output = "iron-plate"},
   {input = "cronstedtite", output = "iron-plate"},
@@ -177,6 +177,13 @@ if data.raw["recipe"]["wustite-smelting-2"] then
   table.insert(recipeNames2, "wustite-smelting-2")
 end
 
+local prerequisitesop1 = {}
+if mods.Krastorio2 then
+  prerequisitesop1 = {"mining-drill"}
+else
+  prerequisitesop1 = {"automation"}
+end
+
 data:extend({
 {
   type = "technology",
@@ -188,7 +195,7 @@ data:extend({
     count = 30, time = 10,
     ingredients = {{"automation-science-pack", 1}},
   },
-  prerequisites = {"automation"},
+  prerequisites = prerequisitesop1,
 },
 {
   type = "technology",
