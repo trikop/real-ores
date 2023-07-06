@@ -1,33 +1,40 @@
--- if mods.Krastorio2 then
-
---     if mods.bzlead then
-
---     end
---     if mods.bztin then
-
---     end
---     if mods.bzgold then
-
---     end
---     if mods.BrassTacks then
-
---     end
--- else
-
---     if mods.bzlead then
-
---     end
---     if mods.bztin then
-
---     end
---     if mods.bzgold then
-
---         end
---     if mods.BrassTacks then
-
---     end
--- end
-
--- if mods["space-exploration"] then 
-
--- end
+-- local oreList = {
+--     "azurite",
+--     "bornite",
+--     "chalcocite",
+--     "chalcopyrite",
+--     "chrysocolla",
+--     "covellite",
+--     "cuprite",
+--     "dioptase",
+--     "djurleite",
+--     "enargite",
+--     "malachite",
+--     "tennantite",
+--     "tenorite",
+--     "tetrahedite",
+--     "akaganeite",
+--     "ankerite",
+--     "cronstedtite",
+--     "ferrihydrite",
+--     "goethite",
+--     "greenalite",
+--     "greigite",
+--     "grunerite",
+--     "hematite",
+--     "lepidocrocite",
+--     "macaulayite",
+--     "magnesioferrite",
+--     "magnetite",
+--     "minnesotaite",
+--     "pyrite",
+--     "pyrrhotite",
+--     "roaldite",
+--     "schwertmannite",
+--     "siderite",
+--     "stilpnomelane",
+--     "taenite",
+--     "trevorite",
+--     "troilite",
+--     "wustite",
+-- }

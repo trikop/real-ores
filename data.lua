@@ -1,5 +1,5 @@
 require("prototypes/items/fluids")
-
+require("prototypes/buildings/ore-crusher")
 --require("prototypes/ores/default")
 
 -- Iron main
@@ -101,3 +101,4 @@ require("prototypes/ores/uranium/brannerite")
 require("prototypes/ores/uranium/davidite-ce")
 
 require("prototypes/ores/uranium/davidite-la")
+
