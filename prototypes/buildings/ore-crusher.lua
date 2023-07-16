@@ -1,58 +1,78 @@
 
-local burnerOreCrusher = util.table.deepcopy(data.raw["assembling-machine"]["assembling-machine-1"]) -- TODO add recipe category
-local burnerOreCrusherItem = util.table.deepcopy(data.raw["item"]["assembling-machine-1"])
-local burnerOreCrusherRecipe = util.table.deepcopy(data.raw["recipe"]["assembling-machine-1"])
-burnerOreCrusher.name = "burner-ore-crusher"
-burnerOreCrusher.icon = "__base__/graphics/icons/assembling-machine-1.png"
--- burnerOreCrusher.place_result = "burner-ore-crusher"
-burnerOreCrusher.minable.result = "burner-ore-crusher"
-burnerOreCrusher.energy_source = {
-  type = "burner",
-  fuel_category = "chemical",
-  effectivity = 1,
-  fuel_inventory_size = 1,
-  burnt_inventory_size = 1
-}
-data:extend({burnerOreCrusher})
-burnerOreCrusherItem.name = "burner-ore-crusher"
-data:extend({burnerOreCrusherItem})
-burnerOreCrusherRecipe.enabled = true
-burnerOreCrusherRecipe.name = "burner-ore-crusher"
-burnerOreCrusherRecipe.ingredients = {{ "copper-plate",200 }, { "steel-plate",50 }}
-data:extend({burnerOreCrusherRecipe})
+-- local burnerOreCrusher = util.table.deepcopy(data.raw["assembling-machine"]["assembling-machine-1"]) -- TODO add recipe category
+-- local burnerOreCrusherItem = util.table.deepcopy(data.raw["item"]["assembling-machine-1"])
+-- local burnerOreCrusherRecipe = util.table.deepcopy(data.raw["recipe"]["assembling-machine-1"])
+-- burnerOreCrusher.name = "burner-ore-crusher"
+-- if mods.Krastorio2 then
+--   burnerOreCrusher.icon = kr_entities_icons_path .. "crusher.png"
+--   burnerOreCrusher.collision_box = { { -3.25, -3.25 }, { 3.25, 3.25 } }
+--   burnerOreCrusher.selection_box = { { -3.5, -3.5 }, { 3.5, 3.5 } }
+-- else
+--   burnerOreCrusher.icon = "__base__/graphics/icons/assembling-machine-1.png"
+-- end
+-- -- burnerOreCrusher.place_result = "burner-ore-crusher"
+-- burnerOreCrusher.minable.result = "burner-ore-crusher"
+-- burnerOreCrusher.energy_source = {
+--   type = "burner",
+--   fuel_category = "chemical",
+--   effectivity = 1,
+--   fuel_inventory_size = 1,
+--   burnt_inventory_size = 1
+-- }
+-- data:extend({burnerOreCrusher})
+-- burnerOreCrusherItem.name = "burner-ore-crusher"
+-- data:extend({burnerOreCrusherItem})
+-- burnerOreCrusherRecipe.enabled = true
+-- burnerOreCrusherRecipe.name = "burner-ore-crusher"
+-- burnerOreCrusherRecipe.ingredients = {{ "iron-plate", 5 }, { "stone", 15 }}
+-- data:extend({burnerOreCrusherRecipe})
 
 
--- local electricOreCrusher = util.table.deepcopy(data.raw["assembling-machine"]["assembling-machine-2"])
--- local electricOreCrusherItem = util.table.deepcopy(data.raw["item"]["assembling-machine-2"])
-
+-- local electricOreCrusher = util.table.deepcopy(data.raw["assembling-machine"]["burner-ore-crusher"])
+-- local electricOreCrusherItem = util.table.deepcopy(data.raw["item"]["burner-ore-crusher"])
+-- local electricOreCrusherRecipe = util.table.deepcopy(data.raw["recipe"]["burner-ore-crusher"])
 -- electricOreCrusher.name = "electric-ore-crusher"
--- electricOreCrusher.icon = "__base__/graphics/icons/assembling-machine-2.png"
+-- if mods.Krastorio2 then
+--   electricOreCrusher.icon = kr_entities_icons_path .. "crusher.png"
+--   electricOreCrusher.collision_box = { { -3.25, -3.25 }, { 3.25, 3.25 } }
+--   electricOreCrusher.selection_box = { { -3.5, -3.5 }, { 3.5, 3.5 } }
+-- else
+--   burnerOreCrusher.icon = "__base__/graphics/icons/assembling-machine-2.png"
+-- end
 -- electricOreCrusher.minable.result = "electric-ore-crusher"
 -- electricOreCrusher.crafting_speed = 2
 -- electricOreCrusher.module_specification.module_slots = 1
 -- data:extend({electricOreCrusher})
 -- electricOreCrusherItem.name = "electric-ore-crusher"
 -- data:extend({electricOreCrusherItem})
+-- electricOreCrusherRecipe.enabled = true
+-- electricOreCrusherRecipe.name = "electric-ore-crusher"
+-- electricOreCrusherRecipe.ingredients = {{ "steel-plate", 15 }, { "stone", 15 }, { "stone", 15 }}
+-- data:extend({electricOreCrusherRecipe})
 
 
--- local advancedOreCrusher = util.table.deepcopy(data.raw["assembling-machine"]["assembling-machine-3"])
--- local advancedOreCrusherItem = util.table.deepcopy(data.raw["item"]["assembling-machine-3"])
-
--- advancedOreCrusher.name = "advanced-ore-crusher"
--- advancedOreCrusher.icon = "__base__/graphics/icons/assembling-machine-3.png"
--- advancedOreCrusher.minable.result = "advanced-ore-crusher"
--- advancedOreCrusher.crafting_speed = 4
--- advancedOreCrusher.module_specification.module_slots = 5
--- data:extend({advancedOreCrusher})
--- advancedOreCrusherItem.name = "advanced-ore-crusher"
--- data:extend({advancedOreCrusherItem})
+-- -- local advancedOreCrusher = util.table.deepcopy(data.raw["assembling-machine"]["assembling-machine-3"])
+-- -- local advancedOreCrusherItem = util.table.deepcopy(data.raw["item"]["assembling-machine-3"])
+-- -- local advancedOreCrusherRecipe = util.table.deepcopy(data.raw["recipe"]["assembling-machine-3"])
+-- -- advancedOreCrusher.name = "advanced-ore-crusher"
+-- -- advancedOreCrusher.icon = "__base__/graphics/icons/assembling-machine-3.png"
+-- -- advancedOreCrusher.minable.result = "advanced-ore-crusher"
+-- -- advancedOreCrusher.crafting_speed = 4
+-- -- advancedOreCrusher.module_specification.module_slots = 5
+-- -- data:extend({advancedOreCrusher})
+-- -- advancedOreCrusherItem.name = "advanced-ore-crusher"
+-- -- data:extend({advancedOreCrusherItem})
+-- -- advancedOreCrusherRecipe.enabled = true
+-- -- advancedOreCrusherRecipe.name = "advanced-ore-crusher"
+-- -- advancedOreCrusherRecipe.ingredients = {{ "copper-plate",200 }, { "steel-plate",50 }}
+-- -- data:extend({advancedOreCrusherRecipe})
 
 -- data:extend({
 --     {
 --       type = "technology",
 --       name = "electric-ore-crushing",
---       icon = "__your-mod-name__/graphics/technology/electric-ore-crushing.png",
---       icon_size = 128,
+--       icon = mods["Krastorio2"] and kr_entities_icons_path .. "crusher.png" or "__base__/graphics/icons/assembling-machine-2.png",
+--       icon_size = 64,
 --       prerequisites = {"automation-2", "steel-processing"},
 --       effects = {
 --         {
@@ -69,27 +89,27 @@ data:extend({burnerOreCrusherRecipe})
 --         time = 30
 --       },
 --     },
---     {
---         type = "technology",
---         name = "advanced-ore-crushing",
---         icon = "__your-mod-name__/graphics/technology/advanced-ore-crushing.png",
---         icon_size = 128,
---         prerequisites = {"electric-ore-crushing", "advanced-electronics"},
---         effects = {
---           {
---             type = "unlock-recipe",
---             recipe = "advanced-ore-crusher"
---           }
---         },
---         unit = {
---           count = 200,
---           ingredients = {
---             {"automation-science-pack", 1},
---             {"logistic-science-pack", 1},
---             {"chemical-science-pack", 1}
---           },
---           time = 40
---         },
---       }
+--     -- {
+--     --     type = "technology",
+--     --     name = "advanced-ore-crushing",
+--     --     icon = "__your-mod-name__/graphics/technology/advanced-ore-crushing.png",
+--     --     icon_size = 128,
+--     --     prerequisites = {"electric-ore-crushing", "advanced-electronics"},
+--     --     effects = {
+--     --       {
+--     --         type = "unlock-recipe",
+--     --         recipe = "advanced-ore-crusher"
+--     --       }
+--     --     },
+--     --     unit = {
+--     --       count = 200,
+--     --       ingredients = {
+--     --         {"automation-science-pack", 1},
+--     --         {"logistic-science-pack", 1},
+--     --         {"chemical-science-pack", 1}
+--     --       },
+--     --       time = 40
+--     --     },
+--     --   }
 --   })
   
