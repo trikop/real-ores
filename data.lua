@@ -1,5 +1,9 @@
 require("prototypes/items/fluids")
-require("prototypes/buildings/ore-crusher")
+require("prototypes/ores/define-ores")
+if not mods.Krastorio2 then
+    require("prototypes/buildings/ore-crusher")
+end
+
 --require("prototypes/ores/default")
 
 -- Iron main

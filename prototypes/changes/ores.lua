@@ -56,3 +56,16 @@ if data.raw.item["zircon"] then
     data.raw.resource["zircon"].autoplace = nil
 end
 end
+
+-- local noise = require("noise")
+-- local tne = noise.to_noise_expression
+-- local resource_autoplace = require("resource-autoplace")
+-- local sounds = require ("prototypes.entity.sounds")
+
+-- -- Initialize the core patch sets in a predictable order
+-- resource_autoplace.initialize_patch_set("iron-ore", true)
+-- resource_autoplace.initialize_patch_set("copper-ore", true)
+-- resource_autoplace.initialize_patch_set("coal", true)
+-- resource_autoplace.initialize_patch_set("stone", true)
+-- resource_autoplace.initialize_patch_set("crude-oil", false)
+-- resource_autoplace.initialize_patch_set("uranium-ore", false)
