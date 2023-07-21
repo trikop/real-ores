@@ -15,6 +15,7 @@ end
 data:extend({
   {type = "recipe-category", name = "crushing"},
   {type = "item-subgroup", name = "crushing-machines", group = "production"},
+  {type = "item-subgroup", name = "crushing", group = "intermediate-products"},
   {
     type = "assembling-machine",
     name = "burner-ore-crusher",
