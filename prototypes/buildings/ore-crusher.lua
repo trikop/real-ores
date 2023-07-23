@@ -14,8 +14,10 @@ end
 
 data:extend({
   {type = "recipe-category", name = "crushing"},
+  {type = "recipe-category", name = "crushed-ore"},
   {type = "item-subgroup", name = "crushing-machines", group = "production"},
   {type = "item-subgroup", name = "crushing", group = "intermediate-products"},
+  {type = "item-subgroup", name = "crushed-ore", group = "intermediate-products"},
   {
     type = "assembling-machine",
     name = "burner-ore-crusher",
@@ -28,7 +30,7 @@ data:extend({
     max_health = 100,
     corpse = "medium-small-remnants",
     crafting_categories = {"crushing"},
-    energy_usage = "680kW",
+    energy_usage = "280kW",
     crafting_speed = 2,
     energy_source = {
       type = "burner",
@@ -132,7 +134,7 @@ data:extend({
     max_health = 100,
     corpse = "medium-small-remnants",
     crafting_categories = {"crushing"},
-    energy_usage = "500kW",
+    energy_usage = "200kW",
     drain = "20kW",
     crafting_speed = 2,
     energy_source = {
