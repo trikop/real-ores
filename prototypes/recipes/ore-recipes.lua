@@ -85,7 +85,7 @@ for _, enabledOre in ipairs(enabledOres) do
       icon = iconPathPlate,
       icon_size = 64,
       category = "smelting",
-      order = "b-" .. enabledOre.input,
+      order = "b-" .. enabledOre.output .. "-" .. enabledOre.input,
       enabled = true,
       energy_required = 32,
       ingredients = {{enabledOre.input, 20}}, 
@@ -106,19 +106,19 @@ for _, enabledOre in ipairs(enabledOres) do
         {filename = iconPathOre, size=64, scale=0.125},
       }, 
       subgroup = "crushed-ore",
-      order = "c-a-" .. enabledOre.input,
+      order = "c-a-" .. enabledOre.output .. "-" .. enabledOre.input,
       stack_size = 20
     },
     {
       type = "recipe",
-      name = enabledOre.input .. "-crushed-smelting",
+      name = enabledOre.input .. "-crushed-smelting-1",
       icon = iconPathOre,
       icon_size = 64,
-      category = "crushed-ore",
+      category = "smelting",
       order = "a-" .. enabledOre.output .. "-" .. enabledOre.input,
       enabled = true,
-      energy_required = 6,
-      ingredients = {{enabledOre.input, 1}}, 
+      energy_required = 8,
+      ingredients = {{"crushed-" .. enabledOre.input, 1}}, 
       results = {
         {type = "item", name = enabledOre.output .. "-plate", amount = 1}
       }
@@ -132,7 +132,7 @@ for _, enabledOre in ipairs(enabledOres) do
       subgroup = "crushing",
       order = "b-" .. enabledOre.output .. "-" .. enabledOre.input,
       enabled = true,
-      energy_required = 10,
+      energy_required = 18,
       ingredients = {{enabledOre.input, 20}}, 
       results = {
         {type = "item", name = "crushed-" .. enabledOre.input, amount = 1, probability = 0.7}, {type = "item", name = "stone", amount = 1, probability = 0.3}

@@ -218,7 +218,7 @@ data:extend({
     type = "recipe",
     name = "electric-ore-crusher",
     result = "electric-ore-crusher",
-    enabled = true,
+    enabled = false,
     ingredients = electric_ore_crusher_ingredients,
   },
 })

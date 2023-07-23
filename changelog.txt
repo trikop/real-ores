@@ -1,5 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.1.0
+Date: 2023-07-23
+  Features:
+    - Mod should be quite playable with vanilla. Feedback is gladly accepted :D (especially more and more complex processing chains I'm not exactly sure how to figure out how to do)
+---------------------------------------------------------------------------------------------------
 Version: 0.0.1
 Date: 2023-05-30
   Features:
-    - Release (won't bother uploading changelogs since this is a wip mod :P)
+    - Release
