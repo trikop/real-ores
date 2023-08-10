@@ -62,32 +62,107 @@ local oreListUranium = {
     {name = "uraninite",        hardness = 1, mining_time = 2, fluid_amount = 1, required_fluid = "sulfuric-acid", results = {{type = "item", name = "uraninite", amount_min = 1, amount_max = 1}},         base_density = 5, base_spots_per_km2 = 1, has_starting_area_placement = true,  regular_rq_factor_multiplier = 1, starting_rq_factor_multiplier = 1}
 }
 local iconCoal = {}
+local iconCoal1 = {}
+local iconCoal2 = {}
+local iconCoal3 = {}
 local filenameCoal = {}
 local filenameCoalHR = {}
 local iconCopper = {}
+local iconCopper1 = {}
+local iconCopper2 = {}
+local iconCopper3 = {}
 local filenameCopper = {}
 local filenameCopperHR = {}
 local iconIron = {}
+local iconIron1 = {}
+local iconIron2 = {}
+local iconIron3 = {}
 local filenameIron = {}
 local filenameIronHR = {}
 local iconUranium = {}
+local iconUranium1 = {}
+local iconUranium2 = {}
+local iconUranium3 = {}
 local filenameUranium = {}
 local filenameUraniumHR = {}
-if mods.base then
-    iconCoal = "__base__/graphics/icons/coal.png"
-    filenameCoal= "__base__/graphics/entity/coal/coal.png"
-    filenameCoalHR = "__base__/graphics/entity/coal/hr-coal.png"
-    iconCopper = "__base__/graphics/icons/copper-ore.png"
-    filenameCopper = "__base__/graphics/entity/copper-ore/copper-ore.png"
-    filenameCopperHR = "__base__/graphics/entity/copper-ore/hr-copper-ore.png"
-    iconIron = "__base__/graphics/icons/iron-ore.png"
-    filenameIron = "__base__/graphics/entity/iron-ore/iron-ore.png"
-    filenameIronHR = "__base__/graphics/entity/iron-ore/hr-iron-ore.png"
-    iconUranium = "__base__/graphics/icons/uranium-ore.png"
-    filenameUranium = "__base__/graphics/entity/uranium-ore/uranium-ore.png"
-    filenameUraniumHR = "__base__/graphics/entity/uranium-ore/hr-uranium-ore.png"
+local filenameUraniumGlow = {}
+local filenameUraniumGlowHR = {}
+local imgRoot = nil
+local mapColors = {}
+local miningVisualisationTint = {}
 
-    
+if mods.RealisticOres then
+    imgRoot = "__RealisticOres__"
+    require("__RealisticOres__/commons") -- for the mainColors table
+    mapColors = util.table.deepcopy(mainColors)
+    mapColors.coal = {0, 0, 0}
+    miningVisualisationTint = util.table.deepcopy(mainColors)
+    iconCoal = "__base__" .. "/graphics/icons/coal.png"
+    iconCoal1 = "__base__" .. "/graphics/icons/coal-1.png"
+    iconCoal2 = "__base__" .. "/graphics/icons/coal-2.png"
+    iconCoal3 = "__base__" .. "/graphics/icons/coal-3.png"
+    filenameCoal= "__base__" .. "/graphics/entity/coal/coal.png"
+    filenameCoalHR = "__base__" .. "/graphics/entity/coal/hr-coal.png"
+    iconCopper = imgRoot .. "/graphics/icons/copper-ore.png"
+    iconCopper1 = imgRoot .. "/graphics/icons/copper-ore-1.png"
+    iconCopper2 = imgRoot .. "/graphics/icons/copper-ore-2.png"
+    iconCopper3 = imgRoot .. "/graphics/icons/copper-ore-3.png"
+    filenameCopper = imgRoot .. "/graphics/entity/copper-ore/copper-ore.png"
+    filenameCopperHR = imgRoot .. "/graphics/entity/copper-ore/hr-copper-ore.png"
+    iconIron = imgRoot .. "/graphics/icons/iron-ore.png"
+    iconIron1 = imgRoot .. "/graphics/icons/iron-ore-1.png"
+    iconIron2 = imgRoot .. "/graphics/icons/iron-ore-2.png"
+    iconIron3 = imgRoot .. "/graphics/icons/iron-ore-3.png"
+    filenameIron = imgRoot .. "/graphics/entity/iron-ore/iron-ore.png"
+    filenameIronHR = imgRoot .. "/graphics/entity/iron-ore/hr-iron-ore.png"
+    iconUranium = imgRoot .. "/graphics/icons/uranium-ore.png"
+    iconUranium1 = imgRoot .. "/graphics/icons/uranium-ore-1.png"
+    iconUranium2 = imgRoot .. "/graphics/icons/uranium-ore-2.png"
+    iconUranium3 = imgRoot .. "/graphics/icons/uranium-ore-3.png"
+    filenameUranium = imgRoot .. "/graphics/entity/uranium-ore/uranium-ore.png"
+    filenameUraniumHR = imgRoot .. "/graphics/entity/uranium-ore/hr-uranium-ore.png"
+    filenameUraniumGlow = imgRoot ..  "/graphics/entity/uranium-ore/uranium-ore-glow.png"
+    filenameUraniumGlowHR = imgRoot ..  "/graphics/entity/uranium-ore/hr-uranium-ore-glow.png"
+elseif mods.base then
+    imgRoot = "__base__"
+    mapColors = {
+        coal = {0, 0, 0},
+        copper = {0.803, 0.388, 0.215},
+        iron = {0.415, 0.525, 0.5800},
+        uranium = {0.690, 0.611, 0.427},
+    }
+    miningVisualisationTint = {
+            coal = nil,
+            copper = nil,
+            iron = nil,
+            uranium = {r = 0.814, g = 1.000, b = 0.499, a = 1.000}, -- #cfff7fff
+    }
+    iconCoal = imgRoot .. "/graphics/icons/coal.png"
+    iconCoal1 = imgRoot .. "/graphics/icons/coal-1.png"
+    iconCoal2 = imgRoot .. "/graphics/icons/coal-2.png"
+    iconCoal3 = imgRoot .. "/graphics/icons/coal-3.png"
+    filenameCoal= imgRoot .. "/graphics/entity/coal/coal.png"
+    filenameCoalHR = imgRoot .. "/graphics/entity/coal/hr-coal.png"
+    iconCopper = imgRoot .. "/graphics/icons/copper-ore.png"
+    iconCopper1 = imgRoot .. "/graphics/icons/copper-ore-1.png"
+    iconCopper2 = imgRoot .. "/graphics/icons/copper-ore-2.png"
+    iconCopper3 = imgRoot .. "/graphics/icons/copper-ore-3.png"
+    filenameCopper = imgRoot .. "/graphics/entity/copper-ore/copper-ore.png"
+    filenameCopperHR = imgRoot .. "/graphics/entity/copper-ore/hr-copper-ore.png"
+    iconIron = imgRoot .. "/graphics/icons/iron-ore.png"
+    iconIron1 = imgRoot .. "/graphics/icons/iron-ore-1.png"
+    iconIron2 = imgRoot .. "/graphics/icons/iron-ore-2.png"
+    iconIron3 = imgRoot .. "/graphics/icons/iron-ore-3.png"
+    filenameIron = imgRoot .. "/graphics/entity/iron-ore/iron-ore.png"
+    filenameIronHR = imgRoot .. "/graphics/entity/iron-ore/hr-iron-ore.png"
+    iconUranium = imgRoot .. "/graphics/icons/uranium-ore.png"
+    iconUranium1 = imgRoot .. "/graphics/icons/uranium-ore-1.png"
+    iconUranium2 = imgRoot .. "/graphics/icons/uranium-ore-2.png"
+    iconUranium3 = imgRoot .. "/graphics/icons/uranium-ore-3.png"
+    filenameUranium = imgRoot .. "/graphics/entity/uranium-ore/uranium-ore.png"
+    filenameUraniumHR = imgRoot .. "/graphics/entity/uranium-ore/hr-uranium-ore.png"
+    filenameUraniumGlow = imgRoot ..  "/graphics/entity/uranium-ore/uranium-ore-glow.png"
+    filenameUraniumGlowHR = imgRoot ..  "/graphics/entity/uranium-ore/hr-uranium-ore-glow.png"
 else
 
 end
@@ -112,7 +187,7 @@ for _, ore in pairs(oreListCoal) do
         icon_size = 64,
         flags = {"placeable-neutral"},
         order = "b-c-" .. ore.name,
-        map_color = {0, 0, 0},
+        map_color = mapColors.coal,
         tree_removal_probability = 0.7,
         tree_removal_max_distance = 32 * 32,
         minable = {
@@ -151,6 +226,7 @@ for _, ore in pairs(oreListCoal) do
                 }
             }
         },
+        mining_visualisation_tint = miningVisualisationTint.coal,
       },
       {
         type = "item",
@@ -161,10 +237,10 @@ for _, ore in pairs(oreListCoal) do
         icon_mipmaps = 4,
         icon = iconCoal,
         pictures = {
-          {filename="__base__/graphics/icons/coal.png", size=64, scale=0.125},
-          {filename="__base__/graphics/icons/coal-1.png", size=64, scale=0.125},
-          {filename="__base__/graphics/icons/coal-2.png", size=64, scale=0.125},
-          {filename="__base__/graphics/icons/coal-3.png", size=64, scale=0.125},
+          {filename=iconCoal, size=64, scale=0.125},
+          {filename=iconCoal1, size=64, scale=0.125},
+          {filename=iconCoal2, size=64, scale=0.125},
+          {filename=iconCoal3, size=64, scale=0.125},
         },
         subgroup = "raw-resource",
         order = "b-c-" .. ore.name,
@@ -193,7 +269,7 @@ for _, ore in pairs(oreListCopper) do
         icon_size = 64,
         flags = {"placeable-neutral"},
         order = "b-b-" .. ore.name,
-        map_color = {0.803, 0.388, 0.215},
+        map_color = mapColors.copper,
         tree_removal_probability = 0.7,
         tree_removal_max_distance = 32 * 32,
         minable = {
@@ -232,6 +308,7 @@ for _, ore in pairs(oreListCopper) do
                 }
             }
         },
+        mining_visualisation_tint = miningVisualisationTint.copper,
       },
       {
         type = "item",
@@ -240,10 +317,10 @@ for _, ore in pairs(oreListCopper) do
         icon_mipmaps = 4,
         icon = iconCopper,
         pictures = {
-          {filename="__base__/graphics/icons/copper-ore.png", size=64, scale=0.125},
-          {filename="__base__/graphics/icons/copper-ore-1.png", size=64, scale=0.125},
-          {filename="__base__/graphics/icons/copper-ore-2.png", size=64, scale=0.125},
-          {filename="__base__/graphics/icons/copper-ore-3.png", size=64, scale=0.125},
+          {filename=iconCopper, size=64, scale=0.125},
+          {filename=iconCopper1, size=64, scale=0.125},
+          {filename=iconCopper2, size=64, scale=0.125},
+          {filename=iconCopper3, size=64, scale=0.125},
         },
         subgroup = "raw-resource",
         order = "b-b-" .. ore.name,
@@ -272,7 +349,7 @@ for _, ore in pairs(oreListIron) do
         icon_size = 64,
         flags = {"placeable-neutral"},
         order = "b-a-" .. ore.name,
-        map_color = {0.415, 0.525, 0.580},
+        map_color = mapColors.iron,
         tree_removal_probability = 0.7,
         tree_removal_max_distance = 32 * 32,
         minable = {
@@ -311,6 +388,7 @@ for _, ore in pairs(oreListIron) do
                 }
             }
         },
+        mining_visualisation_tint = miningVisualisationTint.iron,
       },
       {
         type = "item",
@@ -319,10 +397,10 @@ for _, ore in pairs(oreListIron) do
         icon_mipmaps = 4,
         icon = iconIron,
         pictures = {
-          {filename="__base__/graphics/icons/iron-ore.png", size=64, scale=0.125},
-          {filename="__base__/graphics/icons/iron-ore-1.png", size=64, scale=0.125},
-          {filename="__base__/graphics/icons/iron-ore-2.png", size=64, scale=0.125},
-          {filename="__base__/graphics/icons/iron-ore-3.png", size=64, scale=0.125},
+          {filename=iconIron, size=64, scale=0.125},
+          {filename=iconIron1, size=64, scale=0.125},
+          {filename=iconIron2, size=64, scale=0.125},
+          {filename=iconIron3, size=64, scale=0.125},
         },
         subgroup = "raw-resource",
         order = "b-a-" .. ore.name,
@@ -350,7 +428,7 @@ for _, ore in pairs(oreListUranium) do
         icon_size = 64,
         flags = {"placeable-neutral"},
         order = "c-" .. ore.name,
-        map_color = {0.690, 0.611, 0.427},
+        map_color = mapColors.uranium,
         tree_removal_probability = 0.7,
         tree_removal_max_distance = 32 * 32,
         minable = {
@@ -391,7 +469,7 @@ for _, ore in pairs(oreListUranium) do
         },
         stages_effect = {
         sheet = {
-            filename = "__base__/graphics/entity/uranium-ore/uranium-ore-glow.png",
+            filename = filenameUraniumGlow,
             priority = "extra-high",
             width = 64,
             height = 64,
@@ -401,7 +479,7 @@ for _, ore in pairs(oreListUranium) do
             flags = {"light"},
             hr_version =
             {
-            filename = "__base__/graphics/entity/uranium-ore/hr-uranium-ore-glow.png",
+            filename = filenameUraniumGlowHR,
             priority = "extra-high",
             width = 128,
             height = 128,
@@ -418,8 +496,7 @@ for _, ore in pairs(oreListUranium) do
         effect_darkness_multiplier = 3.6,
         min_effect_alpha = 0.2,
         max_effect_alpha = 0.3,
-        mining_visualisation_tint = {r = 0.814, g = 1.000, b = 0.499, a = 1.000}, -- #cfff7fff
-        map_color = {0, 0.7, 0}
+        mining_visualisation_tint = miningVisualisationTint.uranium,
       },
       {
         type = "item",
@@ -428,10 +505,10 @@ for _, ore in pairs(oreListUranium) do
         icon_mipmaps = 4,
         icon = iconUranium,
         pictures = {
-          {filename="__base__/graphics/icons/uranium-ore.png", size=64, scale=0.125},
-          {filename="__base__/graphics/icons/uranium-ore-1.png", size=64, scale=0.125},
-          {filename="__base__/graphics/icons/uranium-ore-2.png", size=64, scale=0.125},
-          {filename="__base__/graphics/icons/uranium-ore-3.png", size=64, scale=0.125},
+          {filename=iconUranium, size=64, scale=0.125},
+          {filename=iconUranium1, size=64, scale=0.125},
+          {filename=iconUranium2, size=64, scale=0.125},
+          {filename=iconUranium3, size=64, scale=0.125},
         },
         subgroup = "raw-resource",
         order = "c-" .. ore.name,
