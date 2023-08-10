@@ -1,6 +1,6 @@
 enabledOres = {}
 if data.raw["recipe"]["akaganeite-smelting-2"]      then table.insert(enabledOres, {input = "akaganeite", output = "iron"}) end
-if data.raw["recipe"]["aankerite-smelting-2"]       then table.insert(enabledOres, {input = "aankerite", output = "iron"}) end
+if data.raw["recipe"]["ankerite-smelting-2"]        then table.insert(enabledOres, {input = "ankerite", output = "iron"}) end
 if data.raw["recipe"]["cronstedtite-smelting-2"]    then table.insert(enabledOres, {input = "cronstedtite", output = "iron"}) end
 if data.raw["recipe"]["ferrihydrite-smelting-2"]    then table.insert(enabledOres, {input = "ferrihydrite", output = "iron"}) end
 if data.raw["recipe"]["goethite-smelting-2"]        then table.insert(enabledOres, {input = "goethite", output = "iron"}) end
