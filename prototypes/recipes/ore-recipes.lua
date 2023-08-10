@@ -118,8 +118,12 @@ for _, enabledOre in pairs(enabledOres) do
 end
 
 for _, enabledOre in pairs(enabledOres) do
-  local iconPathOre = "__base__/graphics/icons/" .. enabledOre.output .. "-ore.png"
-  local iconPathPlate = "__base__/graphics/icons/" .. enabledOre.output .. "-plate.png"
+  local iconPathOre = data.raw.item[enabledOre.output .. "-ore"].icon
+  local iconPathOrePicture0 = data.raw.item[enabledOre.output .. "-ore"].pictures[1].filename
+  local iconPathOrePicture1 = data.raw.item[enabledOre.output .. "-ore"].pictures[2].filename
+  local iconPathOrePicture2 = data.raw.item[enabledOre.output .. "-ore"].pictures[3].filename
+  local iconPathOrePicture3 = data.raw.item[enabledOre.output .. "-ore"].pictures[4].filename
+  local iconPathPlate = data.raw.item[enabledOre.output .. "-plate"].icon
   data:extend({
     {
       type = "recipe",
@@ -142,10 +146,10 @@ for _, enabledOre in pairs(enabledOres) do
       icon_mipmaps = 4,
       icon = iconPathOre,
       pictures = {
-        {filename = iconPathOre, size=64, scale=0.125},
-        {filename = iconPathOre, size=64, scale=0.125},
-        {filename = iconPathOre, size=64, scale=0.125},
-        {filename = iconPathOre, size=64, scale=0.125},
+        {filename = iconPathOrePicture0, size=64, scale=0.125},
+        {filename = iconPathOrePicture1, size=64, scale=0.125},
+        {filename = iconPathOrePicture2, size=64, scale=0.125},
+        {filename = iconPathOrePicture3, size=64, scale=0.125},
       }, 
       subgroup = "crushed-ore",
       order = "c-a-" .. enabledOre.output .. "-" .. enabledOre.input,
