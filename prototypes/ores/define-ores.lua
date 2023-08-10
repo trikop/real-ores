@@ -419,7 +419,6 @@ for _, ore in pairs(oreListUranium) do
         min_effect_alpha = 0.2,
         max_effect_alpha = 0.3,
         mining_visualisation_tint = {r = 0.814, g = 1.000, b = 0.499, a = 1.000}, -- #cfff7fff
-        map_color = {0, 0.7, 0}
       },
       {
         type = "item",
