@@ -1,4 +1,4 @@
-if data.raw.item["nickel-ore"] and data.raw.item["nitrogen"] then
+if data.raw.item["nickel-ore"] and data.raw.fluid["nitrogen"] then
   data:extend({
     {
         type = "recipe",
