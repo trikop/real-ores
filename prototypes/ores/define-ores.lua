@@ -123,7 +123,7 @@ for _, ore in pairs(orelist) do
       {
         type = "item",
         name = ore.name,
-        fuel_value = ore.fuel_value,
+        fuel_value = ore.f_value,
         fuel_category = "chemical",
         icon_size = 64, icon_mipmaps = 4, 
         icon = ore.icon .. ".png",
