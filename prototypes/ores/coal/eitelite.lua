@@ -10,7 +10,7 @@ if data.raw.item["sodium"] and data.raw.item["magnesium-ore"] then
         enabled = false,
         energy_required = 1,
         ingredients = {{"eitelite", 1}}, 
-        results = 
+        results =
         {
           {type="item", name="sodium", amount=1, probability=.2416},
           {type="item", name="magnesium-ore", amount=1, probability=.1277},

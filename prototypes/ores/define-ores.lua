@@ -1,6 +1,23 @@
 local resource_autoplace = require("resource-autoplace");
 local item_sounds = require('__base__.prototypes.item_sounds')
 
+local existing_ores_from_mods = {
+  ["iron-ore"] = true,
+  ["copper-ore"] = true,
+  ["coal"] = true,
+  ["uranium-ore"] = true,
+}
+
+if data.raw.item["magnesium-ore"] then
+  existing_ores_from_mods["magnesium-ore"] = true
+end
+
+if data.raw.item["sodium"] then
+  existing_ores_from_mods["sodium"] = true
+end
+
+
+
 local function make_ore(ore)
   local icon, filename, mining_particle
   if ore.icon and ore.filename and ore.mining_particle then
@@ -53,8 +70,8 @@ local function make_ore(ore)
 end
 
 local define_ores = {
-  {name = "dinite",          type = "coal",   fuel_value = "5MJ",   map_color = {0,0,0}, start_placement = true},
-  {name = "eitelite",        type = "coal",   fuel_value = "1MJ",   map_color = {0,0,0}},
+  {name = "dinite",          type = "coal",   fuel_value = "5MJ",   map_color = {0,0,0}, start_placement = true, results = {{type="fluid", name="hydrogen", amount = 1, probability=.1312}, {type="item", name="coal", amount = 1, probability=.8688}}},
+  {name = "eitelite",        type = "coal",   fuel_value = "1MJ",   map_color = {0,0,0}, results = {{type="item", name="sodium", amount=1, probability=.2416}, {type="item", name="magnesium-ore", amount=1, probability=.1277}, {type="item", name="coal", amount=1, probability=.1262}, {type="fluid", name="oxygen", amount=1, probability=.5044}}},
   {name = "humboldtine",     type = "coal",   fuel_value = "1MJ",   map_color = {0,0,0}, start_placement = true},
   {name = "kochsandorite",   type = "coal",   fuel_value = "0.5MJ", map_color = {0,0,0}},
   {name = "lansfordite",     type = "coal",   fuel_value = "0.5MJ", map_color = {0,0,0}},
@@ -135,14 +152,14 @@ for _, ore in pairs(orelist) do
         category = "resource",
         name = ore.name,
         richness = true,
-        order = "a-a-" .. ore.type
+        order = "a-" .. ore.type .. "-" .. ore.name
       },
       {
         type = "resource",
         name = ore.name,
         icon = ore.icon .. ".png",
         icon_size = 64,
-        category="basic-solid",
+        category= "basic-solid",
         flags = {"placeable-neutral"},
         order = "a-a-" .. ore.name,
         map_color = ore.map_color,
@@ -200,5 +217,21 @@ for _, ore in pairs(orelist) do
         pick_sound = item_sounds.wire_inventory_pickup,
         drop_sound = item_sounds.wire_inventory_move,
       },
+  --     {
+  --     type = "recipe",
+  --     name = ore.name .. "-smelting",
+  --     icon = ore.icon .. ".png",
+  --     icon_size = 64,
+  --     main_product = ore.type,
+  --     category = ore.category or "chemistry",
+  --     enabled = false,
+  --     energy_required = 1,
+  --     ingredients = {{"dinite", 1}}, 
+  --     results = 
+  --     {
+  --       {type="fluid", name="hydrogen", amount=1, probability=.1312},
+  --       {type="item", name="coal", amount=1, probability=.8688},
+  --     }
+  -- }
     })
 end
