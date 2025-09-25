@@ -23,7 +23,7 @@ local function make_ore(ore)
     elseif ore.type == "uranium" then
       icon = "__base__/graphics/icons/uranium-ore"
       filename = "__base__/graphics/entity/uranium-ore/uranium-ore"
-      mining_particle = "uranium-ore-particle"
+      mining_particle = nil
     else
       icon = "__base__/graphics/icons/coal"
       filename = "__base__/graphics/entity/coal/coal"
@@ -108,15 +108,15 @@ local define_ores = {
 
 
 
--- if mods.Krastorio2 then
---   local kr_ores = {
---     {name = "kr1test",             r = {{type = "item", name = "dinite", amount_min = 1, amount_max = 1}},          f_value = "5MJ",  weight = 4.5*kg, hardness = 1, m_time = 1, map_color = {0, 0, 0},             f_amount = nil, r_fluid = nil, base_density = 5, base_spots_per_km2 = 1, start_placement = true,  regular_rq_factor_multiplier = 1, starting_rq_factor_multiplier = 1, icon = "__base__/graphics/icons/coal", filename= "__base__/graphics/entity/coal/coal", mining_particle = "coal-particle"},
---     {name = "kr2test",             r = {{type = "item", name = "eitelite", amount_min = 1, amount_max = 1}},        f_value = "1MJ",  weight = 4.5*kg, hardness = 1, m_time = 1, map_color = {0, 0, 0},             f_amount = nil, r_fluid = nil, base_density = 5, base_spots_per_km2 = 1, start_placement = false, regular_rq_factor_multiplier = 1, starting_rq_factor_multiplier = 1, icon = "__base__/graphics/icons/coal", filename= "__base__/graphics/entity/coal/coal", mining_particle = "coal-particle"},
---   }
---   for _, ore in ipairs(kr_ores) do
---     table.insert(orelist, ore)
---   end
--- end
+if mods.Krastorio2 then
+  local kr_ores = {
+    {name = "kr1test", type = "iron",   map_color = {0.415,0.525,0.580}},
+    {name = "kr2test", type = "iron",   map_color = {0.415,0.525,0.580}},
+  }
+  for _, ore in ipairs(kr_ores) do
+    table.insert(orelist, ore)
+  end
+end
 
 -- Convert compact definitions into normalized ores using make_ore
 local orelist = {}
@@ -135,7 +135,7 @@ for _, ore in pairs(orelist) do
         category = "resource",
         name = ore.name,
         richness = true,
-        order = "a-a-" .. ore.name
+        order = "a-a-" .. ore.type
       },
       {
         type = "resource",
