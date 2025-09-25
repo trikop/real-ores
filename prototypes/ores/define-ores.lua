@@ -49,7 +49,7 @@ local function make_ore(ore)
   end
   return {
     name = ore.name,
-    results = ore.results or {{type = "item", name = ore.name, amount_min = 1, amount_max = 1}},
+    results = ore.results or {{type="item", name=ore.name, amount_min=1, amount_max=1}},
     type = ore.type,
     fuel_value = ore.fuel_value or nil,
     weight = ore.weight or 4.5*kg,
@@ -70,8 +70,8 @@ local function make_ore(ore)
 end
 
 local define_ores = {
-  {name = "dinite",          type = "coal",   fuel_value = "5MJ",   map_color = {0,0,0}, start_placement = true, results = {{type="fluid", name="hydrogen", amount = 1, probability=.1312}, {type="item", name="coal", amount = 1, probability=.8688}}},
-  {name = "eitelite",        type = "coal",   fuel_value = "1MJ",   map_color = {0,0,0}, results = {{type="item", name="sodium", amount=1, probability=.2416}, {type="item", name="magnesium-ore", amount=1, probability=.1277}, {type="item", name="coal", amount=1, probability=.1262}, {type="fluid", name="oxygen", amount=1, probability=.5044}}},
+  {name = "dinite",          type = "coal",   fuel_value = "5MJ",   map_color = {0,0,0}, start_placement = true, processing_results = {{type="fluid", name="hydrogen", amount = 1, probability=.1312}, {type="item", name="coal", amount = 1, probability=.8688}}},
+  --{name = "eitelite",        type = "coal",   fuel_value = "1MJ",   map_color = {0,0,0}, start_placement = true, processing_results = {{type="item", name="sodium", amount=1, probability=.2416}, {type="item", name="magnesium-ore", amount=1, probability=.1277}, {type="item", name="coal", amount=1, probability=.1262}, {type="fluid", name="oxygen", amount=1, probability=.5044}}},
   -- {name = "humboldtine",     type = "coal",   fuel_value = "1MJ",   map_color = {0,0,0}, start_placement = true},
   -- {name = "kochsandorite",   type = "coal",   fuel_value = "0.5MJ", map_color = {0,0,0}},
   -- {name = "lansfordite",     type = "coal",   fuel_value = "0.5MJ", map_color = {0,0,0}},
@@ -215,17 +215,17 @@ for _, ore in pairs(orelist) do
         pick_sound = item_sounds.wire_inventory_pickup,
         drop_sound = item_sounds.wire_inventory_move,
       },
-  --     {
-  --     type = "recipe",
-  --     name = ore.name .. "-processing",
-  --     icon = ore.icon .. ".png",
-  --     icon_size = 64,
-  --     main_product = ore.type,
-  --     category = ore.category or "chemistry",
-  --     enabled = true,
-  --     energy_required = 1,
-  --     ingredients = {{type="item", name=ore.name, amount=1}},
-  --     results = ore.results or nil
-  -- }
+      {--add recipe 20 ore to 1 plate or some shit
+        type = "recipe",
+        name = ore.name .. "-processing",
+        icon = ore.icon .. ".png",
+        icon_size = 64,
+        main_product = ore.processing_results and ore.processing_results[1] and ore.processing_results[1].name,
+        category = ore.category or "chemistry",
+        enabled = true,
+        energy_required = 1,
+        ingredients = {{type="item", name=ore.name, amount=1}},
+        results = ore.processing_results
+      }
     })
 end
