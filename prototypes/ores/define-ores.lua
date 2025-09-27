@@ -16,6 +16,9 @@ if data.raw.item["sodium"] then
   existing_ores_from_mods["sodium"] = true
 end
 
+if data.raw.item["magnesium-ore"] or data.raw.item["sodium"] then
+  existing_ores= (and periodicmadness "pm-" .. )"magnesium-ore"
+end
 
 
 local function make_ore(ore)
