@@ -16,38 +16,39 @@ if data.raw.item["sodium"] then
   existing_ores_from_mods["sodium"] = true
 end
 
-if data.raw.item["magnesium-ore"] or data.raw.item["sodium"] then
-  existing_ores= (and periodicmadness "pm-" .. )"magnesium-ore"
-end
-
-
 local function make_ore(ore)
-  local icon, filename, mining_particle
-  if ore.icon and ore.filename and ore.mining_particle then
+  local icon, filename, mining_particle, mapcolor
+  if ore.icon and ore.filename and ore.mining_particle and ore.map_color then
     icon = ore.icon
     filename = ore.filename
     mining_particle = ore.mining_particle
+    mapcolor = ore.map_color
   else
     if ore.type == "coal" then
       icon = "__base__/graphics/icons/coal"
       filename = "__base__/graphics/entity/coal/coal"
       mining_particle = "coal-particle"
+      mapcolor = {0,0,0}
     elseif ore.type == "copper" then
       icon = "__base__/graphics/icons/copper-ore"
       filename = "__base__/graphics/entity/copper-ore/copper-ore"
       mining_particle = "copper-ore-particle"
+      mapcolor = {0.803,0.388,0.215}
     elseif ore.type == "iron" then
       icon = "__base__/graphics/icons/iron-ore"
       filename = "__base__/graphics/entity/iron-ore/iron-ore"
       mining_particle = "iron-ore-particle"
+      mapcolor = {0.415,0.525,0.580}
     elseif ore.type == "uranium" then
       icon = "__base__/graphics/icons/uranium-ore"
       filename = "__base__/graphics/entity/uranium-ore/uranium-ore"
       mining_particle = nil
+      mapcolor = {0,0.7,0}
     else
       icon = "__base__/graphics/icons/coal"
       filename = "__base__/graphics/entity/coal/coal"
       mining_particle = "coal-particle"
+      mapcolor = {1,1,1}
     end
   end
   return {
@@ -60,7 +61,7 @@ local function make_ore(ore)
     mining_time = ore.mining_time or 1,
     fluid_amount = ore.fluid_amount or nil,
     required_fluid = ore.required_fluid or nil,
-    map_color = ore.map_color or {1, 1, 1},
+    map_color = mapcolor or ore.map_color,
     base_density = ore.base_density or 5,
     base_spots_per_km2 = ore.base_spots_per_km2 or 1,
     has_starting_area_placement = ore.start_placement or false,
@@ -73,57 +74,64 @@ local function make_ore(ore)
 end
 
 local define_ores = {
-  {name = "dinite",          type = "coal",   fuel_value = "5MJ",   map_color = {0,0,0}, start_placement = true, processing_results = {{type="fluid", name="hydrogen", amount = 1, probability=.1312}, {type="item", name="coal", amount = 1, probability=.8688}}},
-  --{name = "eitelite",        type = "coal",   fuel_value = "1MJ",   map_color = {0,0,0}, start_placement = true, processing_results = {{type="item", name="sodium", amount=1, probability=.2416}, {type="item", name="magnesium-ore", amount=1, probability=.1277}, {type="item", name="coal", amount=1, probability=.1262}, {type="fluid", name="oxygen", amount=1, probability=.5044}}},
-  -- {name = "humboldtine",     type = "coal",   fuel_value = "1MJ",   map_color = {0,0,0}, start_placement = true},
-  -- {name = "kochsandorite",   type = "coal",   fuel_value = "0.5MJ", map_color = {0,0,0}},
-  -- {name = "lansfordite",     type = "coal",   fuel_value = "0.5MJ", map_color = {0,0,0}},
-  -- {name = "niveolanite",     type = "coal",   fuel_value = "0.5MJ", map_color = {0,0,0}},
-  -- {name = "refikite",        type = "coal",   fuel_value = "4MJ",   map_color = {0,0,0}},
-  -- {name = "wattevilleite",   type = "coal",   fuel_value = "5MJ",   map_color = {0,0,0}},
-  -- {name = "azurite",         type = "copper", map_color = {0.803,0.388,0.215}},
-  -- {name = "bornite",         type = "copper", map_color = {0.803,0.388,0.215}},
-  -- {name = "chalcocite",      type = "copper", map_color = {0.803,0.388,0.215}},
-  -- {name = "chalcopyrite",    type = "copper", map_color = {0.803,0.388,0.215}},
-  -- {name = "chrysocolla",     type = "copper", map_color = {0.803,0.388,0.215}},
-  -- {name = "covellite",       type = "copper", map_color = {0.803,0.388,0.215}},
-  -- {name = "cuprite",         type = "copper", map_color = {0.803,0.388,0.215}},
-  -- {name = "dioptase",        type = "copper", map_color = {0.803,0.388,0.215}},
-  -- {name = "djurleite",       type = "copper", map_color = {0.803,0.388,0.215}},
-  -- {name = "enargite",        type = "copper", map_color = {0.803,0.388,0.215}},
-  -- {name = "malachite",       type = "copper", map_color = {0.803,0.388,0.215}, start_placement = true},
-  -- {name = "tennantite",      type = "copper", map_color = {0.803,0.388,0.215}},
-  -- {name = "tenorite",        type = "copper", map_color = {0.803,0.388,0.215}, start_placement = true},
-  -- {name = "tetrahedite",     type = "copper", map_color = {0.803,0.388,0.215}},
-  -- {name = "akaganeite",      type = "iron",   map_color = {0.415,0.525,0.580}},
-  -- {name = "ankerite",        type = "iron",   map_color = {0.415,0.525,0.580}},
-  -- {name = "cronstedtite",    type = "iron",   map_color = {0.415,0.525,0.580}},
-  -- {name = "ferrihydrite",    type = "iron",   map_color = {0.415,0.525,0.580}},
-  -- {name = "goethite",        type = "iron",   map_color = {0.415,0.525,0.580}},
-  -- {name = "greenalite",      type = "iron",   map_color = {0.415,0.525,0.580}},
-  -- {name = "greigite",        type = "iron",   map_color = {0.415,0.525,0.580}},
-  -- {name = "grunerite",       type = "iron",   map_color = {0.415,0.525,0.580}},
-  -- {name = "hematite",        type = "iron",   map_color = {0.415,0.525,0.580}, start_placement = true},
-  -- {name = "lepidocrocite",   type = "iron",   map_color = {0.415,0.525,0.580}},
-  -- {name = "macaulayite",     type = "iron",   map_color = {0.415,0.525,0.580}},
-  -- {name = "magnesioferrite", type = "iron",   map_color = {0.415,0.525,0.580}},
-  -- {name = "magnetite",       type = "iron",   map_color = {0.415,0.525,0.580}},
-  -- {name = "minnesotaite",    type = "iron",   map_color = {0.415,0.525,0.580}},
-  -- {name = "pyrite",          type = "iron",   map_color = {0.415,0.525,0.580}},
-  -- {name = "pyrrhotite",      type = "iron",   map_color = {0.415,0.525,0.580}},
-  -- {name = "roaldite",        type = "iron",   map_color = {0.415,0.525,0.580}},
-  -- {name = "schwertmannite",  type = "iron",   map_color = {0.415,0.525,0.580}},
-  -- {name = "siderite",        type = "iron",   map_color = {0.415,0.525,0.580}},
-  -- {name = "stilpnomelane",   type = "iron",   map_color = {0.415,0.525,0.580}},
-  -- {name = "taenite",         type = "iron",   map_color = {0.415,0.525,0.580}},
-  -- {name = "trevorite",       type = "iron",   map_color = {0.415,0.525,0.580}},
-  -- {name = "troilite",        type = "iron",   map_color = {0.415,0.525,0.580}},
-  -- {name = "wustite",         type = "iron",   map_color = {0.415,0.525,0.580}},
-  -- {name = "brannerite",      type = "uranium", fluid_amount = 10, required_fluid = "sulfuric-acid", map_color = {0,0.7,0}},
-  -- {name = "coffinite",       type = "uranium", fluid_amount = 10, required_fluid = "sulfuric-acid", map_color = {0,0.7,0}},
-  -- {name = "davidite-ce",     type = "uranium", fluid_amount = 10, required_fluid = "sulfuric-acid", map_color = {0,0.7,0}},
-  -- {name = "davidite-la",     type = "uranium", fluid_amount = 10, required_fluid = "sulfuric-acid", map_color = {0,0.7,0}},
-  -- {name = "uraninite",       type = "uranium", fluid_amount = 10, required_fluid = "sulfuric-acid", map_color = {0,0.7,0}, start_placement = true},
+  {
+    name = "dinite",
+    type = "coal",   
+    fuel_value = "5MJ",   map_color = {0,0,0}, start_placement = true, 
+    processing_results = {
+      data.raw.fluid["hydrogen"] and {type="fluid", name="hydrogen", amount = 1, probability=.1312},
+      {type="item", name="coal", amount = 1, probability=.8688}},
+    }
+  --{ name = "eitelite",        type = "coal",   fuel_value = "1MJ",   , start_placement = true, processing_results = {{type="item", name="sodium", amount=1, probability=.2416}, {type="item", name="magnesium-ore", amount=1, probability=.1277}, {type="item", name="coal", amount=1, probability=.1262}, {type="fluid", name="oxygen", amount=1, probability=.5044}}},
+  -- {name = "humboldtine",     type = "coal",   fuel_value = "1MJ",   , start_placement = true},
+  -- {name = "kochsandorite",   type = "coal",   fuel_value = "0.5MJ", },
+  -- {name = "lansfordite",     type = "coal",   fuel_value = "0.5MJ", },
+  -- {name = "niveolanite",     type = "coal",   fuel_value = "0.5MJ", },
+  -- {name = "refikite",        type = "coal",   fuel_value = "4MJ",   },
+  -- {name = "wattevilleite",   type = "coal",   fuel_value = "5MJ",   },
+  -- {name = "azurite",         type = "copper",  },
+  -- {name = "bornite",         type = "copper",  },
+  -- {name = "chalcocite",      type = "copper",  },
+  -- {name = "chalcopyrite",    type = "copper",  },
+  -- {name = "chrysocolla",     type = "copper",  },
+  -- {name = "covellite",       type = "copper",  },
+  -- {name = "cuprite",         type = "copper",  },
+  -- {name = "dioptase",        type = "copper",  },
+  -- {name = "djurleite",       type = "copper",  },
+  -- {name = "enargite",        type = "copper",  },
+  -- {name = "malachite",       type = "copper",  } start_placement = true},
+  -- {name = "tennantite",      type = "copper",  },
+  -- {name = "tenorite",        type = "copper",  } start_placement = true},
+  -- {name = "tetrahedite",     type = "copper",  },
+  -- {name = "akaganeite",      type = "iron",    },
+  -- {name = "ankerite",        type = "iron",    },
+  -- {name = "cronstedtite",    type = "iron",    },
+  -- {name = "ferrihydrite",    type = "iron",    },
+  -- {name = "goethite",        type = "iron",    },
+  -- {name = "greenalite",      type = "iron",    },
+  -- {name = "greigite",        type = "iron",    },
+  -- {name = "grunerite",       type = "iron",    },
+  -- {name = "hematite",        type = "iron",    } start_placement = true},
+  -- {name = "lepidocrocite",   type = "iron",    },
+  -- {name = "macaulayite",     type = "iron",    },
+  -- {name = "magnesioferrite", type = "iron",    },
+  -- {name = "magnetite",       type = "iron",    },
+  -- {name = "minnesotaite",    type = "iron",    },
+  -- {name = "pyrite",          type = "iron",    },
+  -- {name = "pyrrhotite",      type = "iron",    },
+  -- {name = "roaldite",        type = "iron",    },
+  -- {name = "schwertmannite",  type = "iron",    },
+  -- {name = "siderite",        type = "iron",    },
+  -- {name = "stilpnomelane",   type = "iron",    },
+  -- {name = "taenite",         type = "iron",    },
+  -- {name = "trevorite",       type = "iron",    },
+  -- {name = "troilite",        type = "iron",    },
+  -- {name = "wustite",         type = "iron",    },
+  -- {name = "brannerite",      type = "uranium", fluid_amount = 10, required_fluid = "sulfuric-acid"},
+  -- {name = "coffinite",       type = "uranium", fluid_amount = 10, required_fluid = "sulfuric-acid"},
+  -- {name = "davidite-ce",     type = "uranium", fluid_amount = 10, required_fluid = "sulfuric-acid"},
+  -- {name = "davidite-la",     type = "uranium", fluid_amount = 10, required_fluid = "sulfuric-acid"},
+  -- {name = "uraninite",       type = "uranium", fluid_amount = 10, required_fluid = "sulfuric-acid", start_placement = true},
 }
 
 if mods.Krastorio2 then
