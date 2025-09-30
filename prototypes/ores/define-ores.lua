@@ -13,16 +13,16 @@ end
 local enabled = {
   iron_ore = "iron-ore",
   copper_ore = "copper-ore",
-  carbon = "coal",
   uranium_ore = "uranium-ore",
 }
 
+enabled.carbon = is_enabled({"carbon", "pm-carbon", "coal"})
 enabled.lead = is_enabled({"lead", "pm-lead"}) -- Maybe take inspo from PM's impure ore mechanic
 enabled.sodium = is_enabled({"sodium", "pm-sodium"})
 enabled.tin = is_enabled({"tin-ore", "pm-tin-ore"})
 enabled.magnesium = is_enabled({"magnesium-ore", "pm-magnesium-ore"})
 
-enabled.hydrogen = is_enabled({"hydrogen", "kr-hydrogen"})
+enabled.hydrogen = is_enabled({"hydrogen", "kr-hydrogen", "water"})
 enabled.oxygen = is_enabled({"oxygen", "kr-oxygen"})
 
 local function make_ore(ore)
@@ -97,29 +97,17 @@ local define_ores = {
     fuel_value = "5MJ",
     start_placement = true,
     processing_results = {
-      data.raw.item[enabled.carbon] and {type="item", name=enabled.carbon, amount = 1, probability=.8688},
-      data.raw.fluid["hydrogen"] and {type="fluid", name="hydrogen", amount = 1, probability=.1312} or
-      {type="fluid", name="water", amount = 1, probability=.1312},
+      {type="item", name="coal", amount = 1, probability=.8688},
+      {type="fluid", name=enabled.hydrogen, amount = 1, probability=.1312}
     }
   },
-  {
-    name = "eitelite",
-    type = "coal",
-    fuel_value = "1MJ",
-    start_placement = true,
-    processing_results = {
-      data.raw.item[enabled.sodium] and {type="item", name=enabled.sodium, amount=1, probability=.2416} or nil,
-      data.raw.item[enabled.magnesium] and {type="item", name=enabled.magnesium, amount=1, probability=.1277} or nil,
-      data.raw.item[enabled.carbon] and {type="item", name=enabled.carbon, probability=.1262} or nil,
-      {type="fluid", name="oxygen", amount=1, probability=.5044}
-    }
-  -- },
-  -- -- {name = "humboldtine",     type = "coal",   fuel_value = "1MJ",   , start_placement = true},
-  -- -- {name = "kochsandorite",   type = "coal",   fuel_value = "0.5MJ", },
-  -- -- {name = "lansfordite",     type = "coal",   fuel_value = "0.5MJ", },
-  -- -- {name = "niveolanite",     type = "coal",   fuel_value = "0.5MJ", },
-  -- -- {name = "refikite",        type = "coal",   fuel_value = "4MJ",   },
-  -- -- {name = "wattevilleite",   type = "coal",   fuel_value = "5MJ",   },
+}
+  -- {name = "humboldtine",     type = "coal",   fuel_value = "1MJ",   , start_placement = true},
+  -- {name = "kochsandorite",   type = "coal",   fuel_value = "0.5MJ", },
+  -- {name = "lansfordite",     type = "coal",   fuel_value = "0.5MJ", },
+  -- {name = "niveolanite",     type = "coal",   fuel_value = "0.5MJ", },
+  -- {name = "refikite",        type = "coal",   fuel_value = "4MJ",   },
+  -- {name = "wattevilleite",   type = "coal",   fuel_value = "5MJ",   },
   -- {
   --   name = "azurite",
   --   type = "copper",
@@ -140,8 +128,6 @@ local define_ores = {
   --     {type="item", name="copper-ore", amount=1, probability=.6331},
   --     {type="item", name="sulfur", amount=1, probability=.2556},
   --   }
-
-  },
   -- {name = "chalcocite",      type = "copper",  },
   -- {name = "chalcopyrite",    type = "copper",  },
   -- {name = "chrysocolla",     type = "copper",  },
@@ -183,7 +169,21 @@ local define_ores = {
   -- {name = "davidite-ce",     type = "uranium", fluid_amount = 10, required_fluid = "sulfuric-acid"},
   -- {name = "davidite-la",     type = "uranium", fluid_amount = 10, required_fluid = "sulfuric-acid"},
   -- {name = "uraninite",       type = "uranium", fluid_amount = 10, required_fluid = "sulfuric-acid", start_placement = true},
-}
+
+if enabled.sodium and enabled.magnesium then
+  table.insert(define_ores, {
+      name = "eitelite",
+      type = "coal",
+      fuel_value = "1MJ",
+      start_placement = true,
+      processing_results = {
+        {type="item", name=enabled.sodium, amount=1, probability=.2416},
+        {type="item", name=enabled.magnesium, amount=1, probability=.1277},
+        {type="item", name=enabled.carbon, probability=.1262},
+        {type="fluid", name=enabled.oxygen, amount=1, probability=.5044}
+      }}) end
+
+
 
 if mods.Krastorio2 then
   local kr_ores = {
@@ -294,7 +294,7 @@ for _, ore in pairs(orelist) do
         name = ore.name .. "-processing",
         icon = ore.icon .. ".png",
         icon_size = 64,
-
+        
         category = ore.category or "chemistry",
         enabled = true,
         energy_required = 1,
