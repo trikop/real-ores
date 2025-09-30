@@ -1,20 +1,23 @@
 local resource_autoplace = require("resource-autoplace");
 local item_sounds = require('__base__.prototypes.item_sounds')
 
-local existing_ores_from_mods = {
-  ["iron-ore"] = true,
-  ["copper-ore"] = true,
-  ["coal"] = true,
-  ["uranium-ore"] = true,
+local enabled = {
+  iron_ore = "iron-ore",
+  copper_ore = "copper-ore",
+  coal = "coal",
+  uranium_ore = "uranium-ore",
 }
 
 if data.raw.item["magnesium-ore"] then
-  existing_ores_from_mods["magnesium-ore"] = true
+  local ore = {magnesium_ore = "magnesium-ore"}
+  table.insert(enabled, ore)
 end
 
-if data.raw.item["sodium"] then
-  existing_ores_from_mods["sodium"] = true
-end
+
+
+-- if data.raw.item["sodium"] then
+--   existing_ores_from_mods["sodium"] = true
+-- end
 
 local function make_ore(ore)
   local icon, filename, mining_particle, mapcolor
@@ -70,6 +73,7 @@ local function make_ore(ore)
     icon = icon,
     filename = filename,
     mining_particle = mining_particle,
+    processing_results = ore.processing_results or nil,
   }
 end
 
@@ -77,11 +81,13 @@ local define_ores = {
   {
     name = "dinite",
     type = "coal",   
-    fuel_value = "5MJ",   map_color = {0,0,0}, start_placement = true, 
+    fuel_value = "5MJ",   map_color = {0,0,0}, start_placement = true,
     processing_results = {
-      data.raw.fluid["hydrogen"] and {type="fluid", name="hydrogen", amount = 1, probability=.1312},
-      {type="item", name="coal", amount = 1, probability=.8688}},
+      {type="item", name="coal", amount = 1, probability=.8688},
+      data.raw.fluid["hydrogen"] and {type="fluid", name="hydrogen", amount = 1, probability=.1312} or
+      {type="fluid", name="water", amount = 1, probability=.1312},
     }
+  },
   --{ name = "eitelite",        type = "coal",   fuel_value = "1MJ",   , start_placement = true, processing_results = {{type="item", name="sodium", amount=1, probability=.2416}, {type="item", name="magnesium-ore", amount=1, probability=.1277}, {type="item", name="coal", amount=1, probability=.1262}, {type="fluid", name="oxygen", amount=1, probability=.5044}}},
   -- {name = "humboldtine",     type = "coal",   fuel_value = "1MJ",   , start_placement = true},
   -- {name = "kochsandorite",   type = "coal",   fuel_value = "0.5MJ", },
@@ -231,7 +237,7 @@ for _, ore in pairs(orelist) do
         name = ore.name .. "-processing",
         icon = ore.icon .. ".png",
         icon_size = 64,
-        main_product = ore.processing_results and ore.processing_results[1] and ore.processing_results[1].name,
+
         category = ore.category or "chemistry",
         enabled = true,
         energy_required = 1,
