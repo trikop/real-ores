@@ -3,7 +3,7 @@ local item_sounds = require('__base__.prototypes.item_sounds')
 
 local function is_enabled(name)
   for _, n in ipairs(name) do
-    if data.raw.item[n] or data.raw.fluid[n] then -- add for fluid too
+    if data.raw.item[n] or data.raw.fluid[n] then
       return n
     end
   end
@@ -22,6 +22,8 @@ e.sulfur = is_enabled({"sulfur"})
 e.lead = is_enabled({"lead-ore", "pm-lead-ore"}) -- Maybe take inspo from PM's impure ore mechanic
 e.sodium = is_enabled({"sodium", "pm-sodium"})
 e.tin = is_enabled({"tin-ore", "pm-tin-ore"})
+e.manganese = is_enabled({"manganese-ore", "pm-manganese-ore"})
+e.bismuth = is_enabled({"bismuth-ore", "pm-bismuth-ore"})
 e.magnesium = is_enabled({"magnesium-ore", "pm-magnesium-ore"})
 e.silicon = is_enabled({"silicon", "pm-industrial-grade-silicon-ore"})
 e.titanium = is_enabled({"titanium-ore", "pm-titanium-ore"})
