@@ -11,12 +11,13 @@ local function is_enabled(name)
 end
 
 local enabled = {
-  iron_ore = "iron-ore",
-  copper_ore = "copper-ore",
-  uranium_ore = "uranium-ore",
+  iron = "iron-ore",
+  copper = "copper-ore",
+  uranium = "uranium-ore",
 }
 
 enabled.carbon = is_enabled({"carbon", "pm-carbon", "coal"})
+enabled.sulfur = is_enabled({"sulfur"})
 enabled.lead = is_enabled({"lead", "pm-lead"}) -- Maybe take inspo from PM's impure ore mechanic
 enabled.sodium = is_enabled({"sodium", "pm-sodium"})
 enabled.tin = is_enabled({"tin-ore", "pm-tin-ore"})
@@ -132,25 +133,70 @@ local define_ores = {
   {
     name = "bornite",
     type = "copper",
-    start_placement = true,
-    processing_results ={
+    processing_results = {
       {type="item", name="copper-ore", amount=1, probability=.6331},
       {type="item", name="sulfur", amount=1, probability=.2556},
       {type="item", name="iron-ore", amount=1, probability=.1113},
     }},
-  }
-  -- {name = "chalcocite",      type = "copper",  },
-  -- {name = "chalcopyrite",    type = "copper",  },
-  -- {name = "chrysocolla",     type = "copper",  },
-  -- {name = "covellite",       type = "copper",  },
-  -- {name = "cuprite",         type = "copper",  },
-  -- {name = "dioptase",        type = "copper",  },
-  -- {name = "djurleite",       type = "copper",  },
-  -- {name = "enargite",        type = "copper",  },
-  -- {name = "malachite",       type = "copper",  } start_placement = true},
-  -- {name = "tennantite",      type = "copper",  },
-  -- {name = "tenorite",        type = "copper",  } start_placement = true},
-  -- {name = "tetrahedite",     type = "copper",  },
+
+  {
+    name = "chalcocite",
+    type = "copper",
+    start_placement = true,
+    processing_results ={
+      {type="item", name="copper-ore", amount=1, probability=.7985},
+      {type="item", name="sulfur", amount=1, probability=.2015},
+    }},
+  {
+    name = "chalcopyrite",
+    type = "copper",
+    processing_results = {
+      {type="item", name="iron-ore", amount=1, probability=.3043},
+      {type="item", name="copper-ore", amount=1, probability=.3463},
+      {type="item", name="sulfur", amount=1, probability=.3494},
+    }},
+
+  {
+    name = "covellite",
+    type = "copper",
+    processing_results = {
+      {type="item", name=enabled.copper, amount=1, probability=.6646},
+      {type="item", name=enabled.sulfur, amount=1, probability=.3354},
+    }},
+  {
+    name = "cuprite",
+    type = "copper",
+  },
+  {
+    name = "dioptase",
+    type = "copper",
+  },
+  {
+    name = "djurleite",
+    type = "copper",
+  },
+  {
+    name = "enargite",
+    type = "copper",
+  },
+  {
+    name = "malachite",
+    type = "copper",
+    start_placement = true
+  },
+  {
+    name = "tennantite",
+    type = "copper",
+  },
+  {
+    name = "tenorite",
+    type = "copper",
+    start_placement = true
+  },
+  {
+    name = "tetrahedite",
+    type = "copper",
+  },
   -- {name = "akaganeite",      type = "iron",    },
   -- {name = "ankerite",        type = "iron",    },
   -- {name = "cronstedtite",    type = "iron",    },
@@ -180,8 +226,8 @@ local define_ores = {
   -- {name = "davidite-ce",     type = "uranium", fluid_amount = 10, required_fluid = "sulfuric-acid"},
   -- {name = "davidite-la",     type = "uranium", fluid_amount = 10, required_fluid = "sulfuric-acid"},
   -- {name = "uraninite",       type = "uranium", fluid_amount = 10, required_fluid = "sulfuric-acid", start_placement = true},
-
-if enabled.sodium and enabled.magnesium and enabled.oxygen then table.insert(define_ores, {
+  }
+if enabled.sodium and enabled.magnesium then table.insert(define_ores, {
     name = "eitelite",
     type = "coal",
     fuel_value = "1MJ",
@@ -193,7 +239,7 @@ if enabled.sodium and enabled.magnesium and enabled.oxygen then table.insert(def
       {type="fluid", name=enabled.oxygen, amount=1, probability=.5044}
     }}) end
 
-if enabled.aluminum and enabled.calcium and enabled.oxygen and enabled.hydrogen then table.insert(define_ores, {
+if enabled.aluminum and enabled.calcium then table.insert(define_ores, {
     name = "kochsandorite",
     type = "coal",
     fuel_value = "0.5MJ",
@@ -205,7 +251,7 @@ if enabled.aluminum and enabled.calcium and enabled.oxygen and enabled.hydrogen 
       {type="fluid", name=enabled.hydrogen, amount=1, probability=.0225},
     }}) end
 
-if enabled.magnesium and enabled.oxygen and enabled.hydrogen then table.insert(define_ores, {
+if enabled.magnesium then table.insert(define_ores, {
     name = "lansfordite",
     type = "coal",
     fuel_value = "0.5MJ",
@@ -216,7 +262,7 @@ if enabled.magnesium and enabled.oxygen and enabled.hydrogen then table.insert(d
       {type="fluid", name=enabled.hydrogen, amount=1, probability=.0578},
     }}) end
 
-if enabled.sodium and enabled.calcium and enabled.beryllium and enabled.oxygen and enabled.hydrogen then table.insert(define_ores, {
+if enabled.sodium and enabled.calcium and enabled.beryllium then table.insert(define_ores, {
     name = "niveolanite",
     type = "coal",
     fuel_value = "0.5MJ",
@@ -228,7 +274,7 @@ if enabled.sodium and enabled.calcium and enabled.beryllium and enabled.oxygen a
       {type="fluid", name=enabled.hydrogen, amount=1, probability=.0311},
       {type="fluid", name=enabled.oxygen, amount=1, probability=.6441},
     }}) end
-if enabled.sodium and enabled.calcium and enabled.oxygen and enabled.hydrogen then table.insert(define_ores, {
+if enabled.sodium and enabled.calcium then table.insert(define_ores, {
     name = "wattevilleite",
     type = "coal",
     fuel_value = "5MJ",
@@ -239,6 +285,27 @@ if enabled.sodium and enabled.calcium and enabled.oxygen and enabled.hydrogen th
       {type="fluid", name=enabled.oxygen, amount=1, probability=.5482},
       {type="fluid", name=enabled.hydrogen, amount=1, probability=.0230},
     }}) end
+if enabled.silicon and enabled.aluminum then table.insert(define_ores, {
+    name = "chrysocolla",
+    type = "copper",
+    processing_results = {
+      {type="item", name=enabled.copper, amount=1, probability=.3386},
+      {type="item", name=enabled.silicon, amount=1, probability=.1710},
+      {type="item", name=enabled.aluminum, amount=1, probability=.0205},
+      {type="fluid", name=enabled.oxygen, amount=1, probability=.4506},
+      {type="fluid", name=enabled.hydrogen, amount=1, probability=.0192},
+    }}) end
+
+
+
+
+
+
+
+
+
+
+
 
 if mods.Krastorio2 then
   local kr_ores = {
