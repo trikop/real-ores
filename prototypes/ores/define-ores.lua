@@ -19,27 +19,53 @@ local e = {
 e.carbon = is_enabled({"carbon", "pm-carbon", "coal"})
 e.sulfur = is_enabled({"sulfur"})
 
-e.lead = is_enabled({"lead", "pm-lead"}) -- Maybe take inspo from PM's impure ore mechanic
+e.lead = is_enabled({"lead-ore", "pm-lead-ore"}) -- Maybe take inspo from PM's impure ore mechanic
 e.sodium = is_enabled({"sodium", "pm-sodium"})
 e.tin = is_enabled({"tin-ore", "pm-tin-ore"})
 e.magnesium = is_enabled({"magnesium-ore", "pm-magnesium-ore"})
-e.silicon = is_enabled({"silicon", "pm-silicon"})
+e.silicon = is_enabled({"silicon", "pm-industrial-grade-silicon-ore"})
 e.titanium = is_enabled({"titanium-ore", "pm-titanium-ore"})
 e.nickel = is_enabled({"nickel-ore", "pm-nickel-ore"})
 e.aluminum = is_enabled({"aluminum-ore", "pm-aluminum-ore", "bauxite"})
+e.gold = is_enabled({"gold-ore", "pm-gold-ore"})
+e.silver = is_enabled({"silver-ore", "pm-silver-ore"})
+e.tungsten = is_enabled({"tungsten-ore", "pm-tungsten-ore"})
+e.cadmium = is_enabled({"cadmium-ore", "pm-cadmium-ore"})
+e.chromium = is_enabled({"chromium-ore", "pm-chromium-ore"})
+e.osmium = is_enabled({"osmium-ore", "pm-osmium-ore"})
+e.iridium = is_enabled({"iridium-ore", "pm-iridium-ore"})
+e.ruthenium = is_enabled({"ruthenium-ore", "pm-ruthenium-ore"})
+e.rhenium = is_enabled({"rhenium-ore", "pm-rhenium-ore"})
+e.rhodium = is_enabled({"rhodium-ore", "pm-rhodium-ore"})
+e.tantalum= is_enabled({"tantalum-ore", "pm-tantalum-ore"})
 
 e.calcium = is_enabled({"calcium-ore", "pm-calcium-ore"})
-e.yttrium = is_enabled({"yttrium", "pm-yttrium"})
-e.lanthanum = is_enabled({"lanthanum", "pm-lanthanum"})
-e.cerium = is_enabled({"cerium", "pm-cerium"})
-e.antimony = is_enabled({"antimony", "pm-antimony"})
-e.arsenic = is_enabled({"arsenic", "pm-arsenic"})
+e.yttrium = is_enabled({"yttrium-ore", "pm-yttrium-ore"})
+e.lanthanum = is_enabled({"lanthanum", "pm-lanthanum-ore"}) --not exist
+e.cerium = is_enabled({"cerium-ore", "pm-cerium-ore"})
+e.antimony = is_enabled({"antimony-ore", "pm-antimony-ore"})
+e.arsenic = is_enabled({"arsenic-ore", "pm-arsenic-ore"})
 e.sodium = is_enabled({"sodium", "pm-sodium"})
-e.beryllium = is_enabled({"beryllium", "pm-beryllium"})
+e.beryllium = is_enabled({"beryllium-ore", "pm-beryllium-ore"})
+e.vanadium = is_enabled({"vanadium-ore", "pm-vanadium-ore"})
+e.gallium = is_enabled({"gallium-ore", "pm-gallium-chunks"})
+e.germanium = is_enabled({"germanium-ore", "pm-germanium-ore"})
+e.selenium = is_enabled({"selenium-ore", "pm-selenium-ore"})
+e.strontium = is_enabled({"strontium-ore", "pm-strontium-ore"})
+e.baryte = is_enabled({"baryte", "pm-baryte-ore"})
+e.barium = is_enabled({"barium-ore", "pm-barium-ore"})
+e.radium = is_enabled({"radium-ore", "pm-radium-ore"})
+e.mercury = is_enabled({"mercury-ore", "pm-mercury-ore"})
+e.molybdenum = is_enabled({"molybdenum-ore", "pm-molybdenum-ore"})
 
 
-e.hydrogen = is_enabled({"hydrogen", "kr-hydrogen", "water"})
-e.oxygen = is_enabled({"oxygen", "kr-oxygen"})
+e.hydrogen = is_enabled({"pm-hydrogen-gas", "kr-hydrogen", "hydrogen", "water"})
+e.oxygen = is_enabled({"pm-oxygen-gas", "kr-oxygen", "oxygen"})
+e.nitrogen = is_enabled({"pm-nitrogen-gas", "nitrogen", "kr-nitrogen"})
+e.chlorine = is_enabled({"pm-chlorine", "kr-chlorine", "chlorine"})
+e.helium = is_enabled({"pm-helium-gas", "kr-helium", "helium"})
+e.argon = is_enabled({"pm-argon-gas", "kr-argon", "argon"})
+
 
 local function make_ore(ore)
   local icon, filename, mining_particle, mapcolor, ore_type
@@ -395,7 +421,7 @@ if e.silicon and e.aluminum then table.insert(define_ores, {
 if e.silicon then table.insert(define_ores, {
     name = "dioptase",
     type = "copper",
-    processing_results = {
+    results = {
       {type="item", name=e.copper, amount=1, probability=.4031},
       {type="item", name=e.silicon, amount=1, probability=.1782},
       {type="fluid", name=e.oxygen, amount=1, probability=.4060},
@@ -409,10 +435,10 @@ if e.arsenic then table.insert(define_ores, {
       {type="item", name=e.sulfur, amount=1, probability=.3257},
       {type="item", name=e.arsenic, amount=1, probability=.1902},
     }}) end
-if e.arsenic then table.insert(define_ores, {
+if e.arsenic then table.insert(define_ores, { --DOESNT WORK
     name = "tennantite",
     type = "copper",
-    results = {
+    processing_results = {
       {type="item", name=e.copper, amount=1, probability=.4751},
       {type="item", name=e.sulfur, amount=1, probability=.2833},
       {type="item", name=e.arsenic, amount=1, probability=.2037},
