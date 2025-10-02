@@ -1,7 +1,11 @@
--- script.on_init(function(event)
---     if remote.interfaces["freeplay"] then
---         local items = remote.call("freeplay", "get_ship_items")
---         items["iron-plate"] = 8
---         remote.call("freeplay", "set_ship_items", items)
---     end
--- end)
+local function try_override()
+  if Zone and Zone.spawn_small_resources then
+    Zone.spawn_small_resources = function(surface)
+      -- Do nothing, disables forced small resources
+    end
+    log("Overridden Zone.spawn_small_resources successfully")
+    script.on_event(defines.events.on_tick, nil) -- stop polling
+  end
+end
+
+script.on_event(defines.events.on_tick, try_override)

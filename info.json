@@ -8,6 +8,7 @@
     "dependencies": [
         "? bismuth",
         "? manganese",
-        "? periodic-madness >= 0.7.0"
+        "? periodic-madness >= 0.7.0",
+        "? space-exploration >= 0.7.0"
     ]
 }

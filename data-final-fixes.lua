@@ -1,0 +1,30 @@
+local resource_autoplace = require("resource-autoplace");
+
+
+-- data.raw.planet.nauvis.map_gen_settings.autoplace_controls["iron-ore"] = {}
+-- data.raw.planet.nauvis.map_gen_settings.autoplace_settings.entity.settings["iron-ore"] = {}
+-- resource_autoplace.initialize_patch_set("iron-ore", false)
+-- resource_autoplace.initialize_patch_set("copper-ore", false)
+-- resource_autoplace.initialize_patch_set("coal", false)
+
+--Didnt add stone here
+local ores_to_disable = { "iron-ore", "copper-ore", "coal", "uranium-ore", "zircon", "hydrogen", "helium", "lithium", "beryllium", "boron", "carbon", "nitrogen", "oxygen", "fluorine", "neon", "sodium", "magnesium", "aluminum", "silicon", "phosphorus", "sulfur", "chlorine", "argon", "potassium", "calcium", "scandium", "titanium", "vanadium", "chromium", "manganese", "iron", "cobalt", "nickel", "copper", "zinc", "gallium", "germanium", "arsenic", "selenium", "bromine", "krypton", "rubidium", "strontium", "yttrium", "zirconium", "niobium", "molybdenum", "technetium", "ruthenium", "rhodium", "palladium", "silver", "cadmium", "indium", "tin", "antimony", "tellurium", "iodine", "xenon", "cesium", "barium", "lanthanum", "cerium", "praseodymium", "neodymium", "promethium", "samarium", "europium", "gadolinium", "terbium", "dysprosium", "holmium", "erbium", "thulium", "ytterbium", "lutetium", "hafnium", "tantalum", "tungsten", "rhenium", "osmium", "iridium", "platinum", "gold", "mercury", "thallium", "lead", "bismuth", "polonium", "astatine", "radon", "francium", "radium", "actinium", "thorium", "protactinium", "uranium", "neptunium", "plutonium", "americium", "curium", "berkelium", "californium", "einsteinium", "fermium", "mendelevium", "nobelium", "lawrencium", "rutherfordium", "dubnium", "seaborgium", "bohrium", "hassium", "meitnerium", "darmstadtium", "roentgenium", "copernicium", "nihonium", "flerovium", "moscovium", "livermorium", "tennessine", "oganesson"}
+for _, ore in pairs(ores_to_disable) do
+  for _, n in ipairs({ ore, ore .. "-ore" }) do
+    local resource = data.raw["resource"][n]
+    if resource and resource.autoplace then
+      resource.autoplace = {
+        probability_expression = "0",
+        richness_expression = "0",
+      }
+    end
+    -- Hide from map generator GUI
+    if data.raw["autoplace-control"][n] then
+      data.raw["autoplace-control"][n].hidden = true
+    end
+  end
+end
+
+-- local nauvis = data.raw.planet["nauvis"]
+-- nauvis.map_gen_settings.autoplace_controls["iron-ore"] = nil
+
