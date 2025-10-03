@@ -104,8 +104,8 @@ local function make_ore(ore)
       mapcolor = {0,0.7,0}
       ore_type_full_name = "uranium-ore"
     elseif ore.type == "manganese" then
-      icon = "__manganese__/graphics/icons/manganese-ore.png"
-      filename = "__manganese__/graphics/ores/hr-manganese-ore.png"
+      icon = "__manganese__/graphics/icons/manganese-ore"
+      filename = "__manganese__/graphics/ores/manganese-ore"
       mining_particle = "iron-ore-particle"
       mapcolor = {r=0.43, g=0.18, b=0.06}
       ore_type_full_name = "manganese-ore"
