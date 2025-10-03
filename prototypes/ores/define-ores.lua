@@ -71,44 +71,48 @@ e.argon = is_enabled({"pm-argon-gas", "kr-argon", "argon"})
 
 
 local function make_ore(ore)
-  local icon, filename, mining_particle, mapcolor, ore_type_full_name
-  if ore.icon and ore.filename and ore.mining_particle and ore.map_color and ore.ore_type_full_name then
+  local icon, filename, mining_particle, mapcolor, ore_type_smelted_result
+  if ore.icon and ore.filename and ore.mining_particle and ore.map_color and ore.ore_type_smelted_result then
     icon = ore.icon
     filename = ore.filename
     mining_particle = ore.mining_particle
     mapcolor = ore.map_color
-    ore_type_full_name = ore.ore_type_full_name
+    ore_type_smelted_result = ore.ore_type_smelted_result
   else
     if ore.type == "coal" then
       icon = "__base__/graphics/icons/coal"
       filename = "__base__/graphics/entity/coal/coal"
       mining_particle = "coal-particle"
       mapcolor = {0,0,0}
-      ore_type_full_name = "coal"
     elseif ore.type == "copper" then
       icon = "__base__/graphics/icons/copper-ore"
       filename = "__base__/graphics/entity/copper-ore/copper-ore"
       mining_particle = "copper-ore-particle"
       mapcolor = {0.803,0.388,0.215}
-      ore_type_full_name = "copper-ore"
+      ore_type_smelted_result = "copper-plate"
     elseif ore.type == "iron" then
       icon = "__base__/graphics/icons/iron-ore"
       filename = "__base__/graphics/entity/iron-ore/iron-ore"
       mining_particle = "iron-ore-particle"
       mapcolor = {0.415,0.525,0.580}
-      ore_type_full_name = "iron-ore"
+      ore_type_smelted_result = "iron-plate"
     elseif ore.type == "uranium" then
       icon = "__base__/graphics/icons/uranium-ore"
       filename = "__base__/graphics/entity/uranium-ore/uranium-ore"
       mining_particle = nil
       mapcolor = {0,0.7,0}
-      ore_type_full_name = "uranium-ore"
     elseif ore.type == "manganese" then
       icon = "__manganese__/graphics/icons/manganese-ore"
       filename = "__manganese__/graphics/ores/manganese-ore"
       mining_particle = "iron-ore-particle"
       mapcolor = {r=0.43, g=0.18, b=0.06}
-      ore_type_full_name = "manganese-ore"
+      ore_type_smelted_result = string.gsub(e.manganese, "-ore$", "-plate")
+    elseif ore.type == "bismuth" then
+      icon = "__bismuth__/graphics/icons/bismuth-ore"
+      filename = "__bismuth__/graphics/ores/bismuth-ore"
+      mining_particle = "iron-ore-particle"
+      mapcolor = {r=0.5, g=0.33, b=0.16}
+      ore_type_smelted_result = e.bismuth.replace("ore", "plate")
     else
       icon = "__base__/graphics/icons/coal"
       filename = "__base__/graphics/entity/coal/coal"
@@ -120,7 +124,7 @@ local function make_ore(ore)
     name = ore.name,
     results = ore.results or {{type="item", name=ore.name, amount_min=1, amount_max=1}},
     type = ore.type,
-    ore_type_full_name = ore_type_full_name or nil, --Full name
+    ore_type_smelted_result = ore_type_smelted_result or nil, --Full name of smelted result iron ore --> iron plate
     fuel_value = ore.fuel_value or nil,
     weight = ore.weight or 4.5*kg,
     hardness = ore.hardness or 1,
@@ -978,7 +982,7 @@ if ore.type ~= "coal" and ore.type ~= "uranium" then --These ores don't get smel
       enabled = true,
       energy_required = 1,
       ingredients = {{type="item", name=ore.name, amount=20}},
-      results = {{type="item", name=ore.type .. "-plate", amount=1}}, --Gets the ore type for smelting
+      results = {{type="item", name=ore.ore_type_smelted_result, amount=1}}, --Gets the ore type for smelting
     },
   })
   end
