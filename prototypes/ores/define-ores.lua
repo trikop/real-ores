@@ -112,7 +112,7 @@ local function make_ore(ore)
       filename = "__bismuth__/graphics/ores/bismuth-ore"
       mining_particle = "iron-ore-particle"
       mapcolor = {r=0.5, g=0.33, b=0.16}
-      ore_type_smelted_result = e.bismuth.replace("ore", "plate")
+      ore_type_smelted_result = string.gsub(e.bismuth, "-ore$", "-plate")
     else
       icon = "__base__/graphics/icons/coal"
       filename = "__base__/graphics/entity/coal/coal"
