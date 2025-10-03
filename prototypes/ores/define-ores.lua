@@ -102,14 +102,24 @@ local function make_ore(ore)
       mining_particle = nil
       mapcolor = {0,0.7,0}
     elseif ore.type == "manganese" then
-      icon = "__manganese__/graphics/icons/manganese-ore"
-      filename = "__manganese__/graphics/ores/manganese-ore"
+      if mods["Manganese"] then
+        icon = "__manganese__/graphics/icons/manganese-ore"
+        filename = "__manganese__/graphics/ores/manganese-ore"
+      else
+        icon = "__periodic-madness__/graphics/icons/ores/manganese-ore-icon"
+        filename = "__base__/graphics/entity/coal/coal"
+      end
       mining_particle = "iron-ore-particle"
       mapcolor = {r=0.43, g=0.18, b=0.06}
       ore_type_smelted_result = string.gsub(e.manganese, "-ore$", "-plate")
     elseif ore.type == "bismuth" then
-      icon = "__bismuth__/graphics/icons/bismuth-ore"
-      filename = "__bismuth__/graphics/ores/bismuth-ore"
+      if mods["Bismuth"] then
+        icon = "__bismuth__/graphics/icons/bismuth-ore"
+        filename = "__bismuth__/graphics/ores/bismuth-ore"
+      else
+        icon = "__periodic-madness__/graphics/icons/ores/bismuth-ore-icon"
+        filename = "__base__/graphics/entity/coal/coal"
+      end
       mining_particle = "iron-ore-particle"
       mapcolor = {r=0.5, g=0.33, b=0.16}
       ore_type_smelted_result = e.bismuth.replace("ore", "plate")
