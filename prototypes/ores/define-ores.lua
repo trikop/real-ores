@@ -128,6 +128,7 @@ local function make_ore(ore)
     type = ore.type,
     ore_type_smelted_result = ore_type_smelted_result or nil, --Full name of smelted result iron ore --> iron plate
     fuel_value = ore.fuel_value or nil,
+---@diagnostic disable-next-line: ambiguity-1
     weight = ore.weight or 4.5*kg,
     hardness = ore.hardness or 1,
     mining_time = ore.mining_time or 1,
