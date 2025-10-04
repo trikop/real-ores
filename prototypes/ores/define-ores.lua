@@ -16,30 +16,32 @@ local e = {
   uranium = "uranium-ore",
 }
 
-e.carbon = is_enabled({"carbon", "pm-carbon", "coal"})
+e.carbon = is_enabled({"raw-coal", "carbon", "pm-carbon", "coal"})
 e.sulfur = is_enabled({"sulfur"})
 
-e.lead = is_enabled({"lead-ore", "pm-lead-ore"}) -- Maybe take inspo from PM's impure ore mechanic
+e.lead = is_enabled({"ore-lead", "lead-ore", "pm-lead-ore"}) -- Maybe take inspo from PM's impure ore mechanic
 e.sodium = is_enabled({"sodium", "pm-sodium"})
-e.tin = is_enabled({"tin-ore", "pm-tin-ore"})
+e.tin = is_enabled({"ore-tin", "tin-ore", "pm-tin-ore"})
 e.manganese = is_enabled({"manganese-ore", "pm-manganese-ore"})
 e.bismuth = is_enabled({"bismuth-ore", "pm-bismuth-ore"})
 e.magnesium = is_enabled({"magnesium-ore", "pm-magnesium-ore"})
 e.silicon = is_enabled({"silicon", "pm-industrial-grade-silicon-ore"})
-e.titanium = is_enabled({"titanium-ore", "pm-titanium-ore"})
-e.nickel = is_enabled({"nickel-ore", "pm-nickel-ore"})
-e.aluminum = is_enabled({"aluminum-ore", "pm-aluminum-ore", "bauxite"})
+e.titanium = is_enabled({"ore-titanium", "titanium-ore", "pm-titanium-ore"})
+e.nickel = is_enabled({"ore-nickel", "nickel-ore", "pm-nickel-ore"})
+e.aluminum = is_enabled({"ore-aluminum", "aluminum-ore", "pm-aluminum-ore", "bauxite"})
 e.gold = is_enabled({"gold-ore", "pm-gold-ore"})
 e.silver = is_enabled({"silver-ore", "pm-silver-ore"})
 e.tungsten = is_enabled({"tungsten-ore", "pm-tungsten-ore"})
 e.cadmium = is_enabled({"cadmium-ore", "pm-cadmium-ore"})
-e.chromium = is_enabled({"chromium-ore", "pm-chromium-ore"})
+e.chromium = is_enabled({"ore-chromium", "chromium-ore", "pm-chromium-ore"})
+e.zinc = is_enabled({"ore-chromium", "chromium-ore", "pm-chromium-ore"})
 e.osmium = is_enabled({"osmium-ore", "pm-osmium-ore"})
 e.iridium = is_enabled({"iridium-ore", "pm-iridium-ore"})
 e.ruthenium = is_enabled({"ruthenium-ore", "pm-ruthenium-ore"})
 e.rhenium = is_enabled({"rhenium-ore", "pm-rhenium-ore"})
 e.rhodium = is_enabled({"rhodium-ore", "pm-rhodium-ore"})
 e.tantalum= is_enabled({"tantalum-ore", "pm-tantalum-ore"})
+
 
 e.calcium = is_enabled({"calcium-ore", "pm-calcium-ore"})
 e.yttrium = is_enabled({"yttrium-ore", "pm-yttrium-ore"})
@@ -755,6 +757,7 @@ table.insert(define_ores, {
 table.insert(define_ores, {
     name = "hausmannite",
     type = "manganese",
+    start_placement = true,
     processing_results = {
       {type="item", name=e.manganese, amount=1, probability=.7203},
       {type="fluid", name=e.oxygen, amount=1, probability=.2797},

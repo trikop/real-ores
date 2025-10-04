@@ -1,11 +1,11 @@
-local function try_override()
-  if Zone and Zone.spawn_small_resources then
-    Zone.spawn_small_resources = function(surface)
-      -- Do nothing, disables forced small resources
-    end
-    log("Overridden Zone.spawn_small_resources successfully")
-    script.on_event(defines.events.on_tick, nil) -- stop polling
-  end
-end
+-- local function try_override()
+--   if Zone and Zone.spawn_small_resources then
+--     Zone.spawn_small_resources = function(surface)
+--       -- Do nothing, disables forced small resources
+--     end
+--     log("Overridden Zone.spawn_small_resources successfully")
+--     script.on_event(defines.events.on_tick, nil) -- stop polling
+--   end
+-- end
 
-script.on_event(defines.events.on_tick, try_override)
+-- script.on_event(defines.events.on_tick, try_override)
