@@ -13,27 +13,27 @@ local pt = {"hydrogen", "helium", "lithium", "beryllium", "boron", "carbon", "ni
 for _, ore in ipairs(pt) do table.insert(ores_to_disable, ore) end
 
 -- DIdnt add "ore-bioreserve", "ore-quartz"
--- local py = {, "ore-aluminium", "ore-chromium", "ore-lead", "ore-nickel", "ore-tin", "ore-titanium", , "molybdenum-ore"}
+-- local py = {, , "ore-chromium", "ore-lead", "ore-nickel", "ore-tin", "ore-titanium", , "molybdenum-ore"}
 -- for _, ore in ipairs(py) do table.insert(ores_to_disable, ore) end
 --didnt add "quartz-rock", "salt-rock"
-local py2 = {"raw-coal", "antimonium", "copper-rock", "iron-rock", "coal-rock", "aluminium-rock", "chromium-rock", "lead-rock", "nickel-rock", "tin-rock", "titanium-rock", "zinc-rock", "sulfur-patch"}
-for _, ore in ipairs(py2) do table.insert(ores_to_disable, ore) end
+local py = {"raw-coal", "antimonium", "ore-aluminium", "copper-rock", "iron-rock", "coal-rock", "aluminium-rock", "chromium-rock", "lead-rock", "nickel-rock", "tin-rock", "titanium-rock", "zinc-rock", "sulfur-patch"}
+for _, ore in ipairs(py) do table.insert(ores_to_disable, ore) end
 
 
 log("Disabled ores:")
 for _, ore in pairs(ores_to_disable) do
-  for _, n in ipairs({ ore, ore .. "-ore", "ore-" .. ore }) do
-    local resource = data.raw["resource"][ore]
+  for _, name in ipairs({ ore, ore .. "-ore", "ore-" .. ore }) do
+    local resource = data.raw["resource"][name]
     if resource and resource.autoplace then
-      log(" - " .. ore)
+      log(" - " .. name)
       resource.autoplace = {
         probability_expression = "0",
         richness_expression = "0",
       }
     end
     -- Hide from map generator GUI
-    if data.raw["autoplace-control"][ore] then
-      data.raw["autoplace-control"][ore].hidden = true
+    if data.raw["autoplace-control"][name] then
+      data.raw["autoplace-control"][name].hidden = true
     end
   end
 end
