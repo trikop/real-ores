@@ -13,10 +13,11 @@ local pt = {"hydrogen", "helium", "lithium", "beryllium", "boron", "carbon", "ni
 for _, ore in ipairs(pt) do table.insert(ores_to_disable, ore) end
 
 -- DIdnt add "ore-bioreserve", "ore-quartz"
--- local py = {, , "ore-chromium", "ore-lead", "ore-nickel", "ore-tin", "ore-titanium", , "molybdenum-ore"}
--- for _, ore in ipairs(py) do table.insert(ores_to_disable, ore) end
---didnt add "quartz-rock", "salt-rock"
-local py = {"raw-coal", "antimonium", "ore-aluminium", "copper-rock", "iron-rock", "coal-rock", "aluminium-rock", "chromium-rock", "lead-rock", "nickel-rock", "tin-rock", "titanium-rock", "zinc-rock", "sulfur-patch"}
+
+-- local py = {"ore-chromium", "ore-lead", "ore-nickel", "ore-tin", "ore-titanium", , "molybdenum-ore"}
+
+--didnt add "quartz-rock", "salt-rock", "phosphate-rock", "phosphate-rock-02", "regolites" Rare earth bolide, rare earth mineral, bitnumen seep, nexelit, raw borax
+local py = {"raw-coal", "antimonium", "ore-aluminium", "copper-rock", "iron-rock", "coal-rock", "aluminium-rock", "chromium-rock", "lead-rock", "nickel-rock", "tin-rock", "titanium-rock", "zinc-rock", "sulfur-patch", "uranium-rock"}
 for _, ore in ipairs(py) do table.insert(ores_to_disable, ore) end
 
 
