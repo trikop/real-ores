@@ -45,6 +45,7 @@ e.tellurium = is_enabled({"tellurium-ore", "pm-tellurium-ore"})
 e.phosphorus = is_enabled({"phosphorus-ore", "pm-phosphorus-ore"})
 e.thallium = is_enabled({"thallium-ore", "pm-thallium-ore"})
 e.boron = is_enabled({"boron-ore", "pm-boron-ore"})
+e.zirconium = is_enabled({"zirconium-ore", "pm-zirconium-ore"})
 
 e.calcium = is_enabled({"calcium-ore", "pm-calcium-ore"})
 e.yttrium = is_enabled({"yttrium-ore", "pm-yttrium-ore"})
@@ -124,6 +125,30 @@ local function make_ore(ore)
       mining_particle = "iron-ore-particle"
       mapcolor = {r=0.9, g=0.9, b=0.9}
       ore_type_smelted_result = string.gsub(e.lead, "-ore$", "-plate")
+    elseif ore.type == "nickel" then
+      icon = "__base__/graphics/icons/coal"
+      filename = "__base__/graphics/entity/coal/coal"
+      mining_particle = "iron-ore-particle"
+      mapcolor = {r=0.9, g=0.9, b=0.9}
+      ore_type_smelted_result = string.gsub(e.nickel, "-ore$", "-plate")
+    elseif ore.type == "tin" then
+      icon = "__base__/graphics/icons/coal"
+      filename = "__base__/graphics/entity/coal/coal"
+      mining_particle = "iron-ore-particle"
+      mapcolor = {r=0.9, g=0.9, b=0.9}
+      ore_type_smelted_result = string.gsub(e.tin, "-ore$", "-plate")
+    elseif ore.type == "titanium" then
+      icon = "__base__/graphics/icons/coal"
+      filename = "__base__/graphics/entity/coal/coal"
+      mining_particle = "iron-ore-particle"
+      mapcolor = {r=0.9, g=0.9, b=0.9}
+      ore_type_smelted_result = string.gsub(e.titanium, "-ore$", "-plate")
+    elseif ore.type == "antimony" then
+      icon = "__base__/graphics/icons/coal"
+      filename = "__base__/graphics/entity/coal/coal"
+      mining_particle = "iron-ore-particle"
+      mapcolor = {r=0.9, g=0.9, b=0.9}
+      ore_type_smelted_result = string.gsub(e.antimony, "-ore$", "-plate")
     else
       icon = "__base__/graphics/icons/coal"
       filename = "__base__/graphics/entity/coal/coal"
@@ -1714,7 +1739,6 @@ if e.phosphorus then table.insert(define_ores, {
 
 -- TODO https://webmineral.com/MySQL/mineral_chem.php?st=76&minmax=50&sym1=Pb&percent1=100&
 end
-
 if e.nickel then --https://webmineral.com/MySQL/mineral_chem.php?sym1=Ni&percent1=100&sym2=&percent2=&sym3=&percent3=&minmax=50&submit=Submit
 if e.arsenic then table.insert(define_ores, {
   name = "aerugite",
@@ -1869,7 +1893,6 @@ if e.antimony then table.insert(define_ores, {
     {type="item", name=e.antimony, amount=1, probability=.2368},
   }}) end
 end
-
 if e.tin then --https://webmineral.com/MySQL/mineral_chem.php?sym1=Sn&percent1=100&sym2=&percent2=&sym3=&percent3=&minmax=60&submit=Submit
 -- if e.antimony then table.insert(define_ores, {
 --   name = "abhurdite",--Found on ship-wrecked corroded tin ingots.
@@ -1968,7 +1991,7 @@ table.insert(define_ores, {
   desc = "Named for the initials of the Royal Ontario Museum (ROM), where the mineral was identified and for ARCHaeology because it was found on tin artifacts.",
   processing_results = {
     {type="item", name=e.tin, amount=1, probability=.8812},
-    {type="oxygen", name=e.oxygen, amount=1, probability=.1188},
+    {type="fluid", name=e.oxygen, amount=1, probability=.1188},
   }})
 if e.magnesium then table.insert(define_ores, {
   name = "schoenfliesite",--Secondary mineral in oxidized tin-bearing materials.
@@ -2057,40 +2080,295 @@ if e.manganese then table.insert(define_ores, {
     {type="fluid", name=e.hydrogen, amount=1, probability=.0219},
   }}) end
 end
+if e.titanium then --https://webmineral.com/MySQL/mineral_chem.php?sym1=Ti&percent1=100&sym2=&percent2=&sym3=&percent3=&minmax=60&submit=Submit
+table.insert(define_ores, {
+  name = "anatase",--Usually secondary, derived from other Ti-bearing minerals. Common as a detrital mineral.
+  type = "titanium",
+  desc = "From the Greek, anatasis - *elongation.*",
+  processing_results = {
+    {type="item", name=e.titanium, amount=1, probability=.5994},
+    {type="fluid", name=e.oxygen, amount=1, probability=.4006},
+  }})
+if e.magnesium then table.insert(define_ores, {
+  name = "armalcolite",--Ti oxides associated with deep-seated intrusives.
+  type = "titanium",
+  desc = "Named after the three astronauts of Apollo 11: Neil A. ARMstrong, Edwin E. *Buzz* ALdrin, and Michael COLlins.",
+  processing_results = {
+    {type="item", name=e.titanium, amount=1, probability=.4605},
+    {type="item", name=e.magnesium, amount=1, probability=.0877},
+    {type="item", name=e.iron, amount=1, probability=.0671},
+    {type="fluid", name=e.oxygen, amount=1, probability=.3847},
+  }}) end
+table.insert(define_ores, {
+  name = "brookite",
+  type = "titanium",
+  desc = "Named after the English mineralogist, Henry James Brucke (1771-1857), a London mineralogist and wool trader.",
+  processing_results = {
+    {type="item", name=e.titanium, amount=1, probability=.5994},
+    {type="fluid", name=e.oxygen, amount=1, probability=.4006},
+  }})
+if e.sodium then table.insert(define_ores, {
+  name = "freudenbergite",
+  type = "titanium",
+  desc = "Named for Wilhelm Freudenberg (1881-), German geologist, who studied the rocks of Odenwald, Germany, where the mineral was found.",
+  processing_results = {
+    {type="item", name=e.titanium, amount=1, probability=.4098},
+    {type="item", name=e.iron, amount=1, probability=.1593},
+    {type="item", name=e.sodium, amount=1, probability=.0656},
+    {type="fluid", name=e.oxygen, amount=1, probability=.3652},
+  }}) end
+if e.barium then table.insert(define_ores, {
+  name = "henrymeyerite",--From a vug in a carbonatite vein. Late stage mineral in carbonitite rocks. Hollandite group
+  type = "titanium",
+  desc = "Named for Prof. Henry. O. A. Meyer (1937-1995).",
+  processing_results = {
+    {type="item", name=e.titanium, amount=1, probability=.4273},
+    {type="item", name=e.barium, amount=1, probability=.1751},
+    {type="item", name=e.iron, amount=1, probability=.0712},
+    {type="fluid", name=e.oxygen, amount=1, probability=.3264},
+  }}) end
+table.insert(define_ores, {
+  name = "hongquiite",--Found in platinum ores associated with high-temperature rocks of the garnet-hornblende-pyroxenite facies.
+  type = "titanium",
+  desc = "Named for the locality.",
+  processing_results = {
+    {type="item", name=e.titanium, amount=1, probability=.7495},
+    {type="fluid", name=e.oxygen, amount=1, probability=.2505},
+  }})
+--IMA2000-016 
+--IMA2007-058
+if e.barium and e.potassium then table.insert(define_ores, {
+  name = "jeppeite",--In a large, weathered lamproite plug.
+  type = "titanium",
+  desc = "Named for John Frederick Biccard Jeppe (1920-), geologist of Nedlands, Western Australia, discoverer of the mineral.",
+  processing_results = {
+    {type="item", name=e.titanium, amount=1, probability=.4180},
+    {type="item", name=e.barium, amount=1, probability=.1498},
+    {type="item", name=e.potassium, amount=1, probability=.0731},
+    {type="item", name=e.iron, amount=1, probability=.0348},
+    {type="fluid", name=e.oxygen, amount=1, probability=.3242},
+  }}) end
+if e.vanadium then table.insert(define_ores, {
+  name = "khamrabaevite",--In amygdaloidal baasaltic porphyries. On the outer portions of cubic suessite crystals.
+  type = "titanium",
+  desc = "Named for Ibragim Khamrabaevich Khamrabaeva (1920-), Director, Institute of Geology and Geophysics, Tashkent, Uzbekistan.",
+  processing_results = {
+    {type="item", name=e.titanium, amount=1, probability=.4663},
+    {type="item", name=e.vanadium, amount=1, probability=.2481},
+    {type="item", name=e.carbon, amount=1, probability=.1950},
+    {type="item", name=e.iron, amount=1, probability=.0907},
+  }}) end
+-- if e.barium and e.potassium then table.insert(define_ores, {
+--   name = "kleberite",--Heavy mineral fraction from Tertiary sediments. Data is not correct, a doubtful species.
+--   type = "titanium",
+--   desc = "	Named for Will Kleber (1906-1970), Humboldt University, Berlin.",
+--   processing_results = {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-if e.palladium then
-if e.tin then table.insert(define_ores, {
-  name = "stannopalladinite",--In sulfide Cu-Ni ores intergrown with niggliite.
-  type = "palladium",
+--   }}) end
+if e.zinc and e.manganese and e.lead and e.sodium and e.potassium then table.insert(define_ores, {
+  name = "landauite",--Accessory mineral in albite veins cutting syenite pegmatites.
+  type = "titanium",
+  desc = "Named for Lev Davidovich Landau (1908-1968), noted Russian physicist.",
+  processing_results = {
+    {type="item", name=e.titanium, amount=1, probability=.4343},
+    {type="item", name=e.zinc, amount=1, probability=.0869},
+    {type="item", name=e.iron, amount=1, probability=.0581},
+    {type="item", name=e.manganese, amount=1, probability=.0317},
+    {type="item", name=e.lead, amount=1, probability=.0239},
+    {type="item", name=e.sodium, amount=1, probability=.0093},
+    {type="item", name=e.potassium, amount=1, probability=.0045},
+    {type="fluid", name=e.oxygen, amount=1, probability=.3512},
+  }}) end
+--Osbornite , from meteorites :O
+table.insert(define_ores, {
+  name = "rutile",--High pressure and temperature accessory mineral in ignous rocks. Common detrital mineral.
+  type = "titanium",
+  desc = "From the Latin, rutilus - *reddish.*",
+  processing_results = {
+    {type="item", name=e.titanium, amount=1, probability=.5994},
+    {type="fluid", name=e.oxygen, amount=1, probability=.4006},
+  }})
+if e.magnesium and e.aluminum and e.zirconium then table.insert(define_ores, {
+  name = "tistarite",--Found as one subhedral crystal in a cluster of micrometer-sized refractory grains along with khamrabaevite (TiC), rutile, and corundum crystals within a chondrule. Corundum group.
+  type = "titanium",
+  desc = "Named after the composition *Ti* and the word *star,* implying that this new refractory mineral is among the first solids formed in the solar system.",
+  processing_results = {
+    {type="item", name=e.titanium, amount=1, probability=.6377},
+    {type="item", name=e.magnesium, amount=1, probability=.0119},
+    {type="item", name=e.aluminum, amount=1, probability=.0076},
+    {type="item", name=e.zirconium, amount=1, probability=.0064},
+    {type="fluid", name=e.oxygen, amount=1, probability=.3364},
+  }}) end
+-- table.insert(define_ores, {
+--   name = "titanium",
+--   type = "titanium",
+--   desc = "Named after the element which is named after the Titans, sons of the Earth goddess.",
+--   processing_results = {
+--     {type="item", name=e.titanium, amount=1, probability=.6377},
+--     {type="item", name=e.magnesium, amount=1, probability=.0119},
+--     {type="item", name=e.aluminum, amount=1, probability=.0076},
+--     {type="item", name=e.zirconium, amount=1, probability=.0064},
+--     {type="fluid", name=e.oxygen, amount=1, probability=.3364},
+--   }})
+end
+if e.molybdenum then --https://webmineral.com/MySQL/mineral_chem.php?sym1=Mo&percent1=100&sym2=&percent2=&sym3=&percent3=&minmax=60&submit=Submit
+table.insert(define_ores, {
+  name = "bamfordite",--In tungsten-molybdenum-bismuth deposits formed by the oxidation of molybdenite.
+  type = "molybdenum",
+  desc = "Named for the locality.",
+  processing_results = {
+    {type="item", name=e.molybdenum, amount=1, probability=.4649},
+    {type="item", name=e.iron, amount=1, probability=.1353},
+    {type="fluid", name=e.oxygen, amount=1, probability=.3876},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0122},
+  }})
+table.insert(define_ores, {
+  name = "ferrimolybdite",--Molybdenite mines..
+  type = "molybdenum",
+  desc = "Named from its chemical composition.",
+  processing_results = {
+    {type="item", name=e.molybdenum, amount=1, probability=.4011},
+    {type="item", name=e.iron, amount=1, probability=.1556},
+    {type="fluid", name=e.oxygen, amount=1, probability=.4236},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0197},
+  }})
+--hexamolybdenum meteorite
+table.insert(define_ores, {
+  name = "ilsemannite",--Alteration product of molybdenite.
+  type = "molybdenum",
+  desc = "Named for J. C. Ilsemann (1727-1822), mining commissioner at Clausthal, Harz, Germany.",
+  processing_results = {
+    {type="item", name=e.molybdenum, amount=1, probability=.6634},
+    {type="fluid", name=e.oxygen, amount=1, probability=.3319},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0046},
+  }})
+table.insert(define_ores, {
+  name = "jordisite",--As veinlets and coatings of probable moderate to low-temperature hydrothermal origin.
+  type = "molybdenum",
+  base_density = 0.5,
+  desc = "For Eduard Friedrich Alexander Jordis (1868-1917), colloidal chemist.",
+  processing_results = {
+    {type="item", name=e.molybdenum, amount=1, probability=.5994},
+    {type="item", name=e.sulfur, amount=1, probability=.4006},
+  }})
+table.insert(define_ores, {
+  name = "kamiokite",--In quartz-molybdenite stockwork veins associated with granite porphyry dikes.
+  type = "molybdenum",
+  desc = "Named for the locality.",
+  processing_results = {
+    {type="item", name=e.molybdenum, amount=1, probability=.5456},
+    {type="item", name=e.iron, amount=1, probability=.2117},
+    {type="fluid", name=e.oxygen, amount=1, probability=.2426},
+  }})
+if e.calcium and e.phosphorus then table.insert(define_ores, {
+  name = "melkovite",--olybdenite-fluorite deposit.
+  type = "molybdenum",
+  desc = "Named for Vyacheslav Gavrilovich Melkov (1911-1991), Russian mineralogist.",
+  processing_results = {
+    {type="item", name=e.molybdenum, amount=1, probability=.4088},
+    {type="item", name=e.iron, amount=1, probability=.0595},
+    {type="item", name=e.calcium, amount=1, probability=.0427},
+    {type="item", name=e.phosphorus, amount=1, probability=.0330},
+    {type="fluid", name=e.oxygen, amount=1, probability=.4431},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0129},
+  }}) end
+if e.calcium and e.phosphorus then table.insert(define_ores, {
+  name = "mendozavilite",--Mo-rich pegmatite.
+  type = "molybdenum",
+  desc = "Named for H. Mendoza Avila, Mexican geologist, who found the mineral.",
+  processing_results = {
+    {type="item", name=e.molybdenum, amount=1, probability=.4154},
+    {type="item", name=e.iron, amount=1, probability=.0907},
+    {type="item", name=e.calcium, amount=1, probability=.0369},
+    {type="item", name=e.phosphorus, amount=1, probability=.0335},
+    {type="item", name=e.sodium, amount=1, probability=.0075},
+    {type="item", name=e.strontium, amount=1, probability=.0047},
+    {type="item", name=e.magnesium, amount=1, probability=.0026},
+    {type="fluid", name=e.oxygen, amount=1, probability=.3983},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0104},
+  }}) end
+table.insert(define_ores, {
+  name = "molybdenite",--High temperature hydrothermal veins. Important in disseminated deposits of the porphyry type.
+  type = "molybdenum",
+  base_density = 0.5,
+  desc = "Greek, molybdos = *lead.*",
+  processing_results = {
+    {type="item", name=e.molybdenum, amount=1, probability=.5994},
+    {type="item", name=e.sulfur, amount=1, probability=.4006},
+  }})
+table.insert(define_ores, {
+  name = "molybdite",--	In cavities in topaz-quartz greisen.
+  type = "molybdenum",
+  base_density = 0.5,
   desc = "Named for the composition.",
   processing_results = {
-    {type="item", name=e.palladium, amount=1, probability=.4565},
-    {type="item", name=e.tin, amount=1, probability=.4526},
-    {type="item", name=e.copper, amount=1, probability=.0909},
-  }}) end
+    {type="item", name=e.molybdenum, amount=1, probability=.6665},
+    {type="fluid", name=e.oxygen, amount=1, probability=.3335},
+  }})
+--Monipite meteorite
+table.insert(define_ores, {
+  name = "mourite",--U-Mo deposits.
+  type = "molybdenum",
+  desc = "Named for its composition (Mo, Uranium).",
+  processing_results = {
+    {type="item", name=e.molybdenum, amount=1, probability=.4443},
+    {type="item", name=e.uranium, amount=1, probability=.2204},
+    {type="fluid", name=e.oxygen, amount=1, probability=.3260},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0093},
+  }})
+table.insert(define_ores, {
+  name = "powellite",
+  type = "molybdenum",
+  desc = "Named after the American geologist, John Westly Powell (1834-1902).",
+  processing_results = {
+    {type="item", name=e.molybdenum, amount=1, probability=.4797},
+    {type="item", name=e.calcium, amount=1, probability=.2004},
+    {type="fluid", name=e.oxygen, amount=1, probability=.3200},
+  }})
+table.insert(define_ores, {
+  name = "sidwillite",--Oxidation product of jordisite in a quartz vein.
+  type = "molybdenum",
+  desc = "Named for Sidney Arthur Williams (1933- ), American mineralogist and petrologist of Douglas, Arizona, USA,",
+  processing_results = {
+    {type="item", name=e.molybdenum, amount=1, probability=.5331},
+    {type="fluid", name=e.oxygen, amount=1, probability=.4445},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0224},
+  }})
+table.insert(define_ores, {
+  name = "tugarinovite",--Formed as a primary mineral, by metasomatism in a reducing environment deficient in sulfur.
+  type = "molybdenum",
+  desc = "Named for Aleksei Ivanovich Tugarinov (1947-), geochemist, Vernadskii Institute, Moscow, Russia.",
+  processing_results = {
+    {type="item", name=e.molybdenum, amount=1, probability=.7499},
+    {type="fluid", name=e.oxygen, amount=1, probability=.2501},
+  }})
+
 end
 
+
+-- if e.palladium then
+-- if e.tin then table.insert(define_ores, {
+--   name = "stannopalladinite",--In sulfide Cu-Ni ores intergrown with niggliite.
+--   type = "palladium",
+--   desc = "Named for the composition.",
+--   processing_results = {
+--     {type="item", name=e.palladium, amount=1, probability=.4565},
+--     {type="item", name=e.tin, amount=1, probability=.4526},
+--     {type="item", name=e.copper, amount=1, probability=.0909},
+--   }}) end
+-- end
+
 if e.antimony then
+if e.lead and e.silver then table.insert(define_ores, {
+  name = "stistaite",
+  type = "tin",
+  desc = "For Andor von Semsey (1833-1923), a Hungarian nobleman, who was also an amateur mineralogist.",
+  processing_results = {
+    {type="item", name=e.antimony, amount=1, probability=.4185},
+    {type="item", name=e.lead, amount=1, probability=.2374},
+    {type="item", name=e.sulfur, amount=1, probability=.2205},
+    {type="item", name=e.silver, amount=1, probability=.1236},
+  }}) end
 if e.tin then table.insert(define_ores, {
   name = "stistaite",--In heavy mineral concentrates from placer deposits.
   type = "tin",
@@ -2099,10 +2377,20 @@ if e.tin then table.insert(define_ores, {
     {type="item", name=e.antimony, amount=1, probability=.5063},
     {type="item", name=e.tin, amount=1, probability=.4937},
   }}) end
+--https://webmineral.com/MySQL/mineral_chem.php?sym1=Sb&percent1=100&sym2=&percent2=&sym3=&percent3=&minmax=60&submit=Submit
 end
 
-
-
+-- if e.selenium then
+-- if e.molybdenum then table.insert(define_ores, {
+--   name = "drysdallite",--In the oxidation zone of a uranium deposit in a talc schist.
+--   type = "molybdenum",
+--   desc = "For A.R. Drysdall, Director, Geological Survey of Zambia.",
+--   processing_results = {
+--     {type="item", name=e.selenium, amount=1, probability=.5140},
+--     {type="item", name=e.molybdenum, amount=1, probability=.4164},
+--     {type="item", name=e.sulfur, amount=1, probability=.0696},
+--   }}) end
+-- end
 
 
 
