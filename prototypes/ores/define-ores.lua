@@ -898,6 +898,13 @@ if e.silicon then table.insert(define_ores, {
     {type="item", name=e.silicon, amount=1, probability=.0991},
     {type="fluid", name=e.oxygen, amount=1, probability=.1694},
   }}) end
+if e.tellurium then table.insert(define_ores, {
+  name = "altaite",
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.6189},
+    {type="item", name=e.tellurium, amount=1, probability=.3811},
+  }}) end
 table.insert(define_ores, {
   name = "anglesite",
   type = "lead",
@@ -924,6 +931,15 @@ if e.aluminum and e.fluorine then table.insert(define_ores, {
     {type="fluid", name=e.oxygen, amount=1, probability=.0191},
     {type="fluid", name=e.hydrogen, amount=1, probability=.0024},
   }}) end
+if e.antimony and e.chlorine then table.insert(define_ores, {
+  name = "ardaite",
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.5714},
+    {type="item", name=e.antimony, amount=1, probability=.2297},
+    {type="item", name=e.sulfur, amount=1, probability=.1629},
+    {type="fluid", name=e.chlorine, amount=1, probability=.0360},
+  }}) end
 if e.arsenic and e.zinc then table.insert(define_ores, {
   name = "arsenbrackebuschite",
   type = "lead",
@@ -944,6 +960,35 @@ if e.arsenic and e.zinc then table.insert(define_ores, {
     {type="item", name=e.zinc, amount=1, probability=.1526},
     {type="fluid", name=e.oxygen, amount=1, probability=.1867},
     {type="fluid", name=e.hydrogen, amount=1, probability=.0024},
+  }}) end
+if e.arsenic then table.insert(define_ores, {
+  name = "arsentsumebite",
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.5677},
+    {type="item", name=e.arsenic, amount=1, probability=.1026},
+    {type="item", name=e.copper, amount=1, probability=.0871},
+    {type="item", name=e.sulfur, amount=1, probability=.0439},
+    {type="fluid", name=e.oxygen, amount=1, probability=.1973},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0014},
+  }}) end
+if e.aluminum and e.fluorine then table.insert(define_ores, {
+  name = "artroeite",
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.6372},
+    {type="item", name=e.aluminum, amount=1, probability=.0830},
+    {type="fluid", name=e.fluorine, amount=1, probability=.1753},
+    {type="fluid", name=e.oxygen, amount=1, probability=.0984},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0062},
+  }}) end
+if e.bismuth then table.insert(define_ores, {
+  name = "aschamalmite",
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.6376},
+    {type="item", name=e.bismuth, amount=1, probability=.2144},
+    {type="item", name=e.sulfur, amount=1, probability=.1480},
   }}) end
 if e.silicon and e.chlorine then table.insert(define_ores, {
   name = "ashburtonite",
@@ -1001,6 +1046,17 @@ if e.arsenic then table.insert(define_ores, {-- Uhh double check this one
     {type="item", name=e.arsenic, amount=1, probability=.2477},
     {type="item", name=e.sulfur, amount=1, probability=.2385},
   }}) end
+if e.silver and e.chlorine and e.fluorine then table.insert(define_ores, {-- Uhh double check this one
+  name = "bideauxite",
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.6226},
+    {type="item", name=e.silver, amount=1, probability=.1621},
+    {type="fluid", name=e.chlorine, amount=1, probability=.1598},
+    {type="fluid", name=e.fluorine, amount=1, probability=.0428},
+    {type="fluid", name=e.oxygen, amount=1, probability=.0120},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0008},
+  }}) end
 if e.antimony then table.insert(define_ores, {
   name = "bindheimite",
   type = "lead",
@@ -1040,6 +1096,33 @@ if e.antimony then table.insert(define_ores, {
     {type="item", name=e.antimony, amount=1, probability=.2644},
     {type="item", name=e.sulfur, amount=1, probability=.1868},
   }}) end
+if e.vanadium and e.manganese and e.zinc then table.insert(define_ores, {
+  name = "brackebuschite",
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.5524},
+    {type="item", name=e.vanadium, amount=1, probability=.1430},
+    {type="item", name=e.iron, amount=1, probability=.0392},
+    {type="item", name=e.manganese, amount=1, probability=.0385},
+    {type="item", name=e.zinc, amount=1, probability=.0092},
+    {type="fluid", name=e.oxygen, amount=1, probability=.2155},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0023},
+  }}) end
+if e.vanadium and e.phosphorus and e.aluminum and e.chromium and e.zinc then table.insert(define_ores, {
+  name = "bushmakinite",
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.6267},
+    {type="item", name=e.vanadium, amount=1, probability=.0564},
+    {type="item", name=e.phosphorus, amount=1, probability=.0464},
+    {type="item", name=e.aluminum, amount=1, probability=.0311},
+    {type="item", name=e.copper, amount=1, probability=.0200},
+    {type="item", name=e.chromium, amount=1, probability=.0109},
+    {type="item", name=e.zinc, amount=1, probability=.0010},
+    {type="item", name=e.sulfur, amount=1, probability=.0005},
+    {type="fluid", name=e.oxygen, amount=1, probability=.2055},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0015},
+  }}) end
 if e.silicon and e.magnesium and e.aluminum and e.boron then table.insert(define_ores, {
   name = "britvinite",
   type = "lead",
@@ -1052,6 +1135,17 @@ if e.silicon and e.magnesium and e.aluminum and e.boron then table.insert(define
     {type="fluid", name=e.oxygen, amount=1, probability=.2076},
     {type="fluid", name=e.boron, amount=1, probability=.0083},
     {type="fluid", name=e.hydrogen, amount=1, probability=.0026},
+  }}) end
+if e.vanadium then table.insert(define_ores, {
+  name = "calderonite",
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.5822},
+    {type="item", name=e.vanadium, amount=1, probability=.1360},
+    {type="item", name=e.iron, amount=1, probability=.0706},
+    {type="item", name=e.copper, amount=1, probability=.0045},
+    {type="fluid", name=e.oxygen, amount=1, probability=.2046},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0021},
   }}) end
 table.insert(define_ores, {
   name = "caledonite",
@@ -1156,7 +1250,7 @@ if e.chlorine then table.insert(define_ores, {
     {type="item", name=e.lead, amount=1, probability=.8968},
     {type="fluid", name=e.oxygen, amount=1, probability=.0594},
     {type="fluid", name=e.chlorine, amount=1, probability=.0438},
-  }})
+  }}) end
 if e.selenium then table.insert(define_ores, {
   name = "clausthalite",
   type = "lead",
@@ -1191,13 +1285,23 @@ if e.chlorine then table.insert(define_ores, {
     {type="item", name=e.lead, amount=1, probability=.7450},
     {type="fluid", name=e.chlorine, amount=1, probability=.2550},
   }}) end
-if e.chromium and e.chlorine then table.insert(define_ores, {
+if e.chromium then table.insert(define_ores, {
   name = "crocoite",
   type = "lead",
   processing_results = {
     {type="item", name=e.lead, amount=1, probability=.6411},
     {type="item", name=e.chromium, amount=1, probability=.1609},
     {type="fluid", name=e.oxygen, amount=1, probability=.1980},
+  }}) end
+if e.chromium and e.chlorine then table.insert(define_ores, {
+  name = "cumengite",
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.5508},
+    {type="item", name=e.copper, amount=1, probability=.1609},
+    {type="fluid", name=e.chlorine, amount=1, probability=.1885},
+    {type="fluid", name=e.oxygen, amount=1, probability=.0932},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0066},
   }}) end
 if e.antimony and e.chlorine then table.insert(define_ores, {
   name = "dadsonite",
@@ -1237,6 +1341,25 @@ if e.chlorine then table.insert(define_ores, {
     {type="fluid", name=e.oxygen, amount=1, probability=.1037},
     {type="fluid", name=e.hydrogen, amount=1, probability=.0065},
   }}) end
+if e.phosphorus and e.aluminum then table.insert(define_ores, {
+  name = "drugmanite",
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.6023},
+    {type="item", name=e.phosphorus, amount=1, probability=.0900},
+    {type="item", name=e.iron, amount=1, probability=.0609},
+    {type="item", name=e.aluminum, amount=1, probability=.0098},
+    {type="fluid", name=e.oxygen, amount=1, probability=.2326},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0044},
+  }}) end
+if e.arsenic then table.insert(define_ores, {
+  name = "dufrenoysite",
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.5719},
+    {type="item", name=e.sulfur, amount=1, probability=.2213},
+    {type="item", name=e.arsenic, amount=1, probability=.2068},
+  }}) end
 if e.arsenic then table.insert(define_ores, {
   name = "duftite-alpha",
   type = "lead",
@@ -1259,6 +1382,15 @@ if e.zinc and e.tellurium and e.arsenic and e.vanadium and e.silicon then table.
     {type="item", name=e.silicon, amount=1, probability=.0065},
     {type="fluid", name=e.oxygen, amount=1, probability=.1720},
     {type="fluid", name=e.hydrogen, amount=1, probability=.0031},
+  }}) end
+if e.rhodium then table.insert(define_ores, {
+  name = "dzhezkazganite", --Concentrated by dissolving out bornite and blue chalcocite with KCN.
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.5708},
+    {type="item", name=e.sulfur, amount=1, probability=.2944},
+    {type="item", name=e.copper, amount=1, probability=.0875},
+    {type="item", name=e.rhodium, amount=1, probability=.0472},
   }}) end
 if e.arsenic and e.chlorine then table.insert(define_ores, {
   name = "ecdemite",
@@ -1297,6 +1429,26 @@ if e.tellurium then table.insert(define_ores, {
     {type="item", name=e.tellurium, amount=1, probability=.3333},
     {type="fluid", name=e.oxygen, amount=1, probability=.1254},
   }}) end
+if e.antimony then table.insert(define_ores, {
+  name = "falkmanite",
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.5509},
+    {type="item", name=e.antimony, amount=1, probability=.2577},
+    {type="item", name=e.sulfur, amount=1, probability=.1914},
+  }}) end
+if e.arsenic and e.zinc then table.insert(define_ores, {
+  name = "feinglosite",
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.5512},
+    {type="item", name=e.arsenic, amount=1, probability=.1495},
+    {type="item", name=e.zinc, amount=1, probability=.0652},
+    {type="item", name=e.sulfur, amount=1, probability=.0213},
+    {type="item", name=e.iron, amount=1, probability=.0186},
+    {type="fluid", name=e.oxygen, amount=1, probability=.1915},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0027},
+  }}) end
 if e.barium and e.phosphorus then table.insert(define_ores, {
   name = "ferrazite",
   type = "lead",
@@ -1308,6 +1460,16 @@ if e.barium and e.phosphorus then table.insert(define_ores, {
     {type="fluid", name=e.hydrogen, amount=1, probability=.0179},
   }}) end
 if e.arsenic and e.chlorine then table.insert(define_ores, {
+  name = "fiedlerite",
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.7614},
+    {type="fluid", name=e.chlorine, amount=1, probability=.1737},
+    {type="fluid", name=e.oxygen, amount=1, probability=.0392},
+    {type="fluid", name=e.fluorine, amount=1, probability=.0233},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0025},
+  }}) end
+if e.arsenic and e.chlorine then table.insert(define_ores, {
   name = "finnemanite",
   type = "lead",
   processing_results = {
@@ -1315,6 +1477,27 @@ if e.arsenic and e.chlorine then table.insert(define_ores, {
     {type="item", name=e.arsenic, amount=1, probability=.1561},
     {type="fluid", name=e.oxygen, amount=1, probability=.1000},
     {type="fluid", name=e.chlorine, amount=1, probability=.0246},
+  }}) end
+if e.germanium then table.insert(define_ores, {
+  name = "fleischerite",
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.6176},
+    {type="item", name=e.germanium, amount=1, probability=.0721},
+    {type="item", name=e.sulfur, amount=1, probability=.0637},
+    {type="fluid", name=e.oxygen, amount=1, probability=.2385},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0080},
+  }}) end
+if e.germanium then table.insert(define_ores, {
+  name = "fornacite",
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.5526},
+    {type="item", name=e.arsenic, amount=1, probability=.0999},
+    {type="item", name=e.copper, amount=1, probability=.0847},
+    {type="item", name=e.chromium, amount=1, probability=.0693},
+    {type="fluid", name=e.oxygen, amount=1, probability=.1920},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0013},
   }}) end
 if e.tin and e.antimony then table.insert(define_ores, {
   name = "franckeite",
@@ -1402,6 +1585,15 @@ if e.bismuth and e.antimony and e.silver then table.insert(define_ores, {
     {type="item", name=e.copper, amount=1, probability=.0087},
     {type="item", name=e.silver, amount=1, probability=.0049},
   }}) end
+if e.tellurium then table.insert(define_ores, {
+  name = "girdite",
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.6077},
+    {type="item", name=e.tellurium, amount=1, probability=.2495},
+    {type="fluid", name=e.oxygen, amount=1, probability=.1408},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0020},
+  }}) end
 if e.fluorine then table.insert(define_ores, {
   name = "grandreefite",
   type = "lead",
@@ -1429,6 +1621,36 @@ if e.arsenic and e.calcium and e.chlorine then table.insert(define_ores, {
     {type="fluid", name=e.oxygen, amount=1, probability=.1664},
     {type="fluid", name=e.chlorine, amount=1, probability=.0307},
   }}) end
+if e.arsenic and e.chlorine then table.insert(define_ores, {
+  name = "heliophyllite",
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.7549},
+    {type="item", name=e.arsenic, amount=1, probability=.0910},
+    {type="fluid", name=e.chlorine, amount=1, probability=.0861},
+    {type="fluid", name=e.oxygen, amount=1, probability=.0680},
+  }}) end
+if e.chlorine then table.insert(define_ores, {
+  name = "hematophanite",
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.7232},
+    {type="item", name=e.iron, amount=1, probability=.1462},
+    {type="fluid", name=e.oxygen, amount=1, probability=.1222},
+    {type="fluid", name=e.chlorine, amount=1, probability=.0077},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0007},
+  }}) end
+if e.chromium and e.zinc and e.silicon and e.fluorine then table.insert(define_ores, {
+  name = "hemihedrite",
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.6781},
+    {type="item", name=e.chromium, amount=1, probability=.1021},
+    {type="item", name=e.zinc, amount=1, probability=.0214},
+    {type="item", name=e.silicon, amount=1, probability=.0184},
+    {type="fluid", name=e.oxygen, amount=1, probability=.1676},
+    {type="fluid", name=e.fluorine, amount=1, probability=.0124},
+  }}) end
 if e.thallium and e.chlorine and e.bromine and e.fluorine then table.insert(define_ores, {
   name = "hephaistosite",
   type = "lead",
@@ -1439,16 +1661,60 @@ if e.thallium and e.chlorine and e.bromine and e.fluorine then table.insert(defi
     {type="fluid", name=e.bromine, amount=1, probability=.0141},
     {type="fluid", name=e.fluorine, amount=1, probability=.0017},
   }}) end
+if e.vanadium then table.insert(define_ores, {
+  name = "heyite",
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.7187},
+    {type="item", name=e.iron, amount=1, probability=.0775},
+    {type="item", name=e.vanadium, amount=1, probability=.0707},
+    {type="fluid", name=e.oxygen, amount=1, probability=.1332},
+  }}) end
+if e.bismuth and e.silver then table.insert(define_ores, {
+  name = "heyrovskyite",
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.5450},
+    {type="item", name=e.bismuth, amount=1, probability=.2748},
+    {type="item", name=e.sulfur, amount=1, probability=.1518},
+    {type="item", name=e.silver, amount=1, probability=.0284},
+  }}) end
+table.insert(define_ores, {
+  name = "hydrocerussite",
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.8014},
+    {type="item", name=e.carbon, amount=1, probability=.0310},
+    {type="fluid", name=e.oxygen, amount=1, probability=.1650},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0026},
+  }})
+if e.phosphorus then table.insert(define_ores, {
+  name = "hydroxylpyromorphite",
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.7743},
+    {type="item", name=e.phosphorus, amount=1, probability=.0695},
+    {type="fluid", name=e.oxygen, amount=1, probability=.1555},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0008},
+  }}) end
+if e.phosphorus then table.insert(define_ores, {
+  name = "hyttsjoite",
+  type = "lead",
+  processing_results = {
+    {type="item", name=e.lead, amount=1, probability=.5443},
+    {type="item", name=e.silicon, amount=1, probability=.1230},
+    {type="item", name=e.barium, amount=1, probability=.0401},
+    {type="item", name=e.calcium, amount=1, probability=.0292},
+    {type="item", name=e.iron, amount=1, probability=.0163},
+    {type="item", name=e.manganese, amount=1, probability=.0160},
+    {type="fluid", name=e.oxygen, amount=1, probability=.2242},
+    {type="fluid", name=e.chlorine, amount=1, probability=.0052},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0018},
+  }}) end
 
-
-
-
-
-
-
-
-
+-- TODO https://webmineral.com/MySQL/mineral_chem.php?st=76&minmax=50&sym1=Pb&percent1=100&
 end
+
 -- Convert compact definitions into normalized ores using make_ore
 local orelist = {}
 for _, ore in ipairs(define_ores) do
