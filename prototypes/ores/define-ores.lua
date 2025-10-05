@@ -1715,6 +1715,175 @@ if e.phosphorus then table.insert(define_ores, {
 -- TODO https://webmineral.com/MySQL/mineral_chem.php?st=76&minmax=50&sym1=Pb&percent1=100&
 end
 
+if e.nickel then --https://webmineral.com/MySQL/mineral_chem.php?sym1=Ni&percent1=100&sym2=&percent2=&sym3=&percent3=&minmax=50&submit=Submit
+if e.arsenic then table.insert(define_ores, {
+  name = "aerugite",
+  type = "nickel",
+  processing_results = {
+    {type="item", name=e.nickel, amount=1, probability=.5407},
+    {type="item", name=e.arsenic, amount=1, probability=.2301},
+    {type="fluid", name=e.oxygen, amount=1, probability=.2293},
+  }}) end
+table.insert(define_ores, {
+  name = "awaruite",
+  type = "nickel",
+  processing_results = {
+    {type="item", name=e.nickel, amount=1, probability=.7243},
+    {type="item", name=e.iron, amount=1, probability=.2757},
+  }})
+table.insert(define_ores, {
+  name = "bunsenite",
+  type = "nickel",
+  processing_results = {
+    {type="item", name=e.nickel, amount=1, probability=.7858},
+    {type="fluid", name=e.oxygen, amount=1, probability=.2142},
+  }})
+if e.arsenic then table.insert(define_ores, {
+  name = "dienerite",
+  type = "nickel",
+  processing_results = {
+    {type="item", name=e.nickel, amount=1, probability=.7015},
+    {type="item", name=e.arsenic, amount=1, probability=.2985},
+  }}) end
+table.insert(define_ores, {
+  name = "godlevskite",
+  type = "nickel",
+  processing_results = {
+    {type="item", name=e.nickel, amount=1, probability=.6005},
+    {type="item", name=e.sulfur, amount=1, probability=.3281},
+    {type="item", name=e.iron, amount=1, probability=.0714},
+  }})
+table.insert(define_ores, {
+  name = "heazlewoodite", --In serpentine, probably of hydrothermal origin.
+  type = "nickel",
+  processing_results = {
+    {type="item", name=e.nickel, amount=1, probability=.7330},
+    {type="item", name=e.sulfur, amount=1, probability=.2670},
+  }})
+if e.arsenic then table.insert(define_ores, {
+  name = "maucherite", --In hydrothermal veins with other nickel arsenides and sulfides.
+  type = "nickel",
+  processing_results = {
+    {type="item", name=e.nickel, amount=1, probability=.5186},
+    {type="item", name=e.arsenic, amount=1, probability=.4814},
+  }}) end
+if e.phosphorus and e.cobalt then table.insert(define_ores, {
+  name = "melliniite", --Found in an acapulcoite, a primitive achondrite meteorite. New structure type.
+  type = "nickel",
+  processing_results = {
+    {type="item", name=e.nickel, amount=1, probability=.5198},
+    {type="item", name=e.iron, amount=1, probability=.3527},
+    {type="item", name=e.phosphorus, amount=1, probability=.1252},
+    {type="item", name=e.cobalt, amount=1, probability=.0023},
+  }}) end
+table.insert(define_ores, {
+  name = "millerite", --In limestone and dolomite cavities.
+  type = "nickel",
+  processing_results = {
+    {type="item", name=e.nickel, amount=1, probability=.6467},
+    {type="item", name=e.sulfur, amount=1, probability=.3533},
+  }})
+-- table.insert(define_ores, {
+--   name = "nickel", --In serpentinized ultramafic rocks as a result o flow-temperature hydrothermal activity.
+--     type = "nickel",
+--   processing_results = {
+--     {type="item", name=e.nickel, amount=1},
+--   }})
+table.insert(define_ores, {
+  name = "nullaginite", --Secondary mineral in serpentinized peridotites.
+  type = "nickel",
+  processing_results = {
+    {type="item", name=e.nickel, amount=1, probability=.5552},
+    {type="item", name=e.carbon, amount=1, probability=.0568},
+    {type="fluid", name=e.oxygen, amount=1, probability=.3784},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0095},
+  }})
+if e.arsenic then table.insert(define_ores, {
+  name = "orcelite",--Inclusions in pentlandite in ultramafic rocks.
+  type = "nickel",
+  processing_results = {
+    {type="item", name=e.nickel, amount=1, probability=.6514},
+    {type="item", name=e.arsenic, amount=1, probability=.3486},
+  }}) end
+table.insert(define_ores, {
+  name = "otwayite",--Late-stage fracture filling.
+  type = "nickel",
+  processing_results = {
+    {type="item", name=e.nickel, amount=1, probability=.5116},
+    {type="item", name=e.carbon, amount=1, probability=.0524},
+    {type="fluid", name=e.oxygen, amount=1, probability=.4184},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0176},
+  }})
+table.insert(define_ores, {
+  name = "paraotwayite",--Named for its close physical and chemical resemblance to otwayite.
+  type = "nickel",
+  processing_results = {
+    {type="item", name=e.nickel, amount=1, probability=.5659},
+    {type="item", name=e.sulfur, amount=1, probability=.0386},
+    {type="item", name=e.carbon, amount=1, probability=.0145},
+    {type="fluid", name=e.oxygen, amount=1, probability=.3664},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0146},
+  }})
+if e.silicon and e.phosphorus then table.insert(define_ores, {
+  name = "perryite",--Anomalously silicon-rich mesosiderite and enstatite chondrite meteorites, probably formed by exsolution from kamacite.
+  type = "nickel",
+  desc = "Named for Stuart Hoffman Perry (1874-1957), American newspaperman and leading private collector of meteorites.",
+  processing_results = {
+    {type="item", name=e.nickel, amount=1, probability=.6400},
+    {type="item", name=e.iron, amount=1, probability=.2030},
+    {type="item", name=e.silicon, amount=1, probability=.1148},
+    {type="item", name=e.phosphorus, amount=1, probability=.0422},
+  }}) end
+table.insert(define_ores, {
+  name = "polydymite",--Found in hydrothermal veins. Forms a series with linnaeite.
+  type = "nickel",
+  desc = "From the Greek for *many* and *twin*, as the mineral is observed in twinned forms.",
+  processing_results = {
+    {type="item", name=e.nickel, amount=1, probability=.5785},
+    {type="item", name=e.sulfur, amount=1, probability=.4215},
+  }})
+table.insert(define_ores, {
+  name = "tetrataenite",--Exsolution rims and grains in meteorites and exsolved with antitaenite.
+  type = "nickel",
+  desc = "Named for taenite and the tetragonal crystal form of this polymorph.",
+  processing_results = {
+    {type="item", name=e.nickel, amount=1, probability=.5124},
+    {type="item", name=e.iron, amount=1, probability=.4876},
+  }})
+table.insert(define_ores, {
+  name = "theophrastite",--Coatings in chromitite in lenses in serpentinites (
+  type = "nickel",
+  desc = "Named for Theophrastus, (ca. 371 BC-ca. 287 BC), the first Greek mineralogist.",
+  processing_results = {
+    {type="item", name=e.nickel, amount=1, probability=.6331},
+    {type="fluid", name=e.oxygen, amount=1, probability=.3452},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0217},
+  }})
+if e.antimony then table.insert(define_ores, {
+  name = "tucekite",--In a hydrothermal deposit.
+  type = "nickel",
+  desc = "Named for Karel Tucek, Curator of Minerals in the National Museum, Prague, Poland.",
+  processing_results = {
+    {type="item", name=e.nickel, amount=1, probability=.5137},
+    {type="item", name=e.sulfur, amount=1, probability=.2495},
+    {type="item", name=e.antimony, amount=1, probability=.2368},
+  }}) end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -- Convert compact definitions into normalized ores using make_ore
 local orelist = {}
 for _, ore in ipairs(define_ores) do
