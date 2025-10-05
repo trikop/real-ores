@@ -44,7 +44,7 @@ e.tantalum = is_enabled({"tantalum-ore", "pm-tantalum-ore"})
 e.tellurium = is_enabled({"tellurium-ore", "pm-tellurium-ore"})
 e.phosphorus = is_enabled({"phosphorus-ore", "pm-phosphorus-ore"})
 e.thallium = is_enabled({"thallium-ore", "pm-thallium-ore"})
-
+e.boron = is_enabled({"boron-ore", "pm-boron-ore"})
 
 e.calcium = is_enabled({"calcium-ore", "pm-calcium-ore"})
 e.yttrium = is_enabled({"yttrium-ore", "pm-yttrium-ore"})
@@ -1870,7 +1870,236 @@ if e.antimony then table.insert(define_ores, {
   }}) end
 end
 
+if e.tin then --https://webmineral.com/MySQL/mineral_chem.php?sym1=Sn&percent1=100&sym2=&percent2=&sym3=&percent3=&minmax=60&submit=Submit
+-- if e.antimony then table.insert(define_ores, {
+--   name = "abhurdite",--Found on ship-wrecked corroded tin ingots.
+--   type = "tin",
+--   desc = "Named for its locality.",
+--   processing_results = {
 
+--   }}) end
+table.insert(define_ores, {
+  name = "berndite",--Secondary mineral in tin sulfide veins and in a high temperature deposit, hydrothermally altered.
+  type = "tin",
+  desc = "Named for Fritz Berndt, German mineralogist.",
+  processing_results = {
+    {type="item", name=e.tin, amount=1, probability=.6492},
+    {type="item", name=e.sulfur, amount=1, probability=.3508},
+  }})
+if e.calcium then table.insert(define_ores, {
+  name = "burtite",
+  type = "tin",
+  desc = "From a garnetite in a tin-bearing skarn, formed under conditions of relatively low temperature and low (XCO2).",
+  processing_results = {
+    {type="item", name=e.tin, amount=1, probability=.4551},
+    {type="item", name=e.calcium, amount=1, probability=.1537},
+    {type="fluid", name=e.oxygen, amount=1, probability=.3680},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0232},
+  }}) end
+table.insert(define_ores, {
+  name = "cassiterite",--Granite pegmatites and alluvial placer deposits.
+  type = "tin",
+  desc = "From the Greek kassiteros - *tin.*",
+  processing_results = {
+    {type="item", name=e.tin, amount=1, probability=.7877},
+    {type="fluid", name=e.oxygen, amount=1, probability=.2123},
+  }})
+table.insert(define_ores, {
+  name = "herzenbergite",--Of hydrothermal origin, later than the deposition of cassiterite.
+  type = "tin",
+  desc = "For Robert Herzenberg (1885-?), German chemist of Oruro, Bolivia.",
+  processing_results = {
+    {type="item", name=e.tin, amount=1, probability=.7873},
+    {type="item", name=e.sulfur, amount=1, probability=.2127},
+  }})
+if e.calcium and e.silicon then table.insert(define_ores, {
+  name = "malayaite",--Hydrothermal alteration of cassiterite-quartz assemblege and Sn-bearing skarns. Strucurally related to titanite.
+  type = "tin",
+  desc = "Named for the locality.",
+  processing_results = {
+    {type="item", name=e.tin, amount=1, probability=.4448},
+    {type="item", name=e.calcium, amount=1, probability=.1502},
+    {type="item", name=e.silicon, amount=1, probability=.1052},
+    {type="fluid", name=e.oxygen, amount=1, probability=.2998},
+  }}) end
+if e.zinc then table.insert(define_ores, {
+  name = "mushistonite",--	Oxidized zone of a tin deposit, replacing stannite.
+  type = "tin",
+  desc = "Named for the locality.",
+  processing_results = {
+    {type="item", name=e.tin, amount=1, probability=.4176},
+    {type="item", name=e.copper, amount=1, probability=.1118},
+    {type="item", name=e.zinc, amount=1, probability=.0920},
+    {type="item", name=e.iron, amount=1, probability=.0196},
+    {type="fluid", name=e.oxygen, amount=1, probability=.3377},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0213},
+  }}) end
+if e.calcium and e.boron then table.insert(define_ores, {
+  name = "nordenskioldine",
+  type = "tin",
+  desc = "Named for Nils A. E. Nordenskiöld (1832-1901), Swedish mineralogist and Arctic explorer.",
+  processing_results = {
+    {type="item", name=e.tin, amount=1, probability=.4295},
+    {type="item", name=e.calcium, amount=1, probability=.1450},
+    {type="item", name=e.boron, amount=1, probability=.0782},
+    {type="fluid", name=e.oxygen, amount=1, probability=.3473},
+  }}) end
+table.insert(define_ores, {
+  name = "ottemannite",--In zones of oxidation or secondary enrichment in hydrothermal tin deposits.
+  type = "tin",
+  desc = "Named for J. Ottemann, German mineralogist, Heidelberg, Germany.",
+  processing_results = {
+    {type="item", name=e.tin, amount=1, probability=.7117},
+    {type="item", name=e.sulfur, amount=1, probability=.2883},
+  }})
+table.insert(define_ores, {
+  name = "rhodostannite",--As a replacement (alteration) product of stannite.
+  type = "tin",
+  desc = "Named for its reddish color compared to stannite.",
+  processing_results = {
+    {type="item", name=e.tin, amount=1, probability=.7117},
+    {type="item", name=e.sulfur, amount=1, probability=.2883},
+    {type="item", name=e.copper, amount=1, probability=.7117},
+    {type="item", name=e.iron, amount=1, probability=.2883},
+  }})
+table.insert(define_ores, {
+  name = "romarchite",--Alteration product on pewter (tin) objects and found on veins containing native tin.
+  type = "tin",
+  desc = "Named for the initials of the Royal Ontario Museum (ROM), where the mineral was identified and for ARCHaeology because it was found on tin artifacts.",
+  processing_results = {
+    {type="item", name=e.tin, amount=1, probability=.8812},
+    {type="oxygen", name=e.oxygen, amount=1, probability=.1188},
+  }})
+if e.magnesium then table.insert(define_ores, {
+  name = "schoenfliesite",--Secondary mineral in oxidized tin-bearing materials.
+  type = "tin",
+  desc = "Named for Arthur Moritz Schoenflies (1853-1928), professor of mathematics, University of Frankfurt.",
+  processing_results = {
+    {type="item", name=e.tin, amount=1, probability=.4295},
+    {type="item", name=e.magnesium, amount=1, probability=.1450},
+    {type="fluid", name=e.oxygen, amount=1, probability=.0782},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.3473},
+  }}) end
+if e.antimony then table.insert(define_ores, {
+  name = "schoenfliesite",--Gold and PGM placer deposits derived from sulfide-poor Alaskan-type intrusions (Clinopyroxinite-gabbro intrusions).
+  type = "tin",
+  desc = "Named after George Soros (1930-), well-known American financier, in recognition of his important support to science.",
+  processing_results = {
+    {type="item", name=e.tin, amount=1, probability=.4865},
+    {type="item", name=e.copper, amount=1, probability=.3472},
+    {type="item", name=e.antimony, amount=1, probability=.1663},
+  }}) end
+if e.manganese then table.insert(define_ores, {
+  name = "tetrawickmanite",
+  type = "tin",
+  desc = "Named as the tetragonal analog of wickmanite.",
+  processing_results = {
+    {type="item", name=e.tin, amount=1, probability=.4306},
+    {type="item", name=e.manganese, amount=1, probability=.1993},
+    {type="fluid", name=e.oxygen, amount=1, probability=.3482},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0219},
+  }}) end
+-- table.insert(define_ores, {
+--   name = "tin",
+--   type = "tin",
+--   desc = "A word of Old English origin, related to the Dutch tin and the German zinn.",
+--   processing_results = {
+--     {type="item", name=e.tin, amount=1},
+--   }})
+if e.silver then table.insert(define_ores, {
+  name = "toyohaite",--Minor ore mineral.
+  type = "tin",
+  desc = "Named for the locality.",
+  processing_results = {
+    {type="item", name=e.tin, amount=1, probability=.4028},
+    {type="item", name=e.sulfur, amount=1, probability=.2901},
+    {type="item", name=e.silver, amount=1, probability=.2440},
+    {type="item", name=e.iron, amount=1, probability=.0632},
+  }}) end
+if e.manganese and e.boron then table.insert(define_ores, {
+  name = "tusionite",--Late-stage hydrothermal origin, rare in granite pegmatites, typically in miarolitic cavities.
+  type = "tin",
+  desc = "Named for the locality.",
+  processing_results = {
+    {type="item", name=e.tin, amount=1, probability=.4076},
+    {type="item", name=e.manganese, amount=1, probability=.1886},
+    {type="item", name=e.boron, amount=1, probability=.0742},
+    {type="fluid", name=e.oxygen, amount=1, probability=.3296},
+  }}) end
+table.insert(define_ores, {
+  name = "varlamoffite",--	Oxidized protions of stannite-cassiterite veins.
+  type = "tin",
+  desc = "Named for Nicolas Varlamoff (1910-1976), Belgian geologist who collected the mineral.",
+  processing_results = {
+    {type="item", name=e.tin, amount=1, probability=.6571},
+    {type="item", name=e.iron, amount=1, probability=.1030},
+    {type="fluid", name=e.oxygen, amount=1, probability=.2362},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0037},
+  }})
+if e.zinc then table.insert(define_ores, {
+  name = "vismirnovite",--Oxidation of earlier tin sulfides in tin deposits.
+  type = "tin",
+  desc = "Named for Vladimir Ivanovich Smirnov (1910-1988), Moscow University, Moscow, Russia",
+  processing_results = {
+    {type="item", name=e.tin, amount=1, probability=.4149},
+    {type="item", name=e.zinc, amount=1, probability=.2285},
+    {type="fluid", name=e.oxygen, amount=1, probability=.3355},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0211},
+  }}) end
+if e.manganese then table.insert(define_ores, {
+  name = "wickmanite",--Nephelin syenite dike and altered garnet skarn.
+  type = "tin",
+  desc = "Named for Franz-Erik Wickman (1915-), Swedish mineralogist, who studied the mineralogy of the Langban area.",
+  processing_results = {
+    {type="item", name=e.tin, amount=1, probability=.4306},
+    {type="item", name=e.manganese, amount=1, probability=.1993},
+    {type="fluid", name=e.oxygen, amount=1, probability=.3482},
+    {type="fluid", name=e.hydrogen, amount=1, probability=.0219},
+  }}) end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if e.palladium then
+if e.tin then table.insert(define_ores, {
+  name = "stannopalladinite",--In sulfide Cu-Ni ores intergrown with niggliite.
+  type = "palladium",
+  desc = "Named for the composition.",
+  processing_results = {
+    {type="item", name=e.palladium, amount=1, probability=.4565},
+    {type="item", name=e.tin, amount=1, probability=.4526},
+    {type="item", name=e.copper, amount=1, probability=.0909},
+  }}) end
+end
+
+if e.antimony then
+if e.tin then table.insert(define_ores, {
+  name = "stistaite",--In heavy mineral concentrates from placer deposits.
+  type = "tin",
+  desc = "Named for the composition of stibium (antimony) and stannum (tin).",
+  processing_results = {
+    {type="item", name=e.antimony, amount=1, probability=.5063},
+    {type="item", name=e.tin, amount=1, probability=.4937},
+  }}) end
+end
 
 
 
