@@ -109,7 +109,7 @@ local function make_ore(ore)
       mapcolor = {0,0.7,0}
     elseif ore.type == "manganese" then
       icon = "__manganese__/graphics/icons/manganese-ore"
-      filename = "__manganese__/graphics/ores/manganese-ore"
+      filename = "__manganese__/graphics/ores/hr-manganese-ore"
       mining_particle = "iron-ore-particle"
       mapcolor = {r=0.43, g=0.18, b=0.06}
       ore_type_smelted_result = string.gsub(e.manganese, "-ore$", "-plate")
@@ -149,6 +149,12 @@ local function make_ore(ore)
       mining_particle = "iron-ore-particle"
       mapcolor = {r=0.9, g=0.9, b=0.9}
       ore_type_smelted_result = string.gsub(e.antimony, "-ore$", "-plate")
+    elseif ore.type == "molybdenum" then
+      icon = "__base__/graphics/icons/coal"
+      filename = "__base__/graphics/entity/coal/coal"
+      mining_particle = "iron-ore-particle"
+      mapcolor = {r=0.9, g=0.9, b=0.9}
+      ore_type_smelted_result = string.gsub(e.molybdenum, "-ore$", "-plate")
     else
       icon = "__base__/graphics/icons/coal"
       filename = "__base__/graphics/entity/coal/coal"
@@ -2316,7 +2322,7 @@ table.insert(define_ores, {
     {type="fluid", name=e.oxygen, amount=1, probability=.3260},
     {type="fluid", name=e.hydrogen, amount=1, probability=.0093},
   }})
-table.insert(define_ores, {
+if e.calcium then table.insert(define_ores, {
   name = "powellite",
   type = "molybdenum",
   desc = "Named after the American geologist, John Westly Powell (1834-1902).",
@@ -2324,7 +2330,7 @@ table.insert(define_ores, {
     {type="item", name=e.molybdenum, amount=1, probability=.4797},
     {type="item", name=e.calcium, amount=1, probability=.2004},
     {type="fluid", name=e.oxygen, amount=1, probability=.3200},
-  }})
+  }}) end
 table.insert(define_ores, {
   name = "sidwillite",--Oxidation product of jordisite in a quartz vein.
   type = "molybdenum",
