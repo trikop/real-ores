@@ -77,107 +77,116 @@ e.argon = is_enabled({"pm-argon-gas", "kr-argon", "argon"})
 e.bromine = is_enabled({"pm-bromine", "bromine"})
 
 local function make_ore(ore)
-  local icon, filename, mining_particle, mapcolor, ore_type_smelted_result
-  if ore.icon and ore.filename and ore.mining_particle and ore.map_color and ore.ore_type_smelted_result then
-    icon = ore.icon
-    filename = ore.filename
-    mining_particle = ore.mining_particle
-    mapcolor = ore.map_color
-    ore_type_smelted_result = ore.ore_type_smelted_result
+  local icon, filename, mining_particle, map_color, ore_type_smelted_result, mining_time, fluid_amount, required_fluid, base_density, base_spots_per_km2, regular_rq_factor_multiplier, starting_rq_factor_multiplier
+  if ore.icon and ore.filename and ore.mining_particle and ore.map_color and ore.ore_type_smelted_result and ore.mining_time and ore.fluid_amount and ore.required_fluid and ore.base_density and ore.base_spots_per_km2 and ore.regular_rq_factor_multiplier and ore.starting_rq_factor_multiplier then
+    -- icon = ore.icon
+    -- filename = ore.filename
+    -- mining_particle = ore.mining_particle
+    -- map_color = ore.map_color
+    -- ore_type_smelted_result = ore.ore_type_smelted_result
+    -- mining_time = ore.mining_time
+    -- fluid_amount = ore.fluid_amount
+    -- required_fluid = ore.required_fluid
+    -- base_density = ore.base_density
+    -- base_spots_per_km2 = ore.base_spots_per_km2
+    -- regular_rq_factor_multiplier = ore.regular_rq_factor_multiplier
+    -- starting_rq_factor_multiplier = ore.starting_rq_factor_multiplier
   else
     if ore.type == "coal" then
-      icon = "__base__/graphics/icons/coal"
+      icon = "__base__/graphics/icons/coal" --add ore.icon or     etc to everything
       filename = "__base__/graphics/entity/coal/coal"
       mining_particle = "coal-particle"
-      mapcolor = {0,0,0}
+      map_color = {0,0,0}
     elseif ore.type == "copper" then
       icon = "__base__/graphics/icons/copper-ore"
       filename = "__base__/graphics/entity/copper-ore/copper-ore"
       mining_particle = "copper-ore-particle"
-      mapcolor = {0.803,0.388,0.215}
+      map_color = {0.803,0.388,0.215}
       ore_type_smelted_result = "copper-plate"
     elseif ore.type == "iron" then
       icon = "__base__/graphics/icons/iron-ore"
       filename = "__base__/graphics/entity/iron-ore/iron-ore"
       mining_particle = "iron-ore-particle"
-      mapcolor = {0.415,0.525,0.580}
+      map_color = {0.415,0.525,0.580}
       ore_type_smelted_result = "iron-plate"
     elseif ore.type == "uranium" then
       icon = "__base__/graphics/icons/uranium-ore"
       filename = "__base__/graphics/entity/uranium-ore/uranium-ore"
       mining_particle = nil
-      mapcolor = {0,0.7,0}
+      map_color = {0,0.7,0}
     elseif ore.type == "manganese" then
       icon = "__manganese__/graphics/icons/manganese-ore"
       filename = "__manganese__/graphics/ores/hr-manganese-ore"
       mining_particle = "iron-ore-particle"
-      mapcolor = {r=0.43, g=0.18, b=0.06}
+      map_color = {r=0.43, g=0.18, b=0.06}
       ore_type_smelted_result = string.gsub(e.manganese, "-ore$", "-plate")
     elseif ore.type == "bismuth" then
       icon = "__bismuth__/graphics/icons/bismuth-ore"
       filename = "__bismuth__/graphics/ores/bismuth-ore"
       mining_particle = "iron-ore-particle"
-      mapcolor = {r=0.5, g=0.33, b=0.16}
+      map_color = {r=0.5, g=0.33, b=0.16}
       ore_type_smelted_result = string.gsub(e.bismuth, "-ore$", "-plate")
     elseif ore.type == "lead" then
       icon = "__base__/graphics/icons/coal"
       filename = "__base__/graphics/entity/coal/coal"
       mining_particle = "iron-ore-particle"
-      mapcolor = {r=0.2, g=0.2, b=0.2}
+      map_color = {r=0.2, g=0.2, b=0.2}
       ore_type_smelted_result = string.gsub(e.lead, "-ore$", "-plate")
     elseif ore.type == "nickel" then
       icon = "__base__/graphics/icons/coal"
       filename = "__base__/graphics/entity/coal/coal"
       mining_particle = "iron-ore-particle"
-      mapcolor = {r=0.164, g=0.388, b=0.192}
+      map_color = {r=0.164, g=0.388, b=0.192}
       ore_type_smelted_result = string.gsub(e.nickel, "-ore$", "-plate")
     elseif ore.type == "tin" then
       icon = "__base__/graphics/icons/coal"
       filename = "__base__/graphics/entity/coal/coal"
       mining_particle = "iron-ore-particle"
-      mapcolor = {r=0.258, g=0.180, b=0.807}
+      map_color = {r=0.258, g=0.180, b=0.807}
       ore_type_smelted_result = string.gsub(e.tin, "-ore$", "-plate")
     elseif ore.type == "titanium" then
       icon = "__base__/graphics/icons/coal"
       filename = "__base__/graphics/entity/coal/coal"
       mining_particle = "iron-ore-particle"
-      mapcolor = {r=0.713, g=0.643, b=0.733}
+      map_color = {r=0.713, g=0.643, b=0.733}
       ore_type_smelted_result = string.gsub(e.titanium, "-ore$", "-plate")
     elseif ore.type == "antimony" then
       icon = "__base__/graphics/icons/coal"
       filename = "__base__/graphics/entity/coal/coal"
       mining_particle = "iron-ore-particle"
-      mapcolor = {r=0.850, g=0.090, b=0.556}
+      map_color = {r=0.850, g=0.090, b=0.556}
       ore_type_smelted_result = string.gsub(e.antimony, "-ore$", "-plate")
     elseif ore.type == "molybdenum" then
       icon = "__base__/graphics/icons/coal"
       filename = "__base__/graphics/entity/coal/coal"
       mining_particle = "iron-ore-particle"
-      mapcolor = {r=0.9, g=0.9, b=0.9}
+      map_color = {r=0.294, g=0.45, b=0.643}
       ore_type_smelted_result = string.gsub(e.molybdenum, "-ore$", "-plate")
     elseif ore.type == "aluminum" then
       icon = "__base__/graphics/icons/coal"
       filename = "__base__/graphics/entity/coal/coal"
       mining_particle = "iron-ore-particle"
-      mapcolor = {r=1, g=0.709, b=0.286}
+      map_color = {r=1, g=0.709, b=0.286}
       ore_type_smelted_result = string.gsub(e.aluminum, "-ore$", "-plate")
     elseif ore.type == "chromium" then
       icon = "__base__/graphics/icons/coal"
       filename = "__base__/graphics/entity/coal/coal"
       mining_particle = "iron-ore-particle"
-      mapcolor = {r=0.784, g=0.231, b=0}
+      map_color = {r=0.784, g=0.231, b=0}
       ore_type_smelted_result = string.gsub(e.chromium, "-ore$", "-plate")
     elseif ore.type == "zinc" then
       icon = "__base__/graphics/icons/coal"
       filename = "__base__/graphics/entity/coal/coal"
       mining_particle = "iron-ore-particle"
-      mapcolor = {r=0.6, g=0.901, b=0.847}
+      map_color = {r=0.6, g=0.901, b=0.847}
       ore_type_smelted_result = string.gsub(e.zinc, "-ore$", "-plate")
     else
       icon = "__base__/graphics/icons/coal"
       filename = "__base__/graphics/entity/coal/coal"
       mining_particle = "coal-particle"
-      mapcolor = {1,1,1}
+      map_color = {1,1,1}
+      
+
     end
   end
   return {
@@ -189,15 +198,15 @@ local function make_ore(ore)
 ---@diagnostic disable-next-line: ambiguity-1
     weight = ore.weight or 4.5*kg,
     hardness = ore.hardness or 1,
-    mining_time = ore.mining_time or 1,
-    fluid_amount = ore.fluid_amount or nil,
-    required_fluid = ore.required_fluid or nil,
-    map_color = mapcolor or ore.map_color,
-    base_density = ore.base_density or 5,
-    base_spots_per_km2 = ore.base_spots_per_km2 or 1,
+    mining_time = mining_time or 1,
+    fluid_amount = fluid_amount or nil,
+    required_fluid = required_fluid or nil,
+    map_color = map_color or nil,
+    base_density = base_density or 5,
+    base_spots_per_km2 = base_spots_per_km2 or 1,
     has_starting_area_placement = ore.start_placement or false,
-    regular_rq_factor_multiplier = ore.regular_rq_factor_multiplier or 1,
-    starting_rq_factor_multiplier = ore.starting_rq_factor_multiplier or 1,
+    regular_rq_factor_multiplier = regular_rq_factor_multiplier or 1,
+    starting_rq_factor_multiplier = starting_rq_factor_multiplier or 1,
     icon = icon,
     filename = filename,
     mining_particle = mining_particle,
