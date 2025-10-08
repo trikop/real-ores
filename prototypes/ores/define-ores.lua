@@ -1,4 +1,5 @@
 local resource_autoplace = require("resource-autoplace");
+local tile_sounds = require("prototypes.tile.tile-sounds")
 local item_sounds = require('__base__.prototypes.item_sounds')
 
 local function is_enabled(name)
@@ -2482,6 +2483,8 @@ for _, ore in pairs(orelist) do
       order = "a-" .. ore.type .. "-" .. ore.name,
       map_color = ore.map_color,
       mining_visualisation_tint = ore.tint,
+      walking_sound = tile_sounds.walking.ore,
+      driving_sound = tile_sounds.driving.stone,
       tree_removal_probability = 0.8,
       tree_removal_max_distance = 32 * 32,
       minable = {
