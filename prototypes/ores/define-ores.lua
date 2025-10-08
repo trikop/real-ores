@@ -77,7 +77,7 @@ e.argon = is_enabled({"pm-argon-gas", "kr-argon", "argon"})
 e.bromine = is_enabled({"pm-bromine", "bromine"})
 
 local function make_ore(ore)
-  local icon, filename, mining_particle, map_color, mining_visualisation_tint, ore_type_smelted_result, hardness, mining_time, fluid_amount, required_fluid, base_density, base_spots_per_km2, regular_rq_factor_multiplier, starting_rq_factor_multiplier
+  local icon, filename, mining_particle, map_color, tint, ore_type_smelted_result, hardness, mining_time, fluid_amount, required_fluid, base_density, base_spots_per_km2, regular_rq_factor_multiplier, starting_rq_factor_multiplier
   -- if ore.icon and ore.filename and ore.mining_particle and ore.map_color and ore.ore_type_smelted_result and ore.mining_time and ore.fluid_amount and ore.required_fluid and ore.base_density and ore.base_spots_per_km2 and ore.regular_rq_factor_multiplier and ore.starting_rq_factor_multiplier then
     -- icon = ore.icon
     -- filename = ore.filename
@@ -97,7 +97,7 @@ local function make_ore(ore)
     filename = ore.filename or "__base__/graphics/entity/coal/coal"
     mining_particle = ore.mining_particle or "coal-particle"
     map_color = ore.map_color or {0,0,0}
-    mining_visualisation_tint = ore.mining_visualisation_tint or {r = 0.465, g = 0.465, b = 0.465, a = 1.000}
+    tint = ore.tint or {r = 0.465, g = 0.465, b = 0.465, a = 1.000}
     base_density = ore.base_density or 8
     regular_rq_factor_multiplier = ore.regular_rq_factor_multiplier or 1
     starting_rq_factor_multiplier = ore.starting_rq_factor_multiplier or 1.1
@@ -106,7 +106,7 @@ local function make_ore(ore)
     filename = ore.filename or "__base__/graphics/entity/copper-ore/copper-ore"
     mining_particle = ore.mining_particle or "copper-ore-particle"
     map_color = ore.map_color or {0.803,0.388,0.215}
-    mining_visualisation_tint = ore.mining_visualisation_tint or {r = 1.000, g = 0.675, b = 0.541, a = 1.000}
+    tint = ore.tint or {r = 1.000, g = 0.675, b = 0.541, a = 1.000}
     base_density = ore.base_density or 8
     regular_rq_factor_multiplier = ore.regular_rq_factor_multiplier or 1.1
     starting_rq_factor_multiplier = ore.starting_rq_factor_multiplier or 1.2
@@ -116,7 +116,7 @@ local function make_ore(ore)
     filename = ore.filename or "__base__/graphics/entity/iron-ore/iron-ore"
     mining_particle = ore.mining_particle or "iron-ore-particle"
     map_color = ore.map_color or {0.415,0.525,0.580}
-    mining_visualisation_tint = ore.mining_visualisation_tint or {r = 0.895, g = 0.965, b = 1.000, a = 1.000}
+    tint = ore.tint or {r = 0.895, g = 0.965, b = 1.000, a = 1.000}
     base_density = ore.base_density or 10
     regular_rq_factor_multiplier = ore.regular_rq_factor_multiplier or 1.1
     starting_rq_factor_multiplier = ore.starting_rq_factor_multiplier or 1.5
@@ -126,7 +126,7 @@ local function make_ore(ore)
     filename = ore.filename or "__base__/graphics/entity/uranium-ore/uranium-ore"
     mining_particle = ore.mining_particle or "stone-particle"
     map_color = ore.map_color or {0,0.7,0}
-    mining_visualisation_tint = ore.mining_visualisation_tint or {r = 0.814, g = 1.000, b = 0.499, a = 1.000}
+    tint = ore.tint or {r = 0.814, g = 1.000, b = 0.499, a = 1.000}
     base_density = ore.base_density or 0.9
     base_spots_per_km2 = ore.base_spots_per_km2 or 1.25
   elseif ore.type == "manganese" then
@@ -215,7 +215,7 @@ local function make_ore(ore)
     fluid_amount = fluid_amount or ore.map_color or nil,
     required_fluid = required_fluid or ore.map_color or nil,
     map_color = map_color or ore.map_color or nil,
-    mining_visualisation_tint = mining_visualisation_tint or ore.mining_visualisation_tint or nil
+    tint = tint or ore.tint or nil,
     base_density = base_density or ore.base_density or 10,
     base_spots_per_km2 = base_spots_per_km2 or ore.base_spots_per_km2 or 1,
     has_starting_area_placement = ore.start_placement or false,
@@ -2481,7 +2481,7 @@ for _, ore in pairs(orelist) do
       flags = {"placeable-neutral"},
       order = "a-" .. ore.type .. "-" .. ore.name,
       map_color = ore.map_color,
-      mining_visualisation_tint = ore.mining_visualisation_tint,
+      mining_visualisation_tint = ore.tint,
       tree_removal_probability = 0.8,
       tree_removal_max_distance = 32 * 32,
       minable = {
