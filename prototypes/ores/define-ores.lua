@@ -173,15 +173,18 @@ local function make_ore(ore)
     ore.map_color = ore.map_color or {r=0.850, g=0.090, b=0.556}
     ore.ore_type_smelted_result = string.gsub(e.antimony, "-ore$", "-plate")
   elseif ore.type == "molybdenum" then
-    ore.icon = ore.icon or "__pyfusionenergygraphics__/graphics/icons/ores/molybdenum"
-    ore.icon_size = ore.icon_size or 32
-    ore.mipmaps = ore.mipmaps or 1
+    ore.resource_icon = ore.resource_icon or "__pyfusionenergygraphics__/graphics/icons/ores/molybdenum"
     ore.filename = ore.filename or "__pyfusionenergygraphics__/graphics/entity/ores/molybdenum-ore"
+    ore.resource_category = ore.resource_category or "molybdenum"
     ore.mining_particle = ore.mining_particle or "iron-ore-particle"
     ore.map_color = ore.map_color or {r=0.294, g=0.45, b=0.643}
     ore.mining_time = ore.mining_time or 3
     ore.base_spots_per_km2 = ore.base_spots_per_km2 or 1.25
     ore.starting_rq_factor_multiplier = ore.starting_rq_factor_multiplier or 2
+    --Item
+    ore.icon = ore.icon or "__pyfusionenergygraphics__/graphics/icons/mip/moly"
+    ore.mipmaps = ore.mipmaps or 6
+    ore.item_subgroup = ore.item_subgroup or "py-fusion-items"
     ore.ore_type_smelted_result = string.gsub(e.molybdenum, "-ore$", "-plate")
   elseif ore.type == "aluminum" then
     ore.icon = ore.icon or "__base__/graphics/icons/coal"
@@ -228,9 +231,13 @@ local function make_ore(ore)
     regular_rq_factor_multiplier = ore.regular_rq_factor_multiplier or 1,
     starting_rq_factor_multiplier = ore.starting_rq_factor_multiplier or 1,
     icon = ore.icon,
+    resource_icon = ore.resource_icon or ore.icon,
     icon_size = ore.icon_size or 64,
     mipmaps = ore.mipmaps or 4,
     filename = ore.filename,
+    autoplace_category = ore.autoplace_category or "resource",
+    resource_category = ore.resource_category or "basic-solid",
+    item_subgroup = ore.item_subgroup or "raw-resource",
     mining_particle = ore.mining_particle,
     processing_results = ore.processing_results or nil,
 
@@ -2472,33 +2479,46 @@ for _, ore in pairs(orelist) do
   data.raw.planet.nauvis.map_gen_settings.autoplace_controls[ore.name] = {}
   data.raw.planet.nauvis.map_gen_settings.autoplace_settings.entity.settings[ore.name] = {}
   resource_autoplace.initialize_patch_set(ore.name, true)
-  local pictures = {}
+  local pictures, icon
   if ore.mipmaps == 1 then
+  icon = ore.icon .. ".png"
   pictures = {
     {filename = ore.icon .. ".png", size = 64, scale = 0.5}
   }
-  else
+  elseif ore.mipmaps == 4 then
+  icon = ore.icon .. ".png"
   pictures = {
     {filename = ore.icon .. ".png",   size = 64, scale = 0.5},
     {filename = ore.icon .. "-1.png", size = 64, scale = 0.5},
     {filename = ore.icon .. "-2.png", size = 64, scale = 0.5},
     {filename = ore.icon .. "-3.png", size = 64, scale = 0.5}
   }
+  elseif ore.mipmaps == 6 then
+  icon = ore.icon .. "-01.png"
+  pictures = {
+    {size = ore.icon_size, filename = ore.icon .. "-01.png", scale = 0.66},
+    {size = ore.icon_size, filename = ore.icon .. "-02.png", scale = 0.66},
+    {size = ore.icon_size, filename = ore.icon .. "-03.png", scale = 0.66},
+    {size = ore.icon_size, filename = ore.icon .. "-04.png", scale = 0.66},
+    {size = ore.icon_size, filename = ore.icon .. "-05.png", scale = 0.66},
+    {size = ore.icon_size, filename = ore.icon .. "-06.png", scale = 0.66},
+  }
   end
   data:extend({
     {
       type = "autoplace-control",
-      category = "resource",
+      category = ore.autoplace_category,
       name = ore.name,
       richness = true,
+      flags = {"placeable-neutral"},
       order = "a-" .. ore.type .. "-" .. ore.name
     },
     {
       type = "resource",
       name = ore.name,
-      icon = ore.icon .. ".png",
+      icon = ore.resource_icon .. ".png",
       icon_size = ore.icon_size,
-      category= "basic-solid",
+      category = ore.resource_category,
       flags = {"placeable-neutral"},
       order = "a-" .. ore.type .. "-" .. ore.name,
       map_color = ore.map_color,
@@ -2519,7 +2539,7 @@ for _, ore in pairs(orelist) do
       selection_box = {{ -0.5, -0.5}, {0.5, 0.5}},
       autoplace = resource_autoplace.resource_autoplace_settings{
           name = ore.name,
-          order = "a-a-" .. ore.name,
+          order = "a-" .. ore.type .. "-" .. ore.name,
           base_density = ore.base_density,
           base_spots_per_km2 = ore.base_spots_per_km2,
           has_starting_area_placement = ore.has_starting_area_placement,
@@ -2543,11 +2563,11 @@ for _, ore in pairs(orelist) do
       name = ore.name,
       fuel_value = ore.fuel_value or nil,
       fuel_category = "chemical",
+      icon = icon,
       icon_size = ore.icon_size,
       icon_mipmaps = ore.mipmaps,
-      icon = ore.icon .. ".png",
       pictures = pictures,
-      subgroup = "raw-resource",
+      subgroup = ore.item_subgroup,
       order = "a-a-" .. ore.name,
       stack_size = 50,
       weight = ore.weight,
@@ -2558,9 +2578,8 @@ for _, ore in pairs(orelist) do
     {--Processing
       type = "recipe",
       name = ore.name .. "-processing",
-      icon = ore.icon .. ".png",
+      icon = icon,
       icon_size = ore.icon_size,
-      
       category = ore.category or "chemistry",
       enabled = true,
       energy_required = 1,
@@ -2568,7 +2587,7 @@ for _, ore in pairs(orelist) do
       results = ore.processing_results
     }
   })
-if ore.type ~= "coal" and ore.type ~= "uranium" then --These ores don't get smelting recipes
+if ore.type ~= "coal" and ore.type ~= "uranium" and ore.type ~= "molybdenum" then --These ores don't get smelting recipes
     data:extend({
     {--Smelting
       type = "recipe",
