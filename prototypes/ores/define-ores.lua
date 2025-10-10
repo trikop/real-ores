@@ -134,18 +134,66 @@ local function make_ore(ore)
     ore.tint = ore.tint or {r = 0.814, g = 1.000, b = 0.499, a = 1.000}
     ore.base_density = ore.base_density or 0.9
     ore.base_spots_per_km2 = ore.base_spots_per_km2 or 1.25
-  elseif ore.type == "manganese" then
-    ore.icon = ore.icon or "__manganese__/graphics/icons/manganese-ore"
-    ore.filename = ore.filename or "__manganese__/graphics/ores/hr-manganese-ore"
+  elseif ore.type == "aluminum" then
+    if util.py() then
+      ore.resource_icon = ore.resource_icon or "__pyraworesgraphics__/graphics/icons/ore-aluminium"
+      ore.resource_icon_size = ore.resource_icon_size or 32
+      ore.icon = ore.icon or "__pyraworesgraphics__/graphics/icons/mip/ore-aluminium"
+      ore.filename = ore.filename or "__pyraworesgraphics__/graphics/entity/ores/aluminium/aluminium"
+      ore.fluid_amount = ore.fluid_amount or 100
+      ore.required_fluid = ore.required_fluid or "coal-gas"
+      ore.base_spots_per_km2 = ore.base_spots_per_km2 or 1.25
+      ore.starting_rq_factor_multiplier = ore.starting_rq_factor_multiplier or 2
+      ore.item_subgroup = ore.item_subgroup or "py-rawores-ores"
+    elseif util.pm() then
+      ore.icon = ore.icon or "__base__/graphics/icons/coal"
+      ore.filename = ore.filename or "__base__/graphics/entity/coal/coal"
+    end
     ore.mining_particle = ore.mining_particle or "iron-ore-particle"
-    ore.map_color = ore.map_color or {r=0.43, g=0.18, b=0.06}
-    ore.ore_type_smelted_result = string.gsub(e.manganese, "-ore$", "-plate")
+    ore.map_color = ore.map_color or {r=1, g=0.709, b=0.286}
+    ore.ore_type_smelted_result = string.gsub(e.aluminum, "-ore$", "-plate")
+  elseif ore.type == "antimony" then
+    if util.py() then
+      ore.resource_icon = ore.resource_icon or "__pyalternativeenergygraphics__/graphics/icons/antimonium-ore"
+      ore.icon = ore.icon or "__pyalternativeenergygraphics__/graphics/icons/antimonium-ore"
+      ore.mipmaps = ore.mipmaps or 1
+      ore.filename = ore.filename or "__pyalternativeenergygraphics__/graphics/ore/antimonium/antimonium"
+      ore.base_density = ore.base_density or 3
+      ore.base_spots_per_km2 = ore.base_spots_per_km2 or 1.25
+      ore.starting_rq_factor_multiplier = ore.starting_rq_factor_multiplier or 2
+      ore.resource_category = ore.resource_category or "antimonium"
+      ore.item_subgroup = ore.item_subgroup or "py-rawores-antimony"
+    elseif util.pm() then
+      ore.icon = ore.icon or "__base__/graphics/icons/coal"
+      ore.filename = ore.filename or "__base__/graphics/entity/coal/coal"
+    end
+    ore.mining_particle = ore.mining_particle or "iron-ore-particle"
+    ore.map_color = ore.map_color or {r=0.850, g=0.090, b=0.556}
+    ore.ore_type_smelted_result = string.gsub(e.antimony, "-ore$", "-plate")
   elseif ore.type == "bismuth" then
     ore.icon = ore.icon or "__bismuth__/graphics/icons/bismuth-ore"
     ore.filename = ore.filename or "__bismuth__/graphics/ores/bismuth-ore"
     ore.mining_particle = ore.mining_particle or "iron-ore-particle"
     ore.map_color = ore.map_color or {r=0.5, g=0.33, b=0.16}
     ore.ore_type_smelted_result = string.gsub(e.bismuth, "-ore$", "-plate")
+  elseif ore.type == "chromium" then
+    if util.py() then
+      ore.resource_icon = ore.resource_icon or "__pyraworesgraphics__/graphics/icons/ore-chromium"
+      ore.resource_icon_size = ore.resource_icon_size or 32
+      ore.icon = ore.icon or "__pyraworesgraphics__/graphics/icons/mip/ore-chromium"
+      ore.filename = ore.filename or "__pyraworesgraphics__/graphics/entity/ores/chromium/chromium"
+      ore.fluid_amount = ore.fluid_amount or 40
+      ore.required_fluid = ore.required_fluid or "syngas"
+      ore.base_spots_per_km2 = ore.base_spots_per_km2 or 1.25
+      ore.starting_rq_factor_multiplier = ore.starting_rq_factor_multiplier or 2
+      ore.item_subgroup = ore.item_subgroup or "py-rawores-ores"
+    elseif util.pm() then
+      ore.icon = ore.icon or "__base__/graphics/icons/coal"
+      ore.filename = ore.filename or "__base__/graphics/entity/coal/coal"
+    end
+    ore.mining_particle = ore.mining_particle or "iron-ore-particle"
+    ore.map_color = ore.map_color or {r=0.784, g=0.231, b=0}
+    ore.ore_type_smelted_result = string.gsub(e.chromium, "-ore$", "-plate")
   elseif ore.type == "lead" then
     if util.py() then
       ore.resource_icon = ore.resource_icon or "__pyraworesgraphics__/graphics/icons/ore-lead"
@@ -164,6 +212,32 @@ local function make_ore(ore)
     ore.mining_particle = ore.mining_particle or "iron-ore-particle"
     ore.map_color = ore.map_color or {r=0.2, g=0.2, b=0.2}
     ore.ore_type_smelted_result = string.gsub(e.lead, "-ore$", "-plate")
+  elseif ore.type == "manganese" then
+    ore.icon = ore.icon or "__manganese__/graphics/icons/manganese-ore"
+    ore.filename = ore.filename or "__manganese__/graphics/ores/hr-manganese-ore"
+    ore.mining_particle = ore.mining_particle or "iron-ore-particle"
+    ore.map_color = ore.map_color or {r=0.43, g=0.18, b=0.06}
+    ore.ore_type_smelted_result = string.gsub(e.manganese, "-ore$", "-plate")
+  elseif ore.type == "molybdenum" then
+    if util.py() then
+      ore.resource_icon = ore.resource_icon or "__pyfusionenergygraphics__/graphics/icons/ores/molybdenum"
+      ore.resource_icon_size = ore.resource_icon_size or 32
+      ore.icon = ore.icon or "__pyfusionenergygraphics__/graphics/icons/mip/moly"
+      ore.mipmaps = ore.mipmaps or 6
+      ore.filename = ore.filename or "__pyfusionenergygraphics__/graphics/entity/ores/molybdenum-ore"
+      ore.base_spots_per_km2 = ore.base_spots_per_km2 or 1.25
+      ore.starting_rq_factor_multiplier = ore.starting_rq_factor_multiplier or 2
+      ore.resource_category = ore.resource_category or "molybdenum"
+      ore.item_subgroup = ore.item_subgroup or "py-fusion-items"
+    elseif util.pm() then
+      ore.icon = ore.icon or "__base__/graphics/icons/coal"
+      ore.filename = ore.filename or "__base__/graphics/entity/coal/coal"
+    end
+    ore.mining_particle = ore.mining_particle or "iron-ore-particle"
+    ore.map_color = ore.map_color or {r=0.294, g=0.45, b=0.643}
+    ore.mining_time = ore.mining_time or 3
+    --Item
+    ore.ore_type_smelted_result = string.gsub(e.molybdenum, "-ore$", "-plate")
   elseif ore.type == "nickel" then
     if util.py() then
       ore.resource_icon = ore.resource_icon or "__pyraworesgraphics__/graphics/icons/ore-nickel"
@@ -218,80 +292,6 @@ local function make_ore(ore)
     ore.mining_particle = ore.mining_particle or "iron-ore-particle"
     ore.map_color = ore.map_color or {r=0.713, g=0.643, b=0.733}
     ore.ore_type_smelted_result = string.gsub(e.titanium, "-ore$", "-plate")
-  elseif ore.type == "antimony" then
-    if util.py() then
-      ore.resource_icon = ore.resource_icon or "__pyalternativeenergygraphics__/graphics/icons/antimonium-ore"
-      ore.icon = ore.icon or "__pyalternativeenergygraphics__/graphics/icons/antimonium-ore"
-      ore.mipmaps = ore.mipmaps or 1
-      ore.filename = ore.filename or "__pyalternativeenergygraphics__/graphics/ore/antimonium/antimonium"
-      ore.base_density = ore.base_density or 3
-      ore.base_spots_per_km2 = ore.base_spots_per_km2 or 1.25
-      ore.starting_rq_factor_multiplier = ore.starting_rq_factor_multiplier or 2
-      ore.resource_category = ore.resource_category or "antimonium"
-      ore.item_subgroup = ore.item_subgroup or "py-rawores-antimony"
-    elseif util.pm() then
-      ore.icon = ore.icon or "__base__/graphics/icons/coal"
-      ore.filename = ore.filename or "__base__/graphics/entity/coal/coal"
-    end
-    ore.mining_particle = ore.mining_particle or "iron-ore-particle"
-    ore.map_color = ore.map_color or {r=0.850, g=0.090, b=0.556}
-    ore.ore_type_smelted_result = string.gsub(e.antimony, "-ore$", "-plate")
-  elseif ore.type == "molybdenum" then
-    if util.py() then
-      ore.resource_icon = ore.resource_icon or "__pyfusionenergygraphics__/graphics/icons/ores/molybdenum"
-      ore.resource_icon_size = ore.resource_icon_size or 32
-      ore.icon = ore.icon or "__pyfusionenergygraphics__/graphics/icons/mip/moly"
-      ore.mipmaps = ore.mipmaps or 6
-      ore.filename = ore.filename or "__pyfusionenergygraphics__/graphics/entity/ores/molybdenum-ore"
-      ore.base_spots_per_km2 = ore.base_spots_per_km2 or 1.25
-      ore.starting_rq_factor_multiplier = ore.starting_rq_factor_multiplier or 2
-      ore.resource_category = ore.resource_category or "molybdenum"
-      ore.item_subgroup = ore.item_subgroup or "py-fusion-items"
-    elseif util.pm() then
-      ore.icon = ore.icon or "__base__/graphics/icons/coal"
-      ore.filename = ore.filename or "__base__/graphics/entity/coal/coal"
-    end
-    ore.mining_particle = ore.mining_particle or "iron-ore-particle"
-    ore.map_color = ore.map_color or {r=0.294, g=0.45, b=0.643}
-    ore.mining_time = ore.mining_time or 3
-    --Item
-    ore.ore_type_smelted_result = string.gsub(e.molybdenum, "-ore$", "-plate")
-  elseif ore.type == "aluminum" then
-    if util.py() then
-      ore.resource_icon = ore.resource_icon or "__pyraworesgraphics__/graphics/icons/ore-aluminium"
-      ore.resource_icon_size = ore.resource_icon_size or 32
-      ore.icon = ore.icon or "__pyraworesgraphics__/graphics/icons/mip/ore-aluminium"
-      ore.filename = ore.filename or "__pyraworesgraphics__/graphics/entity/ores/aluminium/aluminium"
-      ore.fluid_amount = ore.fluid_amount or 100
-      ore.required_fluid = ore.required_fluid or "coal-gas"
-      ore.base_spots_per_km2 = ore.base_spots_per_km2 or 1.25
-      ore.starting_rq_factor_multiplier = ore.starting_rq_factor_multiplier or 2
-      ore.item_subgroup = ore.item_subgroup or "py-rawores-ores"
-    elseif util.pm() then
-      ore.icon = ore.icon or "__base__/graphics/icons/coal"
-      ore.filename = ore.filename or "__base__/graphics/entity/coal/coal"
-    end
-    ore.mining_particle = ore.mining_particle or "iron-ore-particle"
-    ore.map_color = ore.map_color or {r=1, g=0.709, b=0.286}
-    ore.ore_type_smelted_result = string.gsub(e.aluminum, "-ore$", "-plate")
-  elseif ore.type == "chromium" then
-    if util.py() then
-      ore.resource_icon = ore.resource_icon or "__pyraworesgraphics__/graphics/icons/ore-chromium"
-      ore.resource_icon_size = ore.resource_icon_size or 32
-      ore.icon = ore.icon or "__pyraworesgraphics__/graphics/icons/mip/ore-chromium"
-      ore.filename = ore.filename or "__pyraworesgraphics__/graphics/entity/ores/chromium/chromium"
-      ore.fluid_amount = ore.fluid_amount or 40
-      ore.required_fluid = ore.required_fluid or "syngas"
-      ore.base_spots_per_km2 = ore.base_spots_per_km2 or 1.25
-      ore.starting_rq_factor_multiplier = ore.starting_rq_factor_multiplier or 2
-      ore.item_subgroup = ore.item_subgroup or "py-rawores-ores"
-    elseif util.pm() then
-      ore.icon = ore.icon or "__base__/graphics/icons/coal"
-      ore.filename = ore.filename or "__base__/graphics/entity/coal/coal"
-    end
-    ore.mining_particle = ore.mining_particle or "iron-ore-particle"
-    ore.map_color = ore.map_color or {r=0.784, g=0.231, b=0}
-    ore.ore_type_smelted_result = string.gsub(e.chromium, "-ore$", "-plate")
   elseif ore.type == "zinc" then
     if util.py() then
       ore.resource_icon = ore.resource_icon or "__pyraworesgraphics__/graphics/icons/ore-zinc"
