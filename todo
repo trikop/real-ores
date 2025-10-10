@@ -9,3 +9,8 @@ coal in ores. Make them be burnt idk?
 
 
 smelt 20 ore to ~1 unpure iron --> unpure iron will purified idk man
+
+use py graphics and copy some of the crushing ideology etc
+
+ore tin --        has_starting_area_placement = not mods["pyalienlife"],
+ -- Maybe take inspo from PM's impure ore mechanic
